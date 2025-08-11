@@ -23,32 +23,26 @@ export default function Navbar() {
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/courses">
-              <a className={`font-medium transition-colors duration-300 ${
-                isActive('/courses') 
-                  ? 'text-primary' 
-                  : 'text-gray-700 hover:text-primary'
-              }`}>
-                Courses
-              </a>
+            <Link href="/courses" className={`font-medium transition-colors duration-300 ${
+              isActive('/courses') 
+                ? 'text-primary' 
+                : 'text-gray-700 hover:text-primary'
+            }`}>
+              Courses
             </Link>
-            <Link href="/scholarships">
-              <a className={`font-medium transition-colors duration-300 ${
-                isActive('/scholarships') 
-                  ? 'text-primary' 
-                  : 'text-gray-700 hover:text-primary'
-              }`}>
-                Scholarships
-              </a>
+            <Link href="/scholarships" className={`font-medium transition-colors duration-300 ${
+              isActive('/scholarships') 
+                ? 'text-primary' 
+                : 'text-gray-700 hover:text-primary'
+            }`}>
+              Scholarships
             </Link>
-            <Link href="/playground">
-              <a className={`font-medium transition-colors duration-300 ${
-                isActive('/playground') 
-                  ? 'text-primary' 
-                  : 'text-gray-700 hover:text-primary'
-              }`}>
-                Playground
-              </a>
+            <Link href="/playground" className={`font-medium transition-colors duration-300 ${
+              isActive('/playground') 
+                ? 'text-primary' 
+                : 'text-gray-700 hover:text-primary'
+            }`}>
+              Playground
             </Link>
             <a href="#about" className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">
               About
@@ -73,41 +67,38 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-200 py-4 space-y-4">
-            <Link href="/courses">
-              <a 
-                className={`block font-medium transition-colors duration-300 ${
-                  isActive('/courses') 
-                    ? 'text-primary' 
-                    : 'text-gray-700 hover:text-primary'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Courses
-              </a>
+            <Link 
+              href="/courses"
+              className={`block font-medium transition-colors duration-300 ${
+                isActive('/courses') 
+                  ? 'text-primary' 
+                  : 'text-gray-700 hover:text-primary'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Courses
             </Link>
-            <Link href="/scholarships">
-              <a 
-                className={`block font-medium transition-colors duration-300 ${
-                  isActive('/scholarships') 
-                    ? 'text-primary' 
-                    : 'text-gray-700 hover:text-primary'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Scholarships
-              </a>
+            <Link 
+              href="/scholarships"
+              className={`block font-medium transition-colors duration-300 ${
+                isActive('/scholarships') 
+                  ? 'text-primary' 
+                  : 'text-gray-700 hover:text-primary'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Scholarships
             </Link>
-            <Link href="/playground">
-              <a 
-                className={`block font-medium transition-colors duration-300 ${
-                  isActive('/playground') 
-                    ? 'text-primary' 
-                    : 'text-gray-700 hover:text-primary'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Playground
-              </a>
+            <Link 
+              href="/playground"
+              className={`block font-medium transition-colors duration-300 ${
+                isActive('/playground') 
+                  ? 'text-primary' 
+                  : 'text-gray-700 hover:text-primary'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Playground
             </Link>
             <a 
               href="#about" 

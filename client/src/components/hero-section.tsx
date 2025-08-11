@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Play, GraduationCap } from "lucide-react";
+import { Play, GraduationCap, Code } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -32,19 +32,28 @@ export default function HeroSection() {
                 </Link>
               </div>
               
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 pt-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold">2,847</div>
-                  <div className="text-gray-200">Courses Completed</div>
+              {/* Features */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
+                <div className="text-center animate-slide-up" style={{animationDelay: '0.5s'}}>
+                  <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3 animate-glow">
+                    <Code className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-white font-semibold">Interactive Learning</div>
+                  <div className="text-gray-200 text-sm">Hands-on coding experience</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold">$1.2M</div>
-                  <div className="text-gray-200">Scholarships Awarded</div>
+                <div className="text-center animate-slide-up" style={{animationDelay: '0.7s'}}>
+                  <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3 animate-glow">
+                    <GraduationCap className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-white font-semibold">Scholarship Access</div>
+                  <div className="text-gray-200 text-sm">Find funding opportunities</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold">156</div>
-                  <div className="text-gray-200">Active Students</div>
+                <div className="text-center animate-slide-up" style={{animationDelay: '0.9s'}}>
+                  <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3 animate-glow">
+                    <Play className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-white font-semibold">Live Playground</div>
+                  <div className="text-gray-200 text-sm">Practice coding instantly</div>
                 </div>
               </div>
             </div>

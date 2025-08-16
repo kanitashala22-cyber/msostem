@@ -188,6 +188,15 @@ export default function CourseDetail() {
     },
   ];
 
+  const currentLesson = lessons.find(lesson => lesson.id === selectedLesson) || lessons[0];
+
+  // Update playground code when lesson changes
+  useEffect(() => {
+    if (currentLesson && currentLesson.playgroundCode) {
+      setHtmlCode(currentLesson.playgroundCode);
+    }
+  }, [selectedLesson, currentLesson]);
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50">
@@ -212,15 +221,6 @@ export default function CourseDetail() {
       </div>
     );
   }
-
-  const currentLesson = lessons.find(lesson => lesson.id === selectedLesson) || lessons[0];
-
-  // Update playground code when lesson changes
-  useEffect(() => {
-    if (currentLesson && currentLesson.playgroundCode) {
-      setHtmlCode(currentLesson.playgroundCode);
-    }
-  }, [selectedLesson, currentLesson]);
 
   return (
     <div className="min-h-screen bg-gray-50">

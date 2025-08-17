@@ -17,7 +17,177 @@ export default function CourseDetail() {
     queryKey: ["/api/courses", id],
   });
 
-  const lessons = [
+  // Determine lessons based on course ID
+  const lessons = id === 'course-2' ? [
+    { 
+      id: 1, 
+      title: "CSS Basics & Selectors", 
+      completed: true,
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n<style>\n  h1 {\n    color: purple;\n    font-size: 2em;\n  }\n  \n  p {\n    color: #333;\n    font-family: Arial, sans-serif;\n  }\n  \n  .highlight {\n    background-color: yellow;\n    padding: 5px;\n  }\n</style>\n</head>\n<body>\n  <h1>Welcome to CSS!</h1>\n  <p>This paragraph is styled with CSS.</p>\n  <p class="highlight">This paragraph has a yellow background!</p>\n</body>\n</html>',
+      content: {
+        title: "CSS Basics & Selectors",
+        description: "Welcome to CSS! CSS (Cascading Style Sheets) is what makes websites beautiful. If HTML is the skeleton, CSS is the skin, clothes, and makeup that makes everything look amazing!",
+        sections: [
+          {
+            title: "What is CSS?",
+            content: "CSS stands for Cascading Style Sheets. Think of it as the fashion designer for your website! While HTML creates the structure (like building a house), CSS makes it look beautiful (like decorating and painting the house).\n\nCSS controls colors, fonts, spacing, layouts, animations - basically everything that makes a website visually appealing."
+          },
+          {
+            title: "How CSS Works with HTML",
+            content: "CSS works by selecting HTML elements and applying styles to them. There are three ways to add CSS:\n\n• **Inline**: style=\"color: red;\" (directly in HTML tags)\n• **Internal**: <style> tags in the HTML head\n• **External**: separate .css files (most common)\n\nIn our playground, we're using internal CSS with <style> tags."
+          },
+          {
+            title: "CSS Selectors - Targeting Elements",
+            content: "Selectors tell CSS which HTML elements to style:\n\n• **Element selector**: h1 { } styles all <h1> tags\n• **Class selector**: .highlight { } styles elements with class=\"highlight\"\n• **ID selector**: #myId { } styles element with id=\"myId\"\n\nThink of selectors as pointing fingers - they point to exactly what you want to style!"
+          },
+          {
+            title: "Try It Yourself!",
+            content: "In the playground, experiment with:\n1. Change the h1 color from purple to blue\n2. Add a new style rule for h2 elements\n3. Create a new class called .important with red text\n4. Add the class to a paragraph: <p class=\"important\">Text</p>\n\nRemember: CSS property names use dashes (background-color) not camelCase!"
+          }
+        ]
+      }
+    },
+    { 
+      id: 2, 
+      title: "Colors & Typography", 
+      completed: true,
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n<style>\n  body {\n    font-family: Georgia, serif;\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    margin: 0;\n    padding: 20px;\n  }\n  \n  .container {\n    background: white;\n    padding: 30px;\n    border-radius: 10px;\n    box-shadow: 0 4px 15px rgba(0,0,0,0.1);\n  }\n  \n  h1 {\n    color: #2c3e50;\n    font-family: "Arial", sans-serif;\n    font-size: 2.5em;\n    font-weight: bold;\n    text-align: center;\n    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);\n  }\n  \n  p {\n    color: #7f8c8d;\n    font-size: 1.1em;\n    line-height: 1.6;\n    letter-spacing: 0.5px;\n  }\n  \n  .colorful {\n    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    font-weight: bold;\n    font-size: 1.3em;\n  }\n</style>\n</head>\n<body>\n  <div class="container">\n    <h1>Beautiful Typography</h1>\n    <p>This text demonstrates various CSS typography and color techniques.</p>\n    <p class="colorful">This text has a gradient color effect!</p>\n    <p>Notice the shadows, spacing, and beautiful gradient background.</p>\n  </div>\n</body>\n</html>',
+      content: {
+        title: "Colors & Typography",
+        description: "Let's make your text beautiful! Colors and typography are the foundation of great web design. Learn how to choose colors, style fonts, and create visual hierarchy that guides users through your content.",
+        sections: [
+          {
+            title: "Working with Colors in CSS",
+            content: "CSS offers many ways to specify colors:\n\n• **Color names**: red, blue, purple (140+ named colors)\n• **Hex codes**: #ff0000 (red), #0000ff (blue)\n• **RGB**: rgb(255, 0, 0) for red\n• **RGBA**: rgba(255, 0, 0, 0.5) for semi-transparent red\n• **HSL**: hsl(0, 100%, 50%) for red\n\nPro tip: Use hex codes or RGB for precise colors, and RGBA when you need transparency!"
+          },
+          {
+            title: "Typography Fundamentals",
+            content: "Typography controls how text looks and feels:\n\n• **font-family**: Choose the typeface (Arial, Times, etc.)\n• **font-size**: Control text size (px, em, rem)\n• **font-weight**: Make text bold (normal, bold, 100-900)\n• **line-height**: Space between lines (1.5 = 150% of font size)\n• **letter-spacing**: Space between characters\n• **text-align**: Align text (left, center, right, justify)\n\nGood typography makes content easy and pleasant to read!"
+          },
+          {
+            title: "Creating Visual Hierarchy",
+            content: "Visual hierarchy guides readers through your content:\n\n• **Size**: Bigger = more important\n• **Weight**: Bold = important\n• **Color**: Bright colors draw attention\n• **Spacing**: More space = separation of ideas\n• **Font families**: Different fonts for headings vs body text\n\nExample: Use large, bold headings and smaller, lighter body text."
+          },
+          {
+            title: "Advanced Color Techniques",
+            content: "Take your colors to the next level:\n\n• **Gradients**: linear-gradient() for smooth color transitions\n• **Shadows**: text-shadow and box-shadow for depth\n• **Transparency**: RGBA colors for layering effects\n• **Color psychology**: Blue = trust, red = urgency, green = success\n\nExperiment in the playground with different gradient directions and shadow effects!"
+          }
+        ]
+      }
+    },
+    { 
+      id: 3, 
+      title: "Layout with Flexbox", 
+      completed: false,
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n<style>\n  .container {\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    height: 300px;\n    background: linear-gradient(45deg, #ff9a9e, #fecfef);\n    border-radius: 10px;\n    padding: 20px;\n  }\n  \n  .box {\n    width: 120px;\n    height: 120px;\n    background: white;\n    border-radius: 10px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: bold;\n    color: #333;\n    box-shadow: 0 4px 15px rgba(0,0,0,0.1);\n    transition: transform 0.3s ease;\n  }\n  \n  .box:hover {\n    transform: translateY(-5px);\n  }\n  \n  .column-layout {\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    margin-top: 20px;\n  }\n  \n  .item {\n    background: #4ecdc4;\n    color: white;\n    padding: 15px;\n    border-radius: 5px;\n    text-align: center;\n  }\n</style>\n</head>\n<body>\n  <div class="container">\n    <div class="box">Box 1</div>\n    <div class="box">Box 2</div>\n    <div class="box">Box 3</div>\n  </div>\n  \n  <div class="column-layout">\n    <div class="item">Item A</div>\n    <div class="item">Item B</div>\n    <div class="item">Item C</div>\n  </div>\n</body>\n</html>',
+      content: {
+        title: "Layout with Flexbox",
+        description: "Flexbox is a powerful CSS layout system that makes it easy to arrange elements in rows and columns. Say goodbye to complicated positioning tricks - flexbox makes layouts intuitive and responsive!",
+        sections: [
+          {
+            title: "What is Flexbox?",
+            content: "Flexbox (Flexible Box Layout) is a CSS layout method designed for arranging items in one dimension - either in a row or column. Think of it as a smart container that automatically organizes its children.\n\nTo use flexbox, add display: flex to a parent container. The children automatically become flex items that can be easily positioned and sized."
+          },
+          {
+            title: "Main Flexbox Properties",
+            content: "Key properties for the flex container:\n\n• **justify-content**: Controls horizontal alignment\n  - flex-start, center, flex-end, space-between, space-around\n• **align-items**: Controls vertical alignment\n  - flex-start, center, flex-end, stretch\n• **flex-direction**: Controls the direction\n  - row (default), column, row-reverse, column-reverse\n• **gap**: Adds space between items\n\nThese properties give you precise control over layout!"
+          },
+          {
+            title: "Common Flexbox Patterns",
+            content: "Master these common layouts:\n\n• **Center everything**: justify-content: center; align-items: center;\n• **Space items evenly**: justify-content: space-between;\n• **Stack vertically**: flex-direction: column;\n• **Responsive cards**: flex-wrap: wrap;\n\nFlexbox works great for navigation bars, card layouts, centering content, and creating responsive designs!"
+          },
+          {
+            title: "Practice Flexbox!",
+            content: "In the playground, try modifying:\n1. Change justify-content to 'center' or 'flex-end'\n2. Change align-items to 'flex-start' or 'stretch'\n3. Add flex-direction: column to .container\n4. Experiment with different gap values\n\nNotice how the boxes move around automatically!"
+          }
+        ]
+      }
+    },
+    { 
+      id: 4, 
+      title: "CSS Grid Fundamentals", 
+      completed: false,
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n<style>\n  .grid-container {\n    display: grid;\n    grid-template-columns: 1fr 2fr 1fr;\n    grid-template-rows: auto auto auto;\n    gap: 15px;\n    padding: 20px;\n    background: linear-gradient(135deg, #667eea, #764ba2);\n    border-radius: 10px;\n  }\n  \n  .grid-item {\n    background: white;\n    padding: 20px;\n    border-radius: 8px;\n    text-align: center;\n    font-weight: bold;\n    color: #333;\n    box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n  }\n  \n  .header {\n    grid-column: 1 / -1; /* Span all columns */\n    background: #ff6b6b;\n    color: white;\n  }\n  \n  .sidebar {\n    background: #4ecdc4;\n    color: white;\n  }\n  \n  .main {\n    background: #45b7d1;\n    color: white;\n  }\n  \n  .footer {\n    grid-column: 1 / -1; /* Span all columns */\n    background: #96ceb4;\n    color: white;\n  }\n</style>\n</head>\n<body>\n  <div class="grid-container">\n    <div class="grid-item header">Header</div>\n    <div class="grid-item sidebar">Sidebar</div>\n    <div class="grid-item main">Main Content</div>\n    <div class="grid-item sidebar">Sidebar 2</div>\n    <div class="grid-item footer">Footer</div>\n  </div>\n</body>\n</html>',
+      content: {
+        title: "CSS Grid Fundamentals",
+        description: "CSS Grid is the most powerful layout system in CSS. While Flexbox handles one-dimensional layouts, Grid excels at two-dimensional layouts with precise control over both rows and columns.",
+        sections: [
+          {
+            title: "Understanding CSS Grid",
+            content: "CSS Grid creates a two-dimensional layout system where you can place items in rows AND columns simultaneously. Think of it like a spreadsheet where you can control both the size and position of each cell.\n\nTo create a grid, use display: grid on a container, then define your columns and rows with grid-template-columns and grid-template-rows."
+          },
+          {
+            title: "Grid Template Syntax",
+            content: "Define your grid structure:\n\n• **Fixed sizes**: grid-template-columns: 200px 300px 200px\n• **Flexible units**: 1fr 2fr 1fr (fr = fraction of available space)\n• **Mixed units**: 200px 1fr auto\n• **Repeat function**: repeat(3, 1fr) creates 3 equal columns\n• **Auto sizing**: auto fits content, 1fr takes remaining space\n\nThe fr unit is powerful - it distributes available space proportionally!"
+          },
+          {
+            title: "Grid Item Placement",
+            content: "Control where items go in the grid:\n\n• **grid-column**: 1 / 3 (spans from column 1 to 3)\n• **grid-row**: 2 / 4 (spans from row 2 to 4)\n• **grid-area**: header (using named areas)\n• **Shorthand**: grid-column: 1 / -1 (spans to the last column)\n\nYou can overlap items, create complex layouts, and position elements precisely!"
+          },
+          {
+            title: "When to Use Grid vs Flexbox",
+            content: "Choose the right tool:\n\n**Use CSS Grid for:**\n• Two-dimensional layouts (rows AND columns)\n• Complex page layouts\n• Precise positioning requirements\n• Card layouts with different sizes\n\n**Use Flexbox for:**\n• One-dimensional layouts (row OR column)\n• Component alignment\n• Navigation bars\n• Centering items\n\nOften, you'll use both together in the same project!"
+          }
+        ]
+      }
+    },
+    { 
+      id: 5, 
+      title: "Responsive Design", 
+      completed: false,
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n<style>\n  * {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n  }\n  \n  .container {\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 20px;\n  }\n  \n  .responsive-grid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n    gap: 20px;\n    margin-bottom: 30px;\n  }\n  \n  .card {\n    background: linear-gradient(135deg, #667eea, #764ba2);\n    color: white;\n    padding: 20px;\n    border-radius: 10px;\n    text-align: center;\n  }\n  \n  .text {\n    font-size: clamp(1rem, 2.5vw, 2rem);\n    margin-bottom: 20px;\n  }\n  \n  /* Mobile-first media queries */\n  @media (max-width: 768px) {\n    .container {\n      padding: 10px;\n    }\n    \n    .card {\n      padding: 15px;\n    }\n  }\n  \n  @media (min-width: 769px) {\n    .responsive-grid {\n      grid-template-columns: repeat(2, 1fr);\n    }\n  }\n  \n  @media (min-width: 1024px) {\n    .responsive-grid {\n      grid-template-columns: repeat(3, 1fr);\n    }\n  }\n</style>\n</head>\n<body>\n  <div class="container">\n    <h1 class="text">Responsive Design Demo</h1>\n    <p>Resize your browser window to see the layout change!</p>\n    \n    <div class="responsive-grid">\n      <div class="card">Card 1<br>Resize to see magic!</div>\n      <div class="card">Card 2<br>Mobile-first design</div>\n      <div class="card">Card 3<br>Flexible layouts</div>\n      <div class="card">Card 4<br>CSS Grid power</div>\n    </div>\n  </div>\n</body>\n</html>',
+      content: {
+        title: "Responsive Design",
+        description: "Responsive design ensures your website looks great on all devices - from tiny phones to huge desktop monitors. Learn the techniques that make modern websites adapt automatically to any screen size!",
+        sections: [
+          {
+            title: "Mobile-First Approach",
+            content: "Mobile-first means designing for mobile devices first, then enhancing for larger screens. This approach is important because:\n\n• Most web traffic comes from mobile devices\n• It's easier to scale up than scale down\n• Forces you to focus on essential content\n• Better performance on slower mobile connections\n\nStart with mobile styles, then use media queries to add enhancements for tablets and desktops."
+          },
+          {
+            title: "Media Queries",
+            content: "Media queries apply different styles based on screen size:\n\n```css\n/* Mobile styles (default) */\n.container { padding: 10px; }\n\n/* Tablet styles */\n@media (min-width: 768px) {\n  .container { padding: 20px; }\n}\n\n/* Desktop styles */\n@media (min-width: 1024px) {\n  .container { padding: 40px; }\n}\n```\n\nCommon breakpoints: 768px (tablet), 1024px (desktop), 1200px (large desktop)"
+          },
+          {
+            title: "Flexible Units and Layouts",
+            content: "Use flexible units for responsive design:\n\n• **Percentages**: width: 50% (relative to parent)\n• **Viewport units**: 100vw = full screen width, 100vh = full screen height\n• **rem/em**: Relative to font size, scales with user preferences\n• **CSS Grid**: auto-fit and minmax() for flexible columns\n• **Flexbox**: flex-wrap for responsive item wrapping\n\nAvoid fixed pixel values for widths in responsive layouts!"
+          },
+          {
+            title: "Modern Responsive Techniques",
+            content: "Advanced responsive techniques:\n\n• **clamp()**: clamp(min, preferred, max) for fluid typography\n• **Grid auto-fit**: repeat(auto-fit, minmax(250px, 1fr))\n• **Container queries**: Style based on parent size (newer feature)\n• **Aspect ratios**: aspect-ratio: 16/9 for consistent proportions\n\nThese techniques reduce the need for media queries and create more fluid, adaptive layouts!"
+          }
+        ]
+      }
+    },
+    { 
+      id: 6, 
+      title: "CSS Animations & Transitions", 
+      completed: false,
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n<style>\n  .animation-container {\n    padding: 40px;\n    background: linear-gradient(135deg, #667eea, #764ba2);\n    border-radius: 15px;\n    text-align: center;\n  }\n  \n  .bounce-box {\n    width: 100px;\n    height: 100px;\n    background: #ff6b6b;\n    margin: 20px auto;\n    border-radius: 50%;\n    animation: bounce 2s infinite;\n  }\n  \n  @keyframes bounce {\n    0%, 100% { transform: translateY(0); }\n    50% { transform: translateY(-30px); }\n  }\n  \n  .hover-button {\n    background: #4ecdc4;\n    color: white;\n    padding: 15px 30px;\n    border: none;\n    border-radius: 25px;\n    font-size: 16px;\n    cursor: pointer;\n    transition: all 0.3s ease;\n    margin: 10px;\n  }\n  \n  .hover-button:hover {\n    background: #45b7d1;\n    transform: scale(1.1) rotate(5deg);\n    box-shadow: 0 10px 20px rgba(0,0,0,0.2);\n  }\n  \n  .fade-slide {\n    background: white;\n    padding: 20px;\n    margin: 20px auto;\n    max-width: 300px;\n    border-radius: 10px;\n    opacity: 0;\n    transform: translateX(-50px);\n    animation: fadeSlide 1s ease forwards;\n    animation-delay: 0.5s;\n  }\n  \n  @keyframes fadeSlide {\n    to {\n      opacity: 1;\n      transform: translateX(0);\n    }\n  }\n</style>\n</head>\n<body>\n  <div class="animation-container">\n    <h2 style="color: white; margin-bottom: 20px;">CSS Animations Demo</h2>\n    \n    <div class="bounce-box"></div>\n    \n    <button class="hover-button">Hover me!</button>\n    <button class="hover-button">Me too!</button>\n    \n    <div class="fade-slide">\n      <h3>Animated Content</h3>\n      <p>This box slides in with a fade effect!</p>\n    </div>\n  </div>\n</body>\n</html>',
+      content: {
+        title: "CSS Animations & Transitions",
+        description: "Bring your websites to life with CSS animations and transitions! Learn how to create smooth, engaging animations that enhance user experience without overwhelming your visitors.",
+        sections: [
+          {
+            title: "Transitions - Smooth State Changes",
+            content: "Transitions make property changes smooth over time instead of instant:\n\n```css\n.button {\n  background: blue;\n  transition: background 0.3s ease;\n}\n\n.button:hover {\n  background: red; /* Smoothly changes over 0.3s */\n}\n```\n\nKey transition properties:\n• **transition-property**: which properties to animate\n• **transition-duration**: how long the animation takes\n• **transition-timing-function**: the animation curve (ease, linear, etc.)\n• **transition-delay**: wait time before starting"
+          },
+          {
+            title: "CSS Animations with @keyframes",
+            content: "Animations allow complex, multi-step movements:\n\n```css\n@keyframes bounce {\n  0% { transform: translateY(0); }\n  50% { transform: translateY(-20px); }\n  100% { transform: translateY(0); }\n}\n\n.element {\n  animation: bounce 2s infinite;\n}\n```\n\nAnimation properties:\n• **animation-name**: the @keyframes name\n• **animation-duration**: how long one cycle takes\n• **animation-iteration-count**: how many times (or infinite)\n• **animation-direction**: normal, reverse, alternate"
+          },
+          {
+            title: "Transform Property - The Animation Powerhouse",
+            content: "Transform creates visual effects without affecting layout:\n\n• **translate()**: Move elements (translateX, translateY)\n• **rotate()**: Spin elements (rotate(45deg))\n• **scale()**: Resize elements (scale(1.2) = 20% bigger)\n• **skew()**: Distort elements (skewX, skewY)\n\nTransforms are hardware-accelerated = smooth performance!\nBest practices: Use transform for movement instead of changing position properties."
+          },
+          {
+            title: "Performance and Best Practices",
+            content: "Create smooth, performant animations:\n\n**Optimize for 60fps:**\n• Animate transform and opacity (GPU-accelerated)\n• Avoid animating layout properties (width, height, margin)\n• Use will-change: transform for complex animations\n\n**User Experience:**\n• Keep animations subtle and purposeful\n• Respect prefers-reduced-motion for accessibility\n• Use animation-fill-mode: forwards to maintain end state\n• Durations: 0.1-0.3s for micro-interactions, 0.5-1s for larger animations"
+          }
+        ]
+      }
+    }
+  ] : [
     { 
       id: 1, 
       title: "Introduction to HTML", 

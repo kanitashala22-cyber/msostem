@@ -82,7 +82,7 @@ export class MemStorage implements IStorage {
         level: "beginner",
         duration: "6 weeks",
         lessonsCount: 24,
-        imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+        imageUrl: "/attached_assets/generated_images/Female_programmer_coding_CSS_8273a1cf.png",
         category: "css",
         content: {
           lessons: [

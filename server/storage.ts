@@ -119,8 +119,8 @@ export class MemStorage implements IStorage {
     const scholarships: Scholarship[] = [
       {
         id: "scholarship-1",
-        title: "Women in Tech Excellence Award",
-        description: "Supporting women pursuing computer science and technology degrees with a focus on innovation and leadership.",
+        title: "Tech Girls",
+        description: "Empowering young women to study in STEM fields.",
         amount: 5000,
         deadline: new Date("2024-03-15"),
         field: "Computer Science, Engineering",

@@ -237,7 +237,12 @@ export class MemStorage implements IStorage {
 
   async createCourse(insertCourse: InsertCourse): Promise<Course> {
     const id = randomUUID();
-    const course: Course = { ...insertCourse, id, createdAt: new Date() };
+    const course: Course = { 
+      ...insertCourse, 
+      id, 
+      createdAt: new Date(),
+      imageUrl: insertCourse.imageUrl !== undefined ? insertCourse.imageUrl : null
+    };
     this.courses.set(id, course);
     return course;
   }
@@ -253,7 +258,12 @@ export class MemStorage implements IStorage {
 
   async createScholarship(insertScholarship: InsertScholarship): Promise<Scholarship> {
     const id = randomUUID();
-    const scholarship: Scholarship = { ...insertScholarship, id, createdAt: new Date() };
+    const scholarship: Scholarship = { 
+      ...insertScholarship, 
+      id, 
+      createdAt: new Date(),
+      applicationUrl: insertScholarship.applicationUrl !== undefined ? insertScholarship.applicationUrl : null
+    };
     this.scholarships.set(id, scholarship);
     return scholarship;
   }
@@ -325,7 +335,13 @@ export class MemStorage implements IStorage {
 
   async updateUserProgress(insertProgress: InsertUserProgress): Promise<UserProgress> {
     const id = randomUUID();
-    const progress: UserProgress = { ...insertProgress, id, lastAccessed: new Date() };
+    const progress: UserProgress = { 
+      ...insertProgress, 
+      id, 
+      completedLessons: insertProgress.completedLessons ?? null,
+      progress: insertProgress.progress ?? null,
+      lastAccessed: new Date()
+    };
     this.userProgress.set(id, progress);
     return progress;
   }
@@ -345,7 +361,8 @@ export class MemStorage implements IStorage {
       ...insertProject, 
       id, 
       createdAt: new Date(), 
-      updatedAt: new Date() 
+      updatedAt: new Date(),
+      isPublic: insertProject.isPublic !== undefined ? insertProject.isPublic : null
     };
     this.codeProjects.set(id, project);
     return project;

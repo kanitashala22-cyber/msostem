@@ -314,9 +314,11 @@ export default function Home() {
                          scholarship.status === 'closing_soon' ? 'Closing Soon' :
                          'Closed'}
                       </span>
-                      <Button className="bg-primary text-white hover:bg-primary/90">
-                        View Details
-                      </Button>
+                      <Link href={`/scholarships/${scholarship.id}`}>
+  <Button className="bg-primary text-white hover:bg-primary/90">
+    View Details
+  </Button>
+</Link>
                     </div>
                   </CardContent>
                 </Card>

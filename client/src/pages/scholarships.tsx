@@ -20,7 +20,11 @@ export default function Scholarships() {
   });
 
   const { data: scholarships, isLoading, refetch } = useQuery<Scholarship[]>({
-    queryKey: ["/api/scholarships", Date.now()], // Force unique key each time
+    queryKey: ["/api/scholarships"],
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
+    staleTime: 0,
+    cacheTime: 0,
   });
 
   const handleFilterChange = (key: string, value: string) => {
@@ -135,6 +139,9 @@ export default function Scholarships() {
                 <div className="flex gap-2">
                   <Button variant="outline" onClick={clearFilters}>
                     Clear Filters
+                  </Button>
+                  <Button variant="outline" onClick={() => refetch()}>
+                    Refresh Data
                   </Button>
                 </div>
               </div>

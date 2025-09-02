@@ -10,6 +10,7 @@ import CourseDetail from "@/pages/course-detail";
 import Scholarships from "@/pages/scholarships";
 import ScholarshipDetail from "@/pages/scholarship-detail";
 import Playground from "@/pages/playground";
+import About from "@/pages/about";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/scholarships" component={Scholarships} />
       <Route path="/scholarship/:id" component={ScholarshipDetail} />
       <Route path="/playground" component={Playground} />
+      <Route path="/about" component={About} />
       <Route component={NotFound} />
     </Switch>
   );

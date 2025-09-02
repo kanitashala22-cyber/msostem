@@ -20,11 +20,14 @@ export default function Scholarships() {
   });
 
   const { data: scholarships, isLoading, refetch } = useQuery<Scholarship[]>({
-    queryKey: ["/api/scholarships"],
+    queryKey: ["/api/scholarships", Math.random()], // Force unique key
     refetchOnMount: true,
     refetchOnWindowFocus: true,
     staleTime: 0,
   });
+
+  // Debug: Log what we're actually receiving
+  console.log("Scholarships data received:", scholarships);
 
   const handleFilterChange = (key: string, value: string) => {
     setFilters(prev => ({ ...prev, [key]: value }));

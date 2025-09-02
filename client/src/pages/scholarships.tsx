@@ -14,13 +14,13 @@ import type { Scholarship } from "@shared/schema";
 export default function Scholarships() {
   const [filters, setFilters] = useState({
     search: "",
-    field: "",
-    amount: "",
-    deadline: "",
+    field: "All Fields",
+    amount: "Any Amount", 
+    deadline: "All Deadlines",
   });
 
   const { data: scholarships, isLoading, refetch } = useQuery<Scholarship[]>({
-    queryKey: ["/api/scholarships", Math.random()], // Force unique key
+    queryKey: ["/api/scholarships"],
     refetchOnMount: true,
     refetchOnWindowFocus: true,
     staleTime: 0,
@@ -36,9 +36,9 @@ export default function Scholarships() {
   const clearFilters = () => {
     setFilters({
       search: "",
-      field: "",
-      amount: "",
-      deadline: "",
+      field: "All Fields",
+      amount: "Any Amount",
+      deadline: "All Deadlines",
     });
     refetch(); // Force refresh when clearing filters
   };
@@ -90,7 +90,7 @@ export default function Scholarships() {
                       <SelectValue placeholder="All Fields" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All Fields</SelectItem>
+                      <SelectItem value="All Fields">All Fields</SelectItem>
                       <SelectItem value="Computer Science">Computer Science</SelectItem>
                       <SelectItem value="Web Development">Web Development</SelectItem>
                       <SelectItem value="Software Engineering">Software Engineering</SelectItem>
@@ -108,7 +108,7 @@ export default function Scholarships() {
                       <SelectValue placeholder="Any Amount" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">Any Amount</SelectItem>
+                      <SelectItem value="Any Amount">Any Amount</SelectItem>
                       <SelectItem value="$1,000 - $5,000">$1,000 - $5,000</SelectItem>
                       <SelectItem value="$5,000 - $10,000">$5,000 - $10,000</SelectItem>
                       <SelectItem value="$10,000+">$10,000+</SelectItem>
@@ -125,7 +125,7 @@ export default function Scholarships() {
                       <SelectValue placeholder="All Deadlines" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All Deadlines</SelectItem>
+                      <SelectItem value="All Deadlines">All Deadlines</SelectItem>
                       <SelectItem value="Next 30 days">Next 30 days</SelectItem>
                       <SelectItem value="Next 3 months">Next 3 months</SelectItem>
                       <SelectItem value="Next 6 months">Next 6 months</SelectItem>

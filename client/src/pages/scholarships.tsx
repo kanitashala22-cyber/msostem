@@ -21,6 +21,8 @@ export default function Scholarships() {
 
   const { data: scholarships, isLoading } = useQuery<Scholarship[]>({
     queryKey: ["/api/scholarships", filters.field, filters.amount, filters.deadline, filters.search],
+    staleTime: 0, // Force refresh
+    cacheTime: 0, // Don't cache
   });
 
   const handleFilterChange = (key: string, value: string) => {

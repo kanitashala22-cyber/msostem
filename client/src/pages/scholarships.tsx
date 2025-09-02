@@ -24,7 +24,6 @@ export default function Scholarships() {
     refetchOnMount: true,
     refetchOnWindowFocus: true,
     staleTime: 0,
-    cacheTime: 0,
   });
 
   const handleFilterChange = (key: string, value: string) => {
@@ -41,7 +40,7 @@ export default function Scholarships() {
     refetch(); // Force refresh when clearing filters
   };
 
-  const filteredCount = scholarships?.length || 0;
+  const filteredCount = Array.isArray(scholarships) ? scholarships.length : 0;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -160,9 +159,9 @@ export default function Scholarships() {
                 </Card>
               ))}
             </div>
-          ) : scholarships && scholarships.length > 0 ? (
+          ) : Array.isArray(scholarships) && scholarships.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {scholarships.map((scholarship) => (
+              {scholarships.map((scholarship: Scholarship) => (
                 <ScholarshipCard key={scholarship.id} scholarship={scholarship} />
               ))}
             </div>

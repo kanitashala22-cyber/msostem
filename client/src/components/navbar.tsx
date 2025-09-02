@@ -44,9 +44,13 @@ export default function Navbar() {
             }`}>
               Playground
             </Link>
-            <a href="#about" className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">
+            <Link href="/about" className={`font-medium transition-colors duration-300 ${
+              isActive('/about') 
+                ? 'text-primary' 
+                : 'text-gray-700 hover:text-primary'
+            }`}>
               About
-            </a>
+            </Link>
             <Button className="bg-primary text-white hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg">
               Start Learning
             </Button>
@@ -100,13 +104,17 @@ export default function Navbar() {
             >
               Playground
             </Link>
-            <a 
-              href="#about" 
-              className="block text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+            <Link 
+              href="/about"
+              className={`block font-medium transition-colors duration-300 ${
+                isActive('/about') 
+                  ? 'text-primary' 
+                  : 'text-gray-700 hover:text-primary'
+              }`}
               onClick={() => setIsMenuOpen(false)}
             >
               About
-            </a>
+            </Link>
             <Button className="w-full bg-primary text-white hover:bg-primary/90 transition-all duration-300">
               Start Learning
             </Button>

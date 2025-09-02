@@ -20,7 +20,7 @@ export default function Home() {
   });
 
   const featuredCourses = courses?.slice(0, 3) || [];
-  const featuredScholarships = scholarships?.filter(s => s.status === "open").slice(0, 3) || [];
+  const featuredScholarships = scholarships?.slice(0, 3) || [];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -307,10 +307,12 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                         scholarship.status === 'open' ? 'bg-green-100 text-green-800' :
+                        scholarship.status === 'upcoming' ? 'bg-blue-100 text-blue-800' :
                         scholarship.status === 'closing_soon' ? 'bg-orange-100 text-orange-800' :
                         'bg-red-100 text-red-800'
                       }`}>
                         {scholarship.status === 'open' ? 'Open' :
+                         scholarship.status === 'upcoming' ? 'Upcoming' :
                          scholarship.status === 'closing_soon' ? 'Closing Soon' :
                          'Closed'}
                       </span>

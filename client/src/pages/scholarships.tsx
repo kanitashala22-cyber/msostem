@@ -19,10 +19,8 @@ export default function Scholarships() {
     deadline: "",
   });
 
-  const { data: scholarships, isLoading } = useQuery<Scholarship[]>({
-    queryKey: ["/api/scholarships", filters.field, filters.amount, filters.deadline, filters.search],
-    staleTime: 0, // Force refresh
-    cacheTime: 0, // Don't cache
+  const { data: scholarships, isLoading, refetch } = useQuery<Scholarship[]>({
+    queryKey: ["/api/scholarships", Date.now()], // Force unique key each time
   });
 
   const handleFilterChange = (key: string, value: string) => {
@@ -36,6 +34,7 @@ export default function Scholarships() {
       amount: "",
       deadline: "",
     });
+    refetch(); // Force refresh when clearing filters
   };
 
   const filteredCount = scholarships?.length || 0;

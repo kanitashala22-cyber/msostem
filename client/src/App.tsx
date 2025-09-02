@@ -8,6 +8,7 @@ import Home from "@/pages/home";
 import Courses from "@/pages/courses";
 import CourseDetail from "@/pages/course-detail";
 import Scholarships from "@/pages/scholarships";
+import ScholarshipDetail from "@/pages/scholarship-detail";
 import Playground from "@/pages/playground";
 
 function Router() {
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/courses" component={Courses} />
       <Route path="/course/:id" component={CourseDetail} />
       <Route path="/scholarships" component={Scholarships} />
+      <Route path="/scholarship/:id" component={ScholarshipDetail} />
       <Route path="/playground" component={Playground} />
       <Route component={NotFound} />
     </Switch>

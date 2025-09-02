@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { University, Calendar, GraduationCap, MapPin } from "lucide-react";
+import { Link } from "wouter";
 import type { Scholarship } from "@shared/schema";
 
 interface ScholarshipCardProps {
@@ -14,6 +15,8 @@ export default function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
         return 'bg-green-100 text-green-800';
       case 'closing_soon':
         return 'bg-orange-100 text-orange-800';
+      case 'upcoming':
+        return 'bg-blue-100 text-blue-800';
       case 'closed':
         return 'bg-red-100 text-red-800';
       default:
@@ -27,6 +30,8 @@ export default function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
         return 'Open';
       case 'closing_soon':
         return 'Closing Soon';
+      case 'upcoming':
+        return 'Upcoming';
       case 'closed':
         return 'Closed';
       default:
@@ -96,12 +101,20 @@ export default function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
           <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(scholarship.status)}`}>
             {getStatusText(scholarship.status)}
           </span>
-          <Button 
-            className={`${getButtonColor(index)} text-white`}
-            disabled={scholarship.status === 'closed'}
-          >
-            {scholarship.status === 'closed' ? 'Applications Closed' : 'View Details'}
-          </Button>
+          {scholarship.status === 'closed' ? (
+            <Button 
+              className="bg-gray-400 text-white cursor-not-allowed"
+              disabled
+            >
+              Applications Closed
+            </Button>
+          ) : (
+            <Link href={`/scholarship/${scholarship.id}`}>
+              <Button className={`${getButtonColor(index)} text-white`}>
+                View Details
+              </Button>
+            </Link>
+          )}
         </div>
       </CardContent>
     </Card>

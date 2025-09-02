@@ -119,16 +119,16 @@ export class MemStorage implements IStorage {
     const scholarships: Scholarship[] = [
       {
         id: "scholarship-1",
-        title: "Women in Tech Excellence Award",
-        description: "Supporting women pursuing computer science and technology degrees with a focus on innovation and leadership.",
-        amount: 5000,
-        deadline: new Date("2024-03-15"),
-        field: "Computer Science, Engineering",
-        location: "United States",
-        eligibility: "Female students pursuing CS/Engineering degrees",
-        status: "open",
-        organizationName: "Tech Excellence Foundation",
-        applicationUrl: "https://example.com/apply",
+        title: "TechGirls Exchange Program 2026",
+        description: "Fully-funded U.S. State Department program empowering young women (ages 15-17) to pursue STEM careers through an intensive summer exchange program in the United States.",
+        amount: 25000, // Estimated full program value including travel, accommodation, and education
+        deadline: new Date("2025-12-06"), // Next application cycle
+        field: "Science, Technology, Engineering, Mathematics (STEM)",
+        location: "Virginia Tech University + U.S. Cities",
+        eligibility: "Young women ages 15-17 from 37 eligible countries with strong interest in STEM fields",
+        status: "upcoming", // 2026 cycle will open Fall 2025
+        organizationName: "U.S. Department of State",
+        applicationUrl: "https://techgirlsglobal.org/apply/",
         createdAt: new Date(),
       },
       {

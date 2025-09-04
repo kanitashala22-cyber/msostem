@@ -147,30 +147,30 @@ export class MemStorage implements IStorage {
       },
       {
         id: "scholarship-3",
-        title: "Future Tech Leaders Scholarship",
-        description: "For exceptional students demonstrating leadership potential in technology and innovation fields.",
-        amount: 10000,
-        deadline: new Date("2024-02-28"),
-        field: "Computer Science, AI, Data Science",
-        location: "North America",
-        eligibility: "Undergraduate students in tech fields",
-        status: "closing_soon",
-        organizationName: "Future Leaders Institute",
-        applicationUrl: "https://example.com/apply",
+        title: "Kennedy-Lugar Youth Exchange & Study (YES)",
+        description: "Competitive merit-based scholarship program bringing high school students from countries with significant Muslim populations to study for a full academic year in the United States, living with host families.",
+        amount: 30000, // Estimated full program value including travel, accommodation, education, and stipend
+        deadline: new Date("2025-03-31"), // Application deadlines vary by country, typically fall-winter
+        field: "Cultural Exchange, Leadership Development, Democracy Studies",
+        location: "United States (Various High Schools)",
+        eligibility: "High school students ages 15-18 from 45+ participating countries with significant Muslim populations",
+        status: "upcoming", // 2025-26 applications typically open in fall
+        organizationName: "U.S. Department of State",
+        applicationUrl: "https://exchanges.state.gov/non-us/program/kennedy-lugar-youth-exchange-study-yes",
         createdAt: new Date(),
       },
       {
         id: "scholarship-4",
-        title: "Digital Innovation Grant",
-        description: "Supporting students working on innovative digital projects and web development initiatives.",
-        amount: 3000,
-        deadline: new Date("2024-05-15"),
-        field: "Web Development, UX/UI Design",
-        location: "Global",
-        eligibility: "Students with portfolio projects",
-        status: "open",
-        organizationName: "Digital Innovation Fund",
-        applicationUrl: "https://example.com/apply",
+        title: "Future Leaders Exchange (FLEX)",
+        description: "Competitive merit-based scholarship program bringing high school students from Europe, Eurasia, and Central Asia to live with American host families and attend U.S. high schools for a full academic year.",
+        amount: 35000, // Estimated full program value including travel, accommodation, education, and activities
+        deadline: new Date("2025-09-30"), // Applications typically open in fall
+        field: "Cultural Exchange, Leadership, Democracy & Entrepreneurship",
+        location: "United States (Various High Schools)",
+        eligibility: "High school students ages 15-17 from 22 participating countries in Europe, Eurasia, and Central Asia",
+        status: "upcoming", // 2025-26 applications open in fall
+        organizationName: "U.S. Department of State",
+        applicationUrl: "https://exchanges.state.gov/non-us/program/future-leaders-exchange/details",
         createdAt: new Date(),
       },
       {

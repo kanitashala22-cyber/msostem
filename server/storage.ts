@@ -133,16 +133,16 @@ export class MemStorage implements IStorage {
       },
       {
         id: "scholarship-2",
-        title: "CodeHer Rising Star Grant",
-        description: "Empowering young women who are just starting their coding journey with educational support and mentorship.",
-        amount: 2500,
-        deadline: new Date("2024-04-01"),
-        field: "Web Development, Programming",
-        location: "International",
-        eligibility: "Women aged 16-25 learning to code",
-        status: "open",
-        organizationName: "CodeHer Foundation",
-        applicationUrl: "https://example.com/apply",
+        title: "Benjamin Franklin Transatlantic Fellowship",
+        description: "Fully-funded 4-week intensive exchange program at Purdue University empowering European youth (ages 16-18) to explore diplomacy, leadership, and transatlantic relations in the United States.",
+        amount: 15000, // Estimated full program value including travel, accommodation, education, and stipend
+        deadline: new Date("2025-02-23"), // Application deadline varies by country, using latest deadline
+        field: "Diplomacy, Leadership, International Relations, Civil Society",
+        location: "Purdue University, West Lafayette, Indiana",
+        eligibility: "European citizens ages 16-18 with strong academic achievement and leadership potential",
+        status: "upcoming", // 2025 applications typically open January/February
+        organizationName: "U.S. Department of State",
+        applicationUrl: "https://exchanges.state.gov/us/program/benjamin-franklin-summer-institutes",
         createdAt: new Date(),
       },
       {

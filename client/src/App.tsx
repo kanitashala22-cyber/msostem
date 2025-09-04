@@ -19,7 +19,7 @@ function Router() {
       <Route path="/courses" component={Courses} />
       <Route path="/course/:id" component={CourseDetail} />
       <Route path="/scholarships" component={Scholarships} />
-      <Route path="/scholarship/:id" component={ScholarshipDetail} />
+      <Route path="/scholarships/:id" component={ScholarshipDetail} />
       <Route path="/playground" component={Playground} />
       <Route path="/about" component={About} />
       <Route component={NotFound} />

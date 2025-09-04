@@ -34,8 +34,11 @@ export default function ScholarshipDetail() {
     );
   }
 
-  // TechGirls specific content
+  // Program specific content
   const isTechGirls = scholarship.id === 'scholarship-1';
+  const isBenjaminFranklin = scholarship.id === 'scholarship-2';
+  const isYES = scholarship.id === 'scholarship-3';
+  const isFLEX = scholarship.id === 'scholarship-4';
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -278,8 +281,335 @@ export default function ScholarshipDetail() {
                 </CardContent>
               </Card>
             </div>
+          ) : isBenjaminFranklin ? (
+            /* Benjamin Franklin Transatlantic Fellowship Content */
+            <div className="space-y-8">
+              <Card>
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">About Benjamin Franklin Transatlantic Fellowship</h2>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    The Benjamin Franklin Transatlantic Fellowship (BFTF) is a prestigious 4-week summer exchange program hosted by Purdue University that brings together young European leaders to explore diplomacy, leadership, and transatlantic relations in the United States. This fully-funded U.S. State Department program empowers participants to become future ambassadors of international cooperation.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Program Highlights</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          4-week intensive program at Purdue University
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Focus on diplomacy and transatlantic relations
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Leadership development workshops
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Cultural immersion in multiple U.S. cities
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Multinational group interactions
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Program Components</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Academic seminars on U.S. foreign policy
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Democracy and civil society discussions
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Communications and advocacy training
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Site visits to government institutions
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Meetings with policy makers and experts
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Eligibility Requirements</h2>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Basic Requirements</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Ages 16-18 at program start</li>
+                        <li>• European citizenship or legal permanent residency</li>
+                        <li>• Strong academic achievement</li>
+                        <li>• High proficiency in English</li>
+                        <li>• Little to no prior U.S. experience</li>
+                        <li>• Commitment to return home post-program</li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Personal Qualities</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Demonstrated leadership potential</li>
+                        <li>• Interest in diplomacy and international relations</li>
+                        <li>• Maturity and independence</li>
+                        <li>• Strong social skills and flexibility</li>
+                        <li>• Open-minded and tolerant attitude</li>
+                        <li>• Community service engagement</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6">
+                    <h3 className="font-semibold text-gray-900 mb-3">Participating Countries</h3>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <p className="text-sm text-gray-700">
+                        European countries including: Austria, Belgium, Cyprus, Czech Republic, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Slovakia, Slovenia, Spain, and others.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ) : isYES ? (
+            /* YES Program Content */
+            <div className="space-y-8">
+              <Card>
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">About Kennedy-Lugar Youth Exchange & Study (YES)</h2>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    The Kennedy-Lugar Youth Exchange & Study (YES) program is a competitive, merit-based scholarship program funded by the U.S. State Department that brings high school students from countries with significant Muslim populations to the United States for a full academic year. Students live with volunteer American host families and attend U.S. high schools, serving as cultural ambassadors.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Program Highlights</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Full academic year (9-10 months) in the U.S.
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Live with volunteer American host families
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Attend regular U.S. high schools
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Cultural immersion and leadership development
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Serve as youth cultural ambassadors
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">What's Included</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Round-trip international airfare
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Room and board with host family
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          High school tuition and fees
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Medical benefits and visa fees
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Orientation and ongoing support
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Eligibility Requirements</h2>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Basic Requirements</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Ages 15-18 (high school students)</li>
+                        <li>• Citizens/residents of participating countries</li>
+                        <li>• Merit-based selection through competition</li>
+                        <li>• Good academic standing</li>
+                        <li>• English language proficiency</li>
+                        <li>• No previous long-term U.S. experience</li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Personal Qualities</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Leadership potential and maturity</li>
+                        <li>• Cultural curiosity and open-mindedness</li>
+                        <li>• Commitment to cultural exchange</li>
+                        <li>• Community service orientation</li>
+                        <li>• Academic excellence and motivation</li>
+                        <li>• Strong communication skills</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6">
+                    <h3 className="font-semibold text-gray-900 mb-3">Participating Countries (45+ countries)</h3>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <p className="text-sm text-gray-700">
+                        <strong>Southeast Asia:</strong> Indonesia, Malaysia, Philippines, Thailand<br/>
+                        <strong>Europe & Eurasia:</strong> Bosnia and Herzegovina, Bulgaria, Turkey<br/>
+                        <strong>Middle East & North Africa:</strong> Egypt, Jordan, Morocco, Tunisia<br/>
+                        <strong>South & Central Asia:</strong> India, Pakistan<br/>
+                        <strong>Sub-Saharan Africa:</strong> Ghana, Mali, Senegal, South Africa<br/>
+                        And many other countries with significant Muslim populations.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ) : isFLEX ? (
+            /* FLEX Program Content */
+            <div className="space-y-8">
+              <Card>
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">About Future Leaders Exchange (FLEX)</h2>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    The Future Leaders Exchange (FLEX) program is a competitive, merit-based scholarship program funded by the U.S. State Department that brings high school students from Europe, Eurasia, and Central Asia to the United States for a full academic year. With over 32,000 alumni since 1993, FLEX promotes mutual understanding and lasting peace through youth exchange.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Program Highlights</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Full academic year (9-10 months) in the U.S.
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Live with volunteer American host families
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Attend regular U.S. public high schools
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Extremely competitive (1 in 50 acceptance rate)
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Focus on democracy and entrepreneurship
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Program Requirements</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          30+ hours of community service
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Cultural orientation activities
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Leadership development workshops
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Cultural ambassador responsibilities
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Alumni network participation
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Eligibility Requirements</h2>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Basic Requirements</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Ages 15-17 (some sources say up to 19)</li>
+                        <li>• Citizens of participating countries</li>
+                        <li>• Currently enrolled in high school</li>
+                        <li>• Strong academic performance</li>
+                        <li>• English language proficiency</li>
+                        <li>• No significant prior U.S. experience</li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">Personal Qualities</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Exceptional leadership potential</li>
+                        <li>• Strong character and maturity</li>
+                        <li>• Commitment to community service</li>
+                        <li>• Interest in democracy and free market economy</li>
+                        <li>• Cultural adaptability and openness</li>
+                        <li>• Academic excellence and curiosity</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6">
+                    <h3 className="font-semibold text-gray-900 mb-3">Participating Countries (22 countries)</h3>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <p className="text-sm text-gray-700">
+                        <strong>Eastern Europe:</strong> Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia<br/>
+                        <strong>Southeast Europe:</strong> Greece, Montenegro, Serbia<br/>
+                        <strong>Eurasia:</strong> Armenia, Azerbaijan, Belarus, Georgia, Moldova, Russia, Ukraine<br/>
+                        <strong>Central Asia:</strong> Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan<br/>
+                        <strong>East Asia:</strong> Mongolia
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           ) : (
-            /* Generic scholarship content */
+            /* Generic scholarship content for other scholarships */
             <Card>
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Scholarship Details</h2>

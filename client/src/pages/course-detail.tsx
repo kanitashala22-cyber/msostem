@@ -190,65 +190,69 @@ export default function CourseDetail() {
   ] : [
     { 
       id: 1, 
-      title: "Introduction to HTML", 
+      title: "What is HTML? Your First Web Page", 
       completed: true,
-      playgroundCode: '<h1>Hello CodeHer!</h1>\n<p>Welcome to HTML! 🎉</p>\n<p>This is your first web page.</p>',
+      playgroundCode: '<!-- This is your very first HTML code! -->\n<h1>Hello, I\'m Learning HTML! 🎉</h1>\n<p>Welcome to the amazing world of web development!</p>\n<p>HTML stands for HyperText Markup Language.</p>\n<p>This is my first web page, and I\'m so excited!</p>\n\n<!-- Try changing this text to your name -->\n<h2>My name is [Your Name Here]</h2>\n<p>I\'m going to build awesome websites!</p>',
       content: {
-        title: "Introduction to HTML",
-        description: "Welcome to your first HTML lesson! HTML (HyperText Markup Language) is the foundation of all web pages. Think of it as the skeleton that gives structure to websites.",
+        title: "What is HTML? Your First Web Page",
+        description: "Welcome to HTML! 🌟 HTML is the foundation of EVERY website you've ever visited. Think of it as the skeleton that gives structure to web pages - it tells the browser what's a heading, what's a paragraph, what's a link, and so much more!",
         sections: [
           {
-            title: "What is HTML?",
-            content: "HTML stands for HyperText Markup Language. It's like the skeleton of a website! Just like your body has bones to give it structure, websites use HTML to organize content. HTML tells the browser 'this is a heading', 'this is a paragraph', 'this is a link', etc."
+            title: "What Does HTML Actually Mean?",
+            content: "HTML stands for **HyperText Markup Language**. Let's break this down:\n\n• **HyperText**: Text that can link to other text (like clicking links to go to other pages!)\n• **Markup**: Adding special codes (called tags) to regular text to give it meaning\n• **Language**: A way for us to communicate with web browsers\n\nHTML is like giving instructions to a browser: 'Make this text big and bold!' or 'Put this text in a paragraph!'"
           },
           {
-            title: "How HTML Works",
-            content: "HTML uses 'tags' which are like labels that wrap around content. Tags are written with angle brackets < >. Most tags come in pairs: an opening tag like <h1> and a closing tag like </h1>. The content goes between them!"
+            title: "How HTML Works - Tags Are Everything!",
+            content: "HTML uses **tags** - special codes wrapped in angle brackets < >. Most tags come in pairs:\n\n• **Opening tag**: `<h1>` (starts something)\n• **Content**: The actual text you want to show\n• **Closing tag**: `</h1>` (ends it - notice the forward slash!)\n\nExample: `<h1>My Big Heading</h1>`\n\nThe browser reads these tags and knows 'Oh, this should be displayed as a big heading!'"
           },
           {
             title: "Your First HTML Elements",
-            content: "In the playground, you can see two basic HTML elements:\n• <h1> creates a big heading (like a title)\n• <p> creates a paragraph of text\n\nTry changing the text between the tags and see what happens!"
+            content: "In the playground, you can see some basic HTML elements:\n\n• `<h1>`: Creates the biggest heading (perfect for titles!)\n• `<h2>`: Creates a smaller heading (great for subtitles)\n• `<p>`: Creates a paragraph of text\n• `<!-- -->`: Creates comments (notes that browsers ignore but help you remember what you did)\n\nThese are the building blocks of web pages!"
           },
           {
-            title: "Try It Yourself!",
-            content: "In the playground on the right, try:\n1. Change 'Hello CodeHer!' to your own message\n2. Add another <p> tag with your name\n3. Change <h1> to <h2> to see the difference\n\nDon't worry about making mistakes - that's how we learn!"
+            title: "Let's Experiment! 🔬",
+            content: "Time to get your hands dirty! In the playground:\n\n1. **Change the greeting**: Replace 'Hello, I'm Learning HTML!' with your own message\n2. **Add your name**: Replace '[Your Name Here]' with your actual name\n3. **Create more paragraphs**: Add another `<p>Your text here</p>`\n4. **Try different headings**: Change `<h2>` to `<h3>` and see what happens\n5. **Write a comment**: Add `<!-- This is my note -->` anywhere\n\nRemember: Making mistakes is part of learning! Experiment and have fun!"
           }
         ]
       }
     },
     { 
       id: 2, 
-      title: "HTML Document Structure", 
+      title: "HTML Document Structure & DOCTYPE", 
       completed: true,
-      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n    <title>My First Website</title>\n</head>\n<body>\n    <h1>Welcome to My Site!</h1>\n    <p>This is a complete HTML document.</p>\n</body>\n</html>',
+      playgroundCode: '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <title>My Amazing Website - Change This Title!</title>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n</head>\n<body>\n    <h1>Welcome to My Complete Website! 🚀</h1>\n    <p>This webpage has ALL the essential parts of a proper HTML document.</p>\n    \n    <h2>What Makes This Special?</h2>\n    <p>This page has:</p>\n    <ul>\n        <li>A proper DOCTYPE declaration</li>\n        <li>HTML root element with language</li>\n        <li>A head section with important information</li>\n        <li>A body section with visible content</li>\n    </ul>\n    \n    <p><strong>Change the title above and watch the browser tab change!</strong></p>\n</body>\n</html>',
       content: {
-        title: "HTML Document Structure",
-        description: "Every HTML document follows a specific structure, like how a letter has a header and body. Let's learn the essential parts that make a complete web page!",
+        title: "HTML Document Structure & DOCTYPE",
+        description: "Every professional website follows a specific structure, just like how a house needs a foundation, walls, and a roof! Let's build your first complete HTML document with all the essential parts. 🏗️",
         sections: [
           {
-            title: "The DOCTYPE Declaration",
-            content: "Every HTML document starts with <!DOCTYPE html>. Think of this as telling the browser 'Hey, this is an HTML5 document!' It's like putting a label on a box so everyone knows what's inside. This must be the very first line of your HTML file."
+            title: "The DOCTYPE Declaration - Your HTML's ID Card",
+            content: "Every HTML document MUST start with `<!DOCTYPE html>`. Think of this as your webpage's ID card that tells the browser:\n\n'Hi browser! This is a modern HTML5 document. Please display it using the latest HTML standards!'\n\n**Why is this important?**\n• Without it, browsers might display your page in 'quirks mode' (old, weird behavior)\n• It must be the VERY FIRST line (even before `<html>`)\n• It's not a tag - it's a declaration (notice no closing tag needed)\n\nAlways, ALWAYS start with `<!DOCTYPE html>`!"
           },
           {
-            title: "The HTML Root Element",
-            content: "The <html> tag wraps around everything else in your document. It's like the main container that holds all your content. Everything you write goes inside this tag. Think of it as the wrapper for your entire webpage."
+            title: "The HTML Root Element - Your Document's Container",
+            content: "The `<html>` tag is like the main box that contains everything else:\n\n```html\n<html lang=\"en\">\n  <!-- Everything goes inside here -->\n</html>\n```\n\n**The lang attribute** tells browsers and screen readers what language your content is in:\n• `lang=\"en\"` for English\n• `lang=\"es\"` for Spanish\n• `lang=\"fr\"` for French\n\nThis helps with accessibility and search engines understanding your content!"
           },
           {
-            title: "Head vs Body - What's the Difference?",
-            content: "Your HTML document has two main parts:\n\n• <head>: Contains information ABOUT your page (like the title you see in browser tabs, but visitors don't see this content)\n• <body>: Contains what visitors actually SEE on your webpage (text, images, etc.)\n\nIt's like an envelope: the head is the address info, the body is the actual letter!"
+            title: "HEAD Section - The Behind-the-Scenes Information",
+            content: "The `<head>` section contains information ABOUT your webpage that visitors don't see directly:\n\n**Essential head elements:**\n• `<title>`: What shows in browser tabs and bookmarks\n• `<meta charset=\"UTF-8\">`: Tells browser how to read special characters (emojis, accents, etc.)\n• `<meta name=\"viewport\"...>`: Makes your site work well on phones and tablets\n\n**Think of the head as:**\n• The envelope of a letter (has important info but isn't the main message)\n• The settings/preferences for your webpage\n• Information for search engines and social media"
           },
           {
-            title: "Try the Complete Structure!",
-            content: "In the playground, you can see a complete HTML document. Try:\n1. Change the <title> - you'll see it in the browser tab!\n2. Add more content in the <body> section\n3. Try adding <h2> or <h3> tags for smaller headings\n\nThis is the foundation every webpage is built on!"
+            title: "BODY Section - What People Actually See",
+            content: "The `<body>` contains everything visitors see and interact with:\n\n• All your text, images, videos, buttons, forms, etc.\n• This is where you spend most of your time as a web developer\n• Only ONE body element per HTML document\n• Everything visible goes here!\n\n**The basic structure:**\n```html\n<body>\n  <h1>Your content here</h1>\n  <p>More content here</p>\n  <!-- All visible content goes inside body -->\n</body>\n```"
+          },
+          {
+            title: "Practice Time! 💪",
+            content: "Let's customize your complete HTML document:\n\n1. **Change the title**: Update the `<title>` text and watch your browser tab change!\n2. **Add more content**: Create more headings and paragraphs in the body\n3. **Experiment with structure**: Try adding `<h3>`, `<h4>` headings\n4. **Add meta description**: In the head, add `<meta name=\"description\" content=\"My awesome website\">`\n\nNotice how head changes affect the browser/tab, but body changes affect what you see on the page!"
           }
         ]
       }
     },
     { 
       id: 3, 
-      title: "Text Elements and Formatting", 
+      title: "Headings and Text Formatting", 
       completed: false,
-      playgroundCode: '<h1>Main Title</h1>\n<h2>Subtitle</h2>\n<h3>Smaller Heading</h3>\n\n<p>This is a regular paragraph with <strong>bold text</strong> and <em>italic text</em>.</p>\n\n<p>Here\'s another paragraph.<br>This line has a break!</p>\n\n<p>You can also make text <u>underlined</u> or <mark>highlighted</mark>.</p>',
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Text Formatting Demo</title>\n</head>\n<body>\n    <h1>This is the Main Title (H1)</h1>\n    <h2>This is a Section Heading (H2)</h2>\n    <h3>This is a Subsection (H3)</h3>\n    <h4>Smaller Heading (H4)</h4>\n    <h5>Even Smaller (H5)</h5>\n    <h6>Smallest Heading (H6)</h6>\n    \n    <p>This is a regular paragraph with <strong>bold text</strong> and <em>italic text</em>.</p>\n    \n    <p>You can also use <u>underlined text</u>, <mark>highlighted text</mark>, and <small>small text</small>.</p>\n    \n    <p>For code, use <code>console.log(\"Hello!\")</code> and for deleted text use <del>this was wrong</del>.</p>\n    \n    <p>Subscript: H<sub>2</sub>O and Superscript: E=mc<sup>2</sup></p>\n    \n    <blockquote>\n        \"The best way to learn HTML is by doing it!\" - Every web developer\n    </blockquote>\n</body>\n</html>',
       content: {
         title: "Text Elements and Formatting",
         description: "Now let's make your text look awesome! HTML gives you many ways to format text - from big headings to emphasized words. It's like having different fonts and styles in a word processor!",

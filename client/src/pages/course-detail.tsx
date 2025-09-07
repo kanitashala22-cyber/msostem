@@ -823,6 +823,36 @@ export default function CourseDetail() {
 
   const currentLesson = lessons.find(lesson => lesson.id === selectedLesson) || lessons[0];
 
+  // Function to format content text
+  const formatContent = (text: string) => {
+    return text
+      // Convert **bold** to <strong>bold</strong>
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      // Convert `code` to <code>code</code>
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      // Convert bullet points to HTML lists
+      .replace(/^• (.+)$/gm, '<li>$1</li>')
+      // Wrap consecutive list items in <ul>
+      .replace(/(<li>.*<\/li>)/gs, (match) => {
+        if (match.includes('</li><li>')) {
+          return '<ul>' + match.replace(/\n/g, '') + '</ul>';
+        }
+        return '<ul>' + match + '</ul>';
+      })
+      // Convert double line breaks to paragraph breaks
+      .replace(/\n\n/g, '</p><p>')
+      // Add opening and closing paragraph tags
+      .replace(/^(.)/gm, '<p>$1')
+      .replace(/(.)$/gm, '$1</p>')
+      // Clean up multiple paragraph tags
+      .replace(/<p><\/p>/g, '')
+      .replace(/<p><ul>/g, '<ul>')
+      .replace(/<\/ul><\/p>/g, '</ul>')
+      .replace(/<p><strong>/g, '<p><strong>')
+      // Fix code blocks
+      .replace(/```html\n([\s\S]*?)\n```/g, '<pre><code>$1</code></pre>');
+  };
+
   // Update playground code when lesson changes
   useEffect(() => {
     if (currentLesson && currentLesson.playgroundCode) {
@@ -947,9 +977,10 @@ export default function CourseDetail() {
                             <h4 className="text-lg font-semibold text-gray-900 mb-2">
                               {section.title}
                             </h4>
-                            <div className="text-gray-700 leading-relaxed whitespace-pre-line">
-                              {section.content}
-                            </div>
+                            <div 
+                              className="text-gray-700 leading-relaxed"
+                              dangerouslySetInnerHTML={{ __html: formatContent(section.content) }}
+                            />
                           </div>
                         ))}
                       </div>

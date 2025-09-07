@@ -360,6 +360,130 @@ export default function CourseDetail() {
         ]
       }
     },
+    { 
+      id: 7, 
+      title: "Paragraphs, Line Breaks & Spacing", 
+      completed: false,
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Text Spacing and Breaks</title>\n</head>\n<body>\n    <h1>Understanding Text Spacing</h1>\n    \n    <p>This is a regular paragraph. HTML automatically adds space above and below paragraphs, making your content easy to read.</p>\n    \n    <p>This is another paragraph. Notice the space between this and the paragraph above? That\'s automatic!</p>\n    \n    <p>Sometimes you want a line break within a paragraph.<br>\n    Like this! The &lt;br&gt; tag creates a single line break.<br>\n    You can use it multiple times for more space.</p>\n    \n    <p>You can also use &amp;nbsp; for non-breaking spaces.&nbsp;&nbsp;&nbsp;Like&nbsp;this!</p>\n    \n    <hr>\n    \n    <p>The &lt;hr&gt; tag above creates a horizontal line to separate content sections.</p>\n    \n    <p>Want to show code? Use spaces and the &lt;pre&gt; tag:</p>\n    <pre>\n    This text preserves\n        all    spacing\n            and line breaks!\n    </pre>\n</body>\n</html>',
+      content: {
+        title: "Paragraphs, Line Breaks & Spacing",
+        description: "Master the art of text spacing! Learn how HTML handles paragraphs, line breaks, and spacing to make your content readable and well-organized. Good spacing makes the difference between messy and professional-looking websites! ✨",
+        sections: [
+          {
+            title: "Paragraphs - Your Text Building Blocks",
+            content: "The `<p>` tag is your best friend for text content! Every `<p>` tag automatically:\n\n• Adds space above and below the text\n• Creates a distinct block of content\n• Makes text easier to read\n• Works perfectly on mobile devices\n\n**Best practice:** Use a new `<p>` tag for each new thought or topic, just like you'd start a new paragraph when writing an essay!"
+          },
+          {
+            title: "Line Breaks - When You Need Just One Line",
+            content: "Sometimes you need to break a line WITHOUT starting a new paragraph:\n\n• `<br>` creates a single line break\n• `<br>` is self-closing (no closing tag needed)\n• Perfect for addresses, poems, or song lyrics\n\nExample:\n```html\nJohn Smith<br>\n123 Main Street<br>\nAnytown, USA 12345\n```\n\nUse `<br>` sparingly - paragraphs are usually better for readability!"
+          },
+          {
+            title: "Special Spacing Techniques",
+            content: "HTML has special ways to control spacing:\n\n• **`&nbsp;`**: Non-breaking space (won't wrap to next line)\n• **`<pre>`**: Preserves ALL spacing and line breaks (great for code)\n• **`<hr>`**: Horizontal rule - creates a line to separate content\n\n**Pro tip:** Never use multiple `<br>` tags to create space. Use CSS instead for better control!"
+          },
+          {
+            title: "Practice Perfect Spacing! 🎯",
+            content: "In the playground, experiment with:\n1. Add more paragraphs and see the automatic spacing\n2. Use `<br>` to create line breaks within a paragraph\n3. Try the `<pre>` tag with your own formatted text\n4. Add `<hr>` tags to separate different sections\n5. Play with `&nbsp;` to create specific spacing\n\nRemember: Good spacing makes content easier to read and more professional!"
+          }
+        ]
+      }
+    },
+    { 
+      id: 8, 
+      title: "Lists - Organized Content Made Easy", 
+      completed: false,
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n    <title>List Mastery</title>\n</head>\n<body>\n    <h1>My Learning Journey</h1>\n    \n    <h2>Things I Love About Coding:</h2>\n    <ul>\n        <li>Creating something from nothing</li>\n        <li>Solving puzzles and problems</li>\n        <li>Building websites that help people</li>\n        <li>The \"aha!\" moment when code works</li>\n        <li>Continuous learning and growth</li>\n    </ul>\n    \n    <h2>My Daily Learning Routine:</h2>\n    <ol>\n        <li>Review yesterday\'s lessons</li>\n        <li>Learn one new HTML concept</li>\n        <li>Practice in the playground</li>\n        <li>Build something fun</li>\n        <li>Celebrate my progress! 🎉</li>\n    </ol>\n    \n    <h2>Web Development Skills:</h2>\n    <ul>\n        <li>HTML Basics\n            <ul>\n                <li>Document structure</li>\n                <li>Text formatting</li>\n                <li>Links and images</li>\n            </ul>\n        </li>\n        <li>CSS (Coming Soon!)\n            <ul>\n                <li>Colors and fonts</li>\n                <li>Layouts</li>\n                <li>Animations</li>\n            </ul>\n        </li>\n    </ul>\n    \n    <h2>Description List Example:</h2>\n    <dl>\n        <dt>HTML</dt>\n        <dd>The structure and content of web pages</dd>\n        \n        <dt>CSS</dt>\n        <dd>The styling and appearance of web pages</dd>\n        \n        <dt>JavaScript</dt>\n        <dd>The behavior and interactivity of web pages</dd>\n    </dl>\n</body>\n</html>',
+      content: {
+        title: "Lists - Organized Content Made Easy",
+        description: "Lists are everywhere on the web! From navigation menus to shopping carts, from feature lists to step-by-step guides. Master HTML lists and you'll be able to organize any content clearly and professionally! 📋",
+        sections: [
+          {
+            title: "Unordered Lists - When Order Doesn't Matter",
+            content: "Use `<ul>` (unordered list) for items where sequence isn't important:\n\n```html\n<ul>\n  <li>Apples</li>\n  <li>Bananas</li>\n  <li>Cherries</li>\n</ul>\n```\n\n**Perfect for:**\n• Feature lists\n• Navigation menus  \n• Shopping lists\n• Benefits/advantages\n• Social media links\n\nBy default, browsers show bullets (•), but you can change this with CSS!"
+          },
+          {
+            title: "Ordered Lists - When Sequence Matters",
+            content: "Use `<ol>` (ordered list) when the order IS important:\n\n```html\n<ol>\n  <li>Mix ingredients</li>\n  <li>Bake for 30 minutes</li>\n  <li>Let cool</li>\n</ol>\n```\n\n**Perfect for:**\n• Step-by-step instructions\n• Rankings or top 10 lists\n• Recipes\n• Tutorial steps\n• Timeline events\n\nNumbers appear automatically - HTML counts for you!"
+          },
+          {
+            title: "Nested Lists - Lists Within Lists",
+            content: "You can put lists inside other lists for complex organization:\n\n```html\n<ul>\n  <li>Fruits\n    <ul>\n      <li>Apples</li>\n      <li>Oranges</li>\n    </ul>\n  </li>\n  <li>Vegetables\n    <ul>\n      <li>Carrots</li>\n      <li>Broccoli</li>\n    </ul>\n  </li>\n</ul>\n```\n\nGreat for site maps, category organization, and detailed outlines!"
+          },
+          {
+            title: "Description Lists - Terms and Definitions",
+            content: "Use `<dl>` for term/definition pairs:\n\n```html\n<dl>\n  <dt>HTML</dt>\n  <dd>HyperText Markup Language</dd>\n  \n  <dt>CSS</dt>\n  <dd>Cascading Style Sheets</dd>\n</dl>\n```\n\n• `<dl>` = description list\n• `<dt>` = description term\n• `<dd>` = description definition\n\nPerfect for glossaries, FAQs, and key-value information!"
+          },
+          {
+            title: "List Practice Time! 🚀",
+            content: "In the playground, try:\n1. Add more items to your favorite things list\n2. Create a nested list of your hobbies with specific activities\n3. Make an ordered list of your goals for this year\n4. Build a description list of HTML terms you've learned\n5. Experiment with mixing different list types\n\nLists are the foundation of organized web content!"
+          }
+        ]
+      }
+    },
+    { 
+      id: 9, 
+      title: "Links - Connecting the Web Together", 
+      completed: false,
+      playgroundCode: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Link Mastery</title>\n</head>\n<body>\n    <h1>Welcome to My Link Collection! 🔗</h1>\n    \n    <h2>External Links:</h2>\n    <p>Check out these awesome websites:</p>\n    <ul>\n        <li><a href=\"https://www.codecademy.com\" target=\"_blank\" title=\"Learn to code interactively\">Codecademy - Interactive Coding Lessons</a></li>\n        <li><a href=\"https://developer.mozilla.org\" target=\"_blank\">MDN Web Docs - The Ultimate Reference</a></li>\n        <li><a href=\"https://www.freecodecamp.org\" target=\"_blank\">FreeCodeCamp - Free Coding Education</a></li>\n    </ul>\n    \n    <h2>Communication Links:</h2>\n    <p>Get in touch with me:</p>\n    <ul>\n        <li>📧 <a href=\"mailto:hello@example.com?subject=Hello from your website!\">Send me an email</a></li>\n        <li>📱 <a href=\"tel:+1234567890\">Call me: (123) 456-7890</a></li>\n        <li>💬 <a href=\"sms:+1234567890\">Send me a text message</a></li>\n    </ul>\n    \n    <h2>Page Navigation:</h2>\n    <p>Jump to different sections:</p>\n    <ul>\n        <li><a href=\"#about\">About Me</a></li>\n        <li><a href=\"#skills\">My Skills</a></li>\n        <li><a href=\"#contact\">Contact Information</a></li>\n    </ul>\n    \n    <h2 id=\"about\">About Me</h2>\n    <p>I\'m learning web development and loving every minute of it! HTML is amazing because it connects the entire web together through links.</p>\n    \n    <h2 id=\"skills\">My Skills</h2>\n    <p>I\'m building skills in:</p>\n    <ul>\n        <li>HTML structure and semantics</li>\n        <li>Creating accessible and user-friendly links</li>\n        <li>Building navigation that makes sense</li>\n    </ul>\n    \n    <h2 id=\"contact\">Contact Information</h2>\n    <p>Want to connect? Use any of the communication links above!</p>\n    \n    <p><a href=\"#top\">Back to top ⬆️</a></p>\n</body>\n</html>',
+      content: {
+        title: "Links - Connecting the Web Together",
+        description: "Links are the magic that makes the web 'worldwide'! They're the bridges that connect every website, page, and resource on the internet. Master links and you'll understand the fundamental power of the web! 🌐",
+        sections: [
+          {
+            title: "The Anchor Tag - Your Gateway to Everywhere",
+            content: "The `<a>` tag (anchor) creates all links. Think of it as a door that can lead anywhere:\n\n```html\n<a href=\"destination\">Link text</a>\n```\n\n• **href** = hypertext reference (where to go)\n• **Link text** = what users see and click\n• **href** is like GPS coordinates for the web\n• **Link text** should clearly describe the destination\n\nAlways make link text descriptive - 'Visit our pricing page' is better than 'click here'!"
+          },
+          {
+            title: "External Links - Connecting to Other Websites",
+            content: "Link to other websites with full URLs:\n\n```html\n<a href=\"https://www.example.com\">Visit Example.com</a>\n```\n\n**Best practices:**\n• Always start with `https://` for secure connections\n• Use `target=\"_blank\"` to open in new tab: `<a href=\"...\" target=\"_blank\">`\n• Add `title` attribute for helpful tooltips\n• Test your links regularly to ensure they work\n\n**Example with all best practices:**\n```html\n<a href=\"https://github.com\" target=\"_blank\" title=\"GitHub - Where code lives\">Visit GitHub</a>\n```"
+          },
+          {
+            title: "Communication Links - Direct Contact Made Easy",
+            content: "HTML can trigger different actions:\n\n• **Email**: `<a href=\"mailto:someone@email.com\">Send Email</a>`\n• **Phone**: `<a href=\"tel:+1234567890\">Call Us</a>`\n• **SMS**: `<a href=\"sms:+1234567890\">Text Us</a>`\n\n**Enhanced email links:**\n```html\n<a href=\"mailto:hello@site.com?subject=Hello&body=Hi there!\">Email with pre-filled subject and message</a>\n```\n\nThese links work automatically on phones and computers!"
+          },
+          {
+            title: "Internal Links - Navigation Within Your Site",
+            content: "Link to sections on the same page or other pages:\n\n**Same page sections:**\n1. Add an `id` to any element: `<h2 id=\"about\">About</h2>`\n2. Link to it: `<a href=\"#about\">Go to About section</a>`\n\n**Other pages on your site:**\n• `<a href=\"about.html\">About Page</a>`\n• `<a href=\"../contact.html\">Contact Page</a>`\n• `<a href=\"/\">Home Page</a>`\n\n**File downloads:**\n• `<a href=\"resume.pdf\" download>Download my resume</a>`"
+          },
+          {
+            title: "Link Practice Session! 🎯",
+            content: "In the playground, experiment with:\n1. Change external links to your favorite websites\n2. Update the email link with your email address\n3. Add new internal navigation links\n4. Create a 'Back to top' link\n5. Try the `target=\"_blank\"` attribute\n6. Add helpful `title` attributes\n\nLinks are the foundation of web navigation - master them and you master the web!"
+          }
+        ]
+      }
+    },
+    { 
+      id: 10, 
+      title: "Images - Adding Visual Content", 
+      completed: false,
+      playgroundCode: '<h1>My Photo Gallery 📸</h1>\\n\\n<p>Here are some beautiful images:</p>\\n\\n<img src=\"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300\" alt=\"Beautiful mountain landscape\" width=\"300\">\\n\\n<p>A cute kitten:</p>\\n<img src=\"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=250\" alt=\"Adorable orange kitten\" width=\"250\">\\n\\n<p>You can also add captions:</p>\\n<figure>\\n  <img src=\"https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=300\" alt=\"Sunset over the ocean\" width=\"300\">\\n  <figcaption>Beautiful sunset at the beach</figcaption>\\n</figure>\\n\\n<p>Try changing the image URLs or adding your own!</p>',
+      content: {
+        title: "Images - Adding Visual Content",
+        description: "A picture truly is worth a thousand words! Images make websites come alive, tell stories, and create emotional connections with your visitors. Let's master the art of adding beautiful, accessible images to your web pages! 🎨",
+        sections: [
+          {
+            title: "The Image Tag - Your Visual Gateway",
+            content: "The `<img>` tag brings images to your webpage. Unlike most HTML tags, it's self-closing:\n\n```html\n<img src=\"image.jpg\" alt=\"Description of image\">\n```\n\n**Essential attributes:**\n• **src**: The image source (URL or file path)\n• **alt**: Alternative text for accessibility and SEO\n• **width/height**: Dimensions (optional but helpful)\n• **title**: Tooltip text when hovering\n\n**Remember:** The `alt` attribute is crucial - it helps screen readers describe images to visually impaired users!"
+          },
+          {
+            title: "Image Sources - Where to Find Great Images",
+            content: "You can use images from various sources:\n\n**Free image websites (always check licenses):**\n• Unsplash.com - High-quality photos\n• Pexels.com - Free stock photos\n• Pixabay.com - Images, vectors, illustrations\n• Freepik.com - Graphics and vectors\n\n**Your own images:**\n• Photos from your phone/camera\n• Screenshots\n• Graphics you create\n• Company logos and branding\n\n**Best practices:**\n• Always respect copyright\n• Optimize file sizes for faster loading\n• Choose images that support your content"
+          },
+          {
+            title: "Making Images Responsive and Accessible",
+            content: "Modern images should work on all devices:\n\n**Responsive images:**\n```html\n<img src=\"photo.jpg\" \n     alt=\"Detailed description\" \n     style=\"max-width: 100%; height: auto;\">\n```\n\n**Figure and figcaption for images with captions:**\n```html\n<figure>\n  <img src=\"sunset.jpg\" alt=\"Sunset over mountains\">\n  <figcaption>Beautiful sunset in the Rocky Mountains</figcaption>\n</figure>\n```\n\n**Writing great alt text:**\n• Be descriptive but concise\n• Describe what's important about the image\n• Skip 'image of' or 'picture of'\n• For decorative images, use empty alt: `alt=\"\"`"
+          },
+          {
+            title: "Advanced Image Techniques",
+            content: "Take your images to the next level:\n\n**Loading optimization:**\n```html\n<img src=\"large-image.jpg\" \n     alt=\"Description\" \n     loading=\"lazy\">\n```\n\n**Multiple image sources for different devices:**\n```html\n<picture>\n  <source media=\"(min-width: 800px)\" srcset=\"large.jpg\">\n  <source media=\"(min-width: 400px)\" srcset=\"medium.jpg\">\n  <img src=\"small.jpg\" alt=\"Description\">\n</picture>\n```\n\n**Images as links:**\n```html\n<a href=\"full-size-image.jpg\">\n  <img src=\"thumbnail.jpg\" alt=\"Click to view larger\">\n</a>\n```"
+          },
+          {
+            title: "Image Practice Challenge! 📸",
+            content: "In the playground, experiment with:\n1. Replace images with URLs from Unsplash (search for topics you like)\n2. Write detailed, helpful alt text for each image\n3. Add captions using `<figure>` and `<figcaption>`\n4. Try different image sizes and see how they adapt\n5. Create an image grid or gallery layout\n6. Add `title` attributes for hover tooltips\n\nGreat images make websites memorable and engaging!"
+          }
+        ]
+      }
+    }
   ];
 
   const currentLesson = lessons.find(lesson => lesson.id === selectedLesson) || lessons[0];

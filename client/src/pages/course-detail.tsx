@@ -825,32 +825,35 @@ export default function CourseDetail() {
 
   // Function to format content text
   const formatContent = (text: string) => {
-    return text
-      // Convert **bold** to <strong>bold</strong>
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      // Convert `code` to <code>code</code>
-      .replace(/`([^`]+)`/g, '<code>$1</code>')
-      // Convert bullet points to HTML lists
-      .replace(/^• (.+)$/gm, '<li>$1</li>')
-      // Wrap consecutive list items in <ul>
-      .replace(/(<li>.*<\/li>)/gs, (match) => {
-        if (match.includes('</li><li>')) {
-          return '<ul>' + match.replace(/\n/g, '') + '</ul>';
-        }
-        return '<ul>' + match + '</ul>';
-      })
-      // Convert double line breaks to paragraph breaks
-      .replace(/\n\n/g, '</p><p>')
-      // Add opening and closing paragraph tags
-      .replace(/^(.)/gm, '<p>$1')
-      .replace(/(.)$/gm, '$1</p>')
-      // Clean up multiple paragraph tags
-      .replace(/<p><\/p>/g, '')
-      .replace(/<p><ul>/g, '<ul>')
-      .replace(/<\/ul><\/p>/g, '</ul>')
-      .replace(/<p><strong>/g, '<p><strong>')
-      // Fix code blocks
-      .replace(/```html\n([\s\S]*?)\n```/g, '<pre><code>$1</code></pre>');
+    let formatted = text;
+    
+    // Convert **bold** to <strong>bold</strong>
+    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Convert `code` to <code>code</code>
+    formatted = formatted.replace(/`([^`]+)`/g, '<code class="bg-gray-100 px-1 rounded">$1</code>');
+    
+    // Convert bullet points to proper list items
+    formatted = formatted.replace(/^• (.+)$/gm, '<li>$1</li>');
+    
+    // Convert numbered lists
+    formatted = formatted.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+    
+    // Split into paragraphs and format
+    const paragraphs = formatted.split('\\n\\n');
+    const formattedParagraphs = paragraphs.map(paragraph => {
+      // Check if paragraph contains list items
+      if (paragraph.includes('<li>')) {
+        // Wrap list items in ul tags
+        return '<ul class="list-disc ml-6 space-y-1">' + paragraph + '</ul>';
+      } else if (paragraph.trim()) {
+        // Regular paragraph
+        return '<p class="mb-3">' + paragraph.replace(/\\n/g, '<br>') + '</p>';
+      }
+      return '';
+    });
+    
+    return formattedParagraphs.join('');
   };
 
   // Update playground code when lesson changes

@@ -828,38 +828,53 @@ export default function CourseDetail() {
     let formatted = text;
     
     // Convert **bold** to <strong>bold</strong>
-    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>');
     
     // Convert `code` to <code>code</code>
-    formatted = formatted.replace(/`([^`]+)`/g, '<code class="bg-gray-100 px-1 rounded">$1</code>');
+    formatted = formatted.replace(/`([^`]+)`/g, '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">$1</code>');
+    
+    // Handle code blocks
+    formatted = formatted.replace(/```html\\n([\s\S]*?)\\n```/g, '<pre class="bg-gray-50 p-3 rounded-lg overflow-x-auto my-3"><code class="text-sm font-mono">$1</code></pre>');
+    formatted = formatted.replace(/```([\s\S]*?)```/g, '<pre class="bg-gray-50 p-3 rounded-lg overflow-x-auto my-3"><code class="text-sm font-mono">$1</code></pre>');
     
     // Convert bullet points to proper list items
-    formatted = formatted.replace(/^• (.+)$/gm, '<li>$1</li>');
+    formatted = formatted.replace(/^• (.+)$/gm, '<li class="mb-1">$1</li>');
     
     // Convert numbered lists
-    formatted = formatted.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+    formatted = formatted.replace(/^\d+\. (.+)$/gm, '<li class="mb-1">$1</li>');
     
-    // Split into paragraphs and format
-    const paragraphs = formatted.split('\\n\\n');
+    // Split into paragraphs - handle both \\n\\n and \n\n
+    const paragraphs = formatted.split(/\\n\\n|\n\n/);
     const formattedParagraphs = paragraphs.map(paragraph => {
+      const trimmed = paragraph.trim();
+      if (!trimmed) return '';
+      
       // Check if paragraph contains list items
-      if (paragraph.includes('<li>')) {
+      if (trimmed.includes('<li>')) {
         // Wrap list items in ul tags
-        return '<ul class="list-disc ml-6 space-y-1">' + paragraph + '</ul>';
-      } else if (paragraph.trim()) {
-        // Regular paragraph
-        return '<p class="mb-3">' + paragraph.replace(/\\n/g, '<br>') + '</p>';
+        return '<ul class="list-disc ml-6 space-y-1 my-3">' + trimmed + '</ul>';
+      } else if (trimmed.includes('<pre>')) {
+        // Return code blocks as-is
+        return trimmed;
+      } else {
+        // Regular paragraph - handle single line breaks too
+        const cleanText = trimmed.replace(/\\n|\n/g, '<br>');
+        return '<p class="mb-3 leading-relaxed">' + cleanText + '</p>';
       }
-      return '';
     });
     
-    return formattedParagraphs.join('');
+    return formattedParagraphs.filter(p => p).join('');
   };
 
   // Update playground code when lesson changes
   useEffect(() => {
     if (currentLesson && currentLesson.playgroundCode) {
-      setHtmlCode(currentLesson.playgroundCode.replace(/\\\\n/g, '\\n'));
+      // Convert escaped newlines to actual newlines for the editor
+      const cleanCode = currentLesson.playgroundCode
+        .replace(/\\\\n/g, '\n')  // Convert double-escaped newlines
+        .replace(/\\n/g, '\n')    // Convert single-escaped newlines
+        .replace(/\\t/g, '\t');   // Convert tabs
+      setHtmlCode(cleanCode);
     }
   }, [selectedLesson, currentLesson]);
 
@@ -1010,8 +1025,9 @@ export default function CourseDetail() {
                       <textarea
                         value={htmlCode}
                         onChange={(e) => setHtmlCode(e.target.value)}
-                        className="w-full h-40 p-3 border border-gray-300 rounded-lg font-mono text-sm"
+                        className="w-full h-40 p-3 border border-gray-300 rounded-lg font-mono text-sm resize-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                         placeholder="Enter your HTML code here..."
+                        data-testid="textarea-html-code"
                       />
                     </div>
                     
@@ -1021,9 +1037,10 @@ export default function CourseDetail() {
                       </label>
                       <div className="border border-gray-300 rounded-lg p-4 bg-white min-h-[200px]">
                         <iframe
-                          srcDoc={htmlCode}
+                          srcDoc={`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:system-ui,sans-serif;margin:8px;line-height:1.4;}</style></head><body>${htmlCode}</body></html>`}
                           className="w-full h-full min-h-[180px] border-0"
                           title="HTML Preview"
+                          data-testid="iframe-preview"
                         />
                       </div>
                     </div>

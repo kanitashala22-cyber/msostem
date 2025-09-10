@@ -12,6 +12,7 @@ export default function CourseDetail() {
   const { id } = useParams();
   const [selectedLesson, setSelectedLesson] = useState(1);
   const [htmlCode, setHtmlCode] = useState('');
+  const [userHasEditedCode, setUserHasEditedCode] = useState(false);
   
   const { data: course, isLoading } = useQuery<Course>({
     queryKey: ["/api/courses", id],
@@ -866,9 +867,9 @@ export default function CourseDetail() {
     return formattedParagraphs.filter(p => p).join('');
   };
 
-  // Update playground code when lesson changes
+  // Update playground code when lesson changes (only if user hasn't edited)
   useEffect(() => {
-    if (currentLesson && currentLesson.playgroundCode) {
+    if (currentLesson && currentLesson.playgroundCode && !userHasEditedCode) {
       // Convert escaped newlines to actual newlines for the editor
       const cleanCode = currentLesson.playgroundCode
         .replace(/\\\\n/g, '\n')  // Convert double-escaped newlines
@@ -876,7 +877,12 @@ export default function CourseDetail() {
         .replace(/\\t/g, '\t');   // Convert tabs
       setHtmlCode(cleanCode);
     }
-  }, [selectedLesson, currentLesson]);
+  }, [selectedLesson, currentLesson, userHasEditedCode]);
+
+  // Reset the edited flag when lesson changes
+  useEffect(() => {
+    setUserHasEditedCode(false);
+  }, [selectedLesson]);
 
   if (isLoading) {
     return (
@@ -1024,7 +1030,10 @@ export default function CourseDetail() {
                       </label>
                       <textarea
                         value={htmlCode}
-                        onChange={(e) => setHtmlCode(e.target.value)}
+                        onChange={(e) => {
+                          setHtmlCode(e.target.value);
+                          setUserHasEditedCode(true);
+                        }}
                         className="w-full h-40 p-3 border border-gray-300 rounded-lg font-mono text-sm resize-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                         placeholder="Enter your HTML code here..."
                         data-testid="textarea-html-code"

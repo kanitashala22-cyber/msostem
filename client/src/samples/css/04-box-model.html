@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .box-demo {
+            background-color: #3498db;
+            color: white;
+            width: 300px;
+            height: 150px;
+            
+            /* Padding - space inside the box */
+            padding: 20px;
+            
+            /* Border - the box outline */
+            border: 5px solid #2c3e50;
+            
+            /* Margin - space outside the box */
+            margin: 30px auto;
+            
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .content-box {
+            background-color: #e74c3c;
+            width: 200px;
+            padding: 15px;
+            border: 3px solid #c0392b;
+            margin: 20px;
+            box-sizing: content-box; /* Default */
+        }
+        
+        .border-box {
+            background-color: #2ecc71;
+            width: 200px;
+            padding: 15px;
+            border: 3px solid #27ae60;
+            margin: 20px;
+            box-sizing: border-box; /* Modern approach */
+        }
+        
+        .spacing-demo {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .margin-example {
+            background-color: #f39c12;
+            padding: 10px;
+            margin-top: 20px;
+            margin-right: 40px;
+            margin-bottom: 20px;
+            margin-left: 40px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Box Model Demo</h1>
+    
+    <div class="box-demo">
+        <p>This box has:</p>
+        <p>20px padding, 5px border, 30px margin</p>
+    </div>
+    
+    <div class="spacing-demo">
+        <h3>Box Sizing Comparison</h3>
+        
+        <div class="content-box">
+            Content Box: Width = 200px + padding + border
+        </div>
+        
+        <div class="border-box">
+            Border Box: Total width = exactly 200px
+        </div>
+    </div>
+    
+    <div class="spacing-demo">
+        <h3>Margin Example</h3>
+        <div class="margin-example">
+            This box has different margins on each side!
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-header h1 {
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+        
+        .form-header p {
+            color: #7f8c8d;
+            margin: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: #fdfdfd;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #3498db;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .form-input:invalid {
+            border-color: #e74c3c;
+        }
+        
+        .form-input:valid {
+            border-color: #2ecc71;
+        }
+        
+        /* Floating label effect */
+        .floating-label {
+            position: relative;
+        }
+        
+        .floating-label input {
+            padding-top: 25px;
+        }
+        
+        .floating-label label {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: #7f8c8d;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            text-transform: none;
+            font-weight: normal;
+        }
+        
+        .floating-label input:focus + label,
+        .floating-label input:valid + label {
+            top: 5px;
+            font-size: 12px;
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        /* Select styling */
+        .form-select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: white;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+        }
+        
+        /* Checkbox styling */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .custom-checkbox {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .custom-checkbox input {
+            opacity: 0;
+            position: absolute;
+        }
+        
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            background-color: #ecf0f1;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-checkbox input:checked + .checkmark {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+        
+        .checkmark::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 3px;
+            color: white;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .custom-checkbox input:checked + .checkmark::after {
+            opacity: 1;
+        }
+        
+        /* File upload styling */
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .file-upload input {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .file-upload-label {
+            display: block;
+            padding: 15px;
+            border: 2px dashed #bdc3c7;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .file-upload:hover .file-upload-label {
+            border-color: #3498db;
+            background-color: #f0f8ff;
+        }
+        
+        /* Submit button */
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Progress bar */
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #ecf0f1;
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 70%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Beautiful Contact Form</h1>
+            <p>Experience modern form design in action</p>
+            
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+        
+        <form>
+            <div class="form-group floating-label">
+                <input type="text" class="form-input" required>
+                <label>Your Full Name</label>
+            </div>
+            
+            <div class="form-group floating-label">
+                <input type="email" class="form-input" required>
+                <label>Email Address</label>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Subject</label>
+                <select class="form-select" required>
+                    <option value="">Choose a topic...</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="business">Business Proposal</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-input" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Attach Files</label>
+                <div class="file-upload">
+                    <input type="file" multiple>
+                    <label class="file-upload-label">
+                        📎 Click to select files or drag and drop
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="newsletter" required>
+                        <span class="checkmark"></span>
+                    </div>
+                    <label for="newsletter">I agree to the terms and privacy policy</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="updates">
+                        <span class="checkmark"></span>
+                    </div>
+                    <label for="updates">Subscribe to our newsletter for updates</label>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                Send Message
+            </button>
+        </form>
+    </div>
+    
+    <script>
+        // File upload feedback
+        document.querySelector('.file-upload input').addEventListener('change', function(e) {
+            const label = document.querySelector('.file-upload-label');
+            const files = e.target.files;
+            if (files.length > 0) {
+                label.innerHTML = `📁 ${files.length} file(s) selected`;
+            }
+        });
+    </script>
+</body>
+</html>

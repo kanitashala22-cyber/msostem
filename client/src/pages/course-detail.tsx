@@ -1063,3 +1063,43 @@ export default function CourseDetail() {
     </div>
   );
 }
+
+  function getLessons(id: string) {
+    return id === 'course-2' ? [
+  { 
+    id: 1, 
+      title: "What is CSS? - Styling Your First Page", 
+      completed: false,
+      playgroundCode: '<h1>Hello, World!</h1>\\n<p>This is my first HTML page!</p>\\n<p>HTML stands for <strong>HyperText Markup Language</strong>.</p>',
+      content: {
+        title: "What is HTML? - Your First Web Page",
+        description: "Welcome to the exciting world of web development! HTML is the foundation of every website on the internet. Let's discover what makes the web work and create your very first webpage! 🌟",
+        sections: [
+              {
+                title: "What is HTML?",
+                content: "HTML stands for HyperText Markup Language. Think of it as the skeleton of a website:\\n\\n• **HyperText**: Text with links to other text\\n• **Markup**: Special codes that describe content\\n• **Language**: A system computers understand\\n\\nHTML tells browsers what each piece of content is - whether it's a heading, paragraph, image, or link. It's like the blueprint of a house!"
+              },
+              {
+                title: "How Websites Work",
+                content: "When you visit a website:\\n1. Your browser asks a server for the webpage\\n2. The server sends back HTML code\\n3. Your browser reads the HTML and displays it\\n4. You see the beautiful webpage!\\n\\nHTML is everywhere - every website uses it, from simple blogs to complex applications like Facebook and Google."
+              },
+              {
+                title: "HTML Tags - The Building Blocks",
+                content: "HTML uses 'tags' to mark up content:\\n\\n• Tags are surrounded by angle brackets: `<tag>`\\n• Most tags come in pairs: `<tag>content</tag>`\\n• The opening tag starts the element\\n• The closing tag ends it (has a forward slash)\\n\\nExample: `<h1>This is a heading</h1>`"
+              },
+              {
+                title: "Try It Yourself!",
+                content: "In the playground, try:\\n1. Change 'Hello, World!' to your own message\\n2. Add another paragraph with `<p>Your text here</p>`\\n3. Make some text bold with `<strong>bold text</strong>`\\n4. See how the changes appear instantly!\\n\\nCongratulations - you're now writing HTML! 🎉"
+              }
+            ]
+          }
+        }
+      ] : [];
+  } 
+
+export default function CourseDetail() {
+  const { id } = useParams();
+
+  // ✅ now you are actually using getLessons
+  const lessons = getLessons(id);
+}

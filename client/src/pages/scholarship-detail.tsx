@@ -1,16 +1,24 @@
-import { useParams } from "wouter";
-import { useQuery } from "@tanstack/react-query";
+import { useParams } from "wouter"; //
+import { useQuery } from "@tanstack/react-query"; //
 import Navbar from "@/components/navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { CalendarDays, MapPin, DollarSign, Users, ExternalLink, CheckCircle, Globe } from "lucide-react";
-import type { Scholarship } from "@shared/schema";
-import techGirlsImage from "@assets/generated_images/TechGirls_STEM_program_participants_e9afc913.png";
+import { Badge } from "@/components/ui/badge"; //
+import {
+  CalendarDays,
+  MapPin,
+  DollarSign,
+  Users,
+  ExternalLink,
+  CheckCircle,
+  Globe,
+} from "lucide-react";
+import type { Scholarship } from "@shared/schema"; //
+import techGirlsImage from "@assets/generated_images/techgirlstg.jpg";
 
 export default function ScholarshipDetail() {
   const { id } = useParams();
-  
+
   const { data: scholarship, isLoading } = useQuery<Scholarship>({
     queryKey: ["/api/scholarships", id],
   });
@@ -27,41 +35,51 @@ export default function ScholarshipDetail() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Scholarship Not Found</h1>
-          <p className="text-gray-600">The scholarship you're looking for doesn't exist.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            Scholarship Not Found
+          </h1>
+          <p className="text-gray-600">
+            The scholarship you're looking for doesn't exist.
+          </p>
         </div>
       </div>
     );
   }
 
   // Program specific content
-  const isTechGirls = scholarship.id === 'scholarship-1';
-  const isBenjaminFranklin = scholarship.id === 'scholarship-2';
-  const isYES = scholarship.id === 'scholarship-3';
-  const isFLEX = scholarship.id === 'scholarship-4';
+  const isTechGirls = scholarship.id === "scholarship-1";
+  const isBenjaminFranklin = scholarship.id === "scholarship-2";
+  const isYES = scholarship.id === "scholarship-3";
+  const isFLEX = scholarship.id === "scholarship-4";
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      
+
       <div className="pt-24 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-8">
-            <Badge className={`mb-4 ${
-              scholarship.status === 'open' ? 'bg-green-100 text-green-800' :
-              scholarship.status === 'upcoming' ? 'bg-blue-100 text-blue-800' :
-              'bg-yellow-100 text-yellow-800'
-            }`}>
-              {scholarship.status === 'open' ? 'Open for Applications' :
-               scholarship.status === 'upcoming' ? 'Upcoming Application Period' :
-               'Closing Soon'}
+            <Badge
+              className={`mb-4 ${
+                scholarship.status === "open"
+                  ? "bg-green-100 text-green-800"
+                  : scholarship.status === "upcoming"
+                    ? "bg-blue-100 text-blue-800"
+                    : "bg-yellow-100 text-yellow-800"
+              }`}
+            >
+              {scholarship.status === "open"
+                ? "Open for Applications"
+                : scholarship.status === "upcoming"
+                  ? "Upcoming Application Period"
+                  : "Closing Soon"}
             </Badge>
-            
+
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               {scholarship.title}
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-6">
               {scholarship.description}
             </p>
@@ -69,11 +87,16 @@ export default function ScholarshipDetail() {
             <div className="flex flex-wrap gap-4 text-sm text-gray-600">
               <div className="flex items-center">
                 <DollarSign className="w-4 h-4 mr-2" />
-                <span className="font-medium">${scholarship.amount.toLocaleString()} Value</span>
+                <span className="font-medium">
+                  ${scholarship.amount.toLocaleString()} Value
+                </span>
               </div>
               <div className="flex items-center">
                 <CalendarDays className="w-4 h-4 mr-2" />
-                <span>Deadline: {new Date(scholarship.deadline).toLocaleDateString()}</span>
+                <span>
+                  Deadline:{" "}
+                  {new Date(scholarship.deadline).toLocaleDateString()}
+                </span>
               </div>
               <div className="flex items-center">
                 <MapPin className="w-4 h-4 mr-2" />
@@ -89,8 +112,8 @@ export default function ScholarshipDetail() {
           {/* Program Image */}
           {isTechGirls && (
             <div className="mb-8">
-              <img 
-                src={techGirlsImage} 
+              <img
+                src={techGirlsImage}
                 alt="TechGirls program participants working on STEM projects"
                 className="w-full h-64 object-cover rounded-lg shadow-lg"
               />
@@ -103,14 +126,24 @@ export default function ScholarshipDetail() {
               {/* Program Overview */}
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">About TechGirls Program</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    About TechGirls Program
+                  </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    TechGirls is a prestigious, fully-funded U.S. Department of State exchange program that empowers young women from around the world to pursue careers in science, technology, engineering, and mathematics (STEM). This life-changing opportunity combines intensive technology training at Virginia Tech University with cultural immersion across the United States.
+                    TechGirls is a prestigious, fully-funded U.S. Department of
+                    State exchange program that empowers young women from around
+                    the world to pursue careers in science, technology,
+                    engineering, and mathematics (STEM). This life-changing
+                    opportunity combines intensive technology training at
+                    Virginia Tech University with cultural immersion across the
+                    United States.
                   </p>
-                  
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Program Highlights</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Program Highlights
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
@@ -134,9 +167,11 @@ export default function ScholarshipDetail() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">What's Included</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        What's Included
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
@@ -167,11 +202,15 @@ export default function ScholarshipDetail() {
               {/* Eligibility Requirements */}
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Eligibility Requirements</h2>
-                  
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    Eligibility Requirements
+                  </h2>
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Basic Requirements</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Basic Requirements
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Ages 15-17 at program start</li>
                         <li>• Citizens/residents of eligible countries</li>
@@ -181,9 +220,11 @@ export default function ScholarshipDetail() {
                         <li>• No prior coding experience required</li>
                       </ul>
                     </div>
-                    
+
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Personal Qualities</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Personal Qualities
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Demonstrated leadership potential</li>
                         <li>• Community service experience</li>
@@ -193,18 +234,35 @@ export default function ScholarshipDetail() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">Eligible Countries/Territories (37 total)</h3>
+                    <h3 className="font-semibold text-gray-900 mb-3">
+                      Eligible Countries/Territories (37 total)
+                    </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-700">
-                        <strong>Sub-Saharan Africa:</strong> Cameroon, Kenya, Nigeria, Rwanda, South Africa, Zambia<br/>
-                        <strong>East Asia & Pacific:</strong> Cambodia, Fiji, Indonesia, Mongolia, Taiwan, Vietnam<br/>
-                        <strong>Europe & Eurasia:</strong> Albania, Cyprus, Greece, Kosovo, Montenegro, Türkiye<br/>
-                        <strong>Middle East & North Africa:</strong> Algeria, Egypt, Jordan, Lebanon, Morocco, Palestinian Territories, Tunisia<br/>
-                        <strong>South & Central Asia:</strong> Kazakhstan, Kyrgyzstan, Pakistan, Tajikistan, Turkmenistan, Uzbekistan<br/>
-                        <strong>Western Hemisphere:</strong> Brazil, Costa Rica, Ecuador, Panama, Peru, Suriname<br/>
-                        <strong>United States:</strong> U.S. citizens and residents are also eligible
+                        <strong>Sub-Saharan Africa:</strong> Cameroon, Kenya,
+                        Nigeria, Rwanda, South Africa, Zambia
+                        <br />
+                        <strong>East Asia & Pacific:</strong> Cambodia, Fiji,
+                        Indonesia, Mongolia, Taiwan, Vietnam
+                        <br />
+                        <strong>Europe & Eurasia:</strong> Albania, Cyprus,
+                        Greece, Kosovo, Montenegro, Türkiye
+                        <br />
+                        <strong>Middle East & North Africa:</strong> Algeria,
+                        Egypt, Jordan, Lebanon, Morocco, Palestinian
+                        Territories, Tunisia
+                        <br />
+                        <strong>South & Central Asia:</strong> Kazakhstan,
+                        Kyrgyzstan, Pakistan, Tajikistan, Turkmenistan,
+                        Uzbekistan
+                        <br />
+                        <strong>Western Hemisphere:</strong> Brazil, Costa Rica,
+                        Ecuador, Panama, Peru, Suriname
+                        <br />
+                        <strong>United States:</strong> U.S. citizens and
+                        residents are also eligible
                       </p>
                     </div>
                   </div>
@@ -214,27 +272,42 @@ export default function ScholarshipDetail() {
               {/* Program Structure */}
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Program Structure</h2>
-                  
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    Program Structure
+                  </h2>
+
                   <div className="space-y-6">
                     <div className="border-l-4 border-primary pl-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">Phase 1: Tech Camp at Virginia Tech</h3>
+                      <h3 className="font-semibold text-gray-900 mb-2">
+                        Phase 1: Tech Camp at Virginia Tech
+                      </h3>
                       <p className="text-gray-700">
-                        Intensive technology camp featuring hands-on STEM training, lab visits, job shadowing with tech professionals, and leadership workshops.
+                        Intensive technology camp featuring hands-on STEM
+                        training, lab visits, job shadowing with tech
+                        professionals, and leadership workshops.
                       </p>
                     </div>
-                    
+
                     <div className="border-l-4 border-secondary pl-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">Phase 2: Community Immersion</h3>
+                      <h3 className="font-semibold text-gray-900 mb-2">
+                        Phase 2: Community Immersion
+                      </h3>
                       <p className="text-gray-700 mb-2">
-                        Cultural immersion in U.S. cities including Austin, Cincinnati, Denver, Detroit, Kansas City, or Seattle. Experience host family life and visit major tech companies.
+                        Cultural immersion in U.S. cities including Austin,
+                        Cincinnati, Denver, Detroit, Kansas City, or Seattle.
+                        Experience host family life and visit major tech
+                        companies.
                       </p>
                     </div>
-                    
+
                     <div className="border-l-4 border-accent pl-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">Phase 3: Community Action Project</h3>
+                      <h3 className="font-semibold text-gray-900 mb-2">
+                        Phase 3: Community Action Project
+                      </h3>
                       <p className="text-gray-700">
-                        Upon returning home, implement a community-based STEM project such as starting tech clubs, teaching coding, or organizing career fairs.
+                        Upon returning home, implement a community-based STEM
+                        project such as starting tech clubs, teaching coding, or
+                        organizing career fairs.
                       </p>
                     </div>
                   </div>
@@ -244,10 +317,14 @@ export default function ScholarshipDetail() {
               {/* Application Information */}
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Application Information</h2>
-                  
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    Application Information
+                  </h2>
+
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-                    <h3 className="font-semibold text-blue-900 mb-2">2026 Application Timeline</h3>
+                    <h3 className="font-semibold text-blue-900 mb-2">
+                      2026 Application Timeline
+                    </h3>
                     <ul className="text-blue-800 space-y-1">
                       <li>• Application Opens: Fall 2025</li>
                       <li>• Application Deadline: December 2025</li>
@@ -255,10 +332,12 @@ export default function ScholarshipDetail() {
                       <li>• Program Dates: July 2026</li>
                     </ul>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Application Requirements</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Application Requirements
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Complete online application in English</li>
                         <li>• Personal portrait/headshot photo</li>
@@ -267,13 +346,19 @@ export default function ScholarshipDetail() {
                         <li>• All responses must be original work</li>
                       </ul>
                     </div>
-                    
+
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Selection Process</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Selection Process
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Independent committee reviews applications</li>
-                        <li>• U.S. embassy interviews for international candidates</li>
-                        <li>• Legacy International interviews for U.S. candidates</li>
+                        <li>
+                          • U.S. embassy interviews for international candidates
+                        </li>
+                        <li>
+                          • Legacy International interviews for U.S. candidates
+                        </li>
                         <li>• Final selection and notification</li>
                       </ul>
                     </div>
@@ -286,14 +371,24 @@ export default function ScholarshipDetail() {
             <div className="space-y-8">
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">About Benjamin Franklin Transatlantic Fellowship</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    About Benjamin Franklin Transatlantic Fellowship
+                  </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    The Benjamin Franklin Transatlantic Fellowship (BFTF) is a prestigious 4-week summer exchange program hosted by Purdue University that brings together young European leaders to explore diplomacy, leadership, and transatlantic relations in the United States. This fully-funded U.S. State Department program empowers participants to become future ambassadors of international cooperation.
+                    The Benjamin Franklin Transatlantic Fellowship (BFTF) is a
+                    prestigious 4-week summer exchange program hosted by Purdue
+                    University that brings together young European leaders to
+                    explore diplomacy, leadership, and transatlantic relations
+                    in the United States. This fully-funded U.S. State
+                    Department program empowers participants to become future
+                    ambassadors of international cooperation.
                   </p>
-                  
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Program Highlights</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Program Highlights
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
@@ -317,9 +412,11 @@ export default function ScholarshipDetail() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Program Components</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Program Components
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
@@ -349,25 +446,35 @@ export default function ScholarshipDetail() {
 
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Eligibility Requirements</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    Eligibility Requirements
+                  </h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Basic Requirements</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Basic Requirements
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Ages 16-18 at program start</li>
-                        <li>• European citizenship or legal permanent residency</li>
+                        <li>
+                          • European citizenship or legal permanent residency
+                        </li>
                         <li>• Strong academic achievement</li>
                         <li>• High proficiency in English</li>
                         <li>• Little to no prior U.S. experience</li>
                         <li>• Commitment to return home post-program</li>
                       </ul>
                     </div>
-                    
+
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Personal Qualities</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Personal Qualities
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Demonstrated leadership potential</li>
-                        <li>• Interest in diplomacy and international relations</li>
+                        <li>
+                          • Interest in diplomacy and international relations
+                        </li>
                         <li>• Maturity and independence</li>
                         <li>• Strong social skills and flexibility</li>
                         <li>• Open-minded and tolerant attitude</li>
@@ -375,12 +482,18 @@ export default function ScholarshipDetail() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">Participating Countries</h3>
+                    <h3 className="font-semibold text-gray-900 mb-3">
+                      Participating Countries
+                    </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-700">
-                        European countries including: Austria, Belgium, Cyprus, Czech Republic, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Slovakia, Slovenia, Spain, and others.
+                        European countries including: Albania, Austria, Belgium,
+                        Cyprus, Czech Republic, Estonia, Finland, France,
+                        Germany, Greece, Hungary, Ireland, Italy, Kosovo,
+                        Latvia, Lithuania, Luxembourg, Malta, Netherlands,
+                        Poland, Portugal, Slovakia, Slovenia, Spain, and others.
                       </p>
                     </div>
                   </div>
@@ -392,14 +505,24 @@ export default function ScholarshipDetail() {
             <div className="space-y-8">
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">About Kennedy-Lugar Youth Exchange & Study (YES)</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    About Kennedy-Lugar Youth Exchange & Study (YES)
+                  </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    The Kennedy-Lugar Youth Exchange & Study (YES) program is a competitive, merit-based scholarship program funded by the U.S. State Department that brings high school students from countries with significant Muslim populations to the United States for a full academic year. Students live with volunteer American host families and attend U.S. high schools, serving as cultural ambassadors.
+                    The Kennedy-Lugar Youth Exchange & Study (YES) program is a
+                    competitive, merit-based scholarship program funded by the
+                    U.S. State Department that brings high school students from
+                    countries with significant Muslim populations to the United
+                    States for a full academic year. Students live with
+                    volunteer American host families and attend U.S. high
+                    schools, serving as cultural ambassadors.
                   </p>
-                  
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Program Highlights</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Program Highlights
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
@@ -423,9 +546,11 @@ export default function ScholarshipDetail() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">What's Included</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        What's Included
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
@@ -455,10 +580,14 @@ export default function ScholarshipDetail() {
 
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Eligibility Requirements</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    Eligibility Requirements
+                  </h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Basic Requirements</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Basic Requirements
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Ages 15-18 (high school students)</li>
                         <li>• Citizens/residents of participating countries</li>
@@ -468,9 +597,11 @@ export default function ScholarshipDetail() {
                         <li>• No previous long-term U.S. experience</li>
                       </ul>
                     </div>
-                    
+
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Personal Qualities</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Personal Qualities
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Leadership potential and maturity</li>
                         <li>• Cultural curiosity and open-mindedness</li>
@@ -481,17 +612,29 @@ export default function ScholarshipDetail() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">Participating Countries (45+ countries)</h3>
+                    <h3 className="font-semibold text-gray-900 mb-3">
+                      Participating Countries (45+ countries)
+                    </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-700">
-                        <strong>Southeast Asia:</strong> Indonesia, Malaysia, Philippines, Thailand<br/>
-                        <strong>Europe & Eurasia:</strong> Bosnia and Herzegovina, Bulgaria, Turkey<br/>
-                        <strong>Middle East & North Africa:</strong> Egypt, Jordan, Morocco, Tunisia<br/>
-                        <strong>South & Central Asia:</strong> India, Pakistan<br/>
-                        <strong>Sub-Saharan Africa:</strong> Ghana, Mali, Senegal, South Africa<br/>
-                        And many other countries with significant Muslim populations.
+                        <strong>Southeast Asia:</strong> Indonesia, Malaysia,
+                        Philippines, Thailand
+                        <br />
+                        <strong>Europe & Eurasia:</strong> Bosnia and
+                        Herzegovina, Bulgaria, Turkey
+                        <br />
+                        <strong>Middle East & North Africa:</strong> Egypt,
+                        Jordan, Morocco, Tunisia
+                        <br />
+                        <strong>South & Central Asia:</strong> India, Pakistan
+                        <br />
+                        <strong>Sub-Saharan Africa:</strong> Ghana, Mali,
+                        Senegal, South Africa
+                        <br />
+                        And many other countries with significant Muslim
+                        populations.
                       </p>
                     </div>
                   </div>
@@ -503,14 +646,24 @@ export default function ScholarshipDetail() {
             <div className="space-y-8">
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">About Future Leaders Exchange (FLEX)</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    About Future Leaders Exchange (FLEX)
+                  </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    The Future Leaders Exchange (FLEX) program is a competitive, merit-based scholarship program funded by the U.S. State Department that brings high school students from Europe, Eurasia, and Central Asia to the United States for a full academic year. With over 32,000 alumni since 1993, FLEX promotes mutual understanding and lasting peace through youth exchange.
+                    The Future Leaders Exchange (FLEX) program is a competitive,
+                    merit-based scholarship program funded by the U.S. State
+                    Department that brings high school students from Europe,
+                    Eurasia, and Central Asia to the United States for a full
+                    academic year. With over 32,000 alumni since 1993, FLEX
+                    promotes mutual understanding and lasting peace through
+                    youth exchange.
                   </p>
-                  
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Program Highlights</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Program Highlights
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
@@ -534,9 +687,11 @@ export default function ScholarshipDetail() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Program Requirements</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Program Requirements
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
@@ -566,10 +721,14 @@ export default function ScholarshipDetail() {
 
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Eligibility Requirements</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    Eligibility Requirements
+                  </h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Basic Requirements</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Basic Requirements
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Ages 15-17 (some sources say up to 19)</li>
                         <li>• Citizens of participating countries</li>
@@ -579,9 +738,11 @@ export default function ScholarshipDetail() {
                         <li>• No significant prior U.S. experience</li>
                       </ul>
                     </div>
-                    
+
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-3">Personal Qualities</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Personal Qualities
+                      </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li>• Exceptional leadership potential</li>
                         <li>• Strong character and maturity</li>
@@ -592,15 +753,26 @@ export default function ScholarshipDetail() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">Participating Countries (22 countries)</h3>
+                    <h3 className="font-semibold text-gray-900 mb-3">
+                      Participating Countries (22 countries)
+                    </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-700">
-                        <strong>Eastern Europe:</strong> Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia<br/>
-                        <strong>Southeast Europe:</strong> Greece, Montenegro, Serbia<br/>
-                        <strong>Eurasia:</strong> Armenia, Azerbaijan, Belarus, Georgia, Moldova, Russia, Ukraine<br/>
-                        <strong>Central Asia:</strong> Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan<br/>
+                        <strong>Eastern Europe:</strong> Czech Republic,
+                        Estonia, Hungary, Latvia, Lithuania, Poland, Romania,
+                        Slovakia
+                        <br />
+                        <strong>Southeast Europe:</strong> Greece, Montenegro,
+                        Serbia
+                        <br />
+                        <strong>Eurasia:</strong> Armenia, Azerbaijan, Belarus,
+                        Georgia, Moldova, Russia, Ukraine
+                        <br />
+                        <strong>Central Asia:</strong> Kazakhstan, Kyrgyzstan,
+                        Tajikistan, Turkmenistan, Uzbekistan
+                        <br />
                         <strong>East Asia:</strong> Mongolia
                       </p>
                     </div>
@@ -612,19 +784,29 @@ export default function ScholarshipDetail() {
             /* Generic scholarship content for other scholarships */
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Scholarship Details</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Scholarship Details
+                </h2>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Field of Study</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">
+                      Field of Study
+                    </h3>
                     <p className="text-gray-700">{scholarship.field}</p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Eligibility</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">
+                      Eligibility
+                    </h3>
                     <p className="text-gray-700">{scholarship.eligibility}</p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Organization</h3>
-                    <p className="text-gray-700">{scholarship.organizationName}</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">
+                      Organization
+                    </h3>
+                    <p className="text-gray-700">
+                      {scholarship.organizationName}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -633,25 +815,28 @@ export default function ScholarshipDetail() {
 
           {/* Application Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Button 
+            <Button
               asChild
-              size="lg" 
+              size="lg"
               className="bg-primary hover:bg-primary/90 text-white flex-1"
             >
-              <a href={scholarship.applicationUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={scholarship.applicationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ExternalLink className="w-5 h-5 mr-2" />
                 Apply Now
               </a>
             </Button>
-            
+
             {isTechGirls && (
-              <Button 
-                asChild
-                variant="outline" 
-                size="lg"
-                className="flex-1"
-              >
-                <a href="https://techgirlsglobal.org/" target="_blank" rel="noopener noreferrer">
+              <Button asChild variant="outline" size="lg" className="flex-1">
+                <a
+                  href="https://techgirlsglobal.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Globe className="w-5 h-5 mr-2" />
                   Visit TechGirls Website
                 </a>
@@ -665,8 +850,9 @@ export default function ScholarshipDetail() {
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">Need Help?</h3>
                 <p className="text-gray-700">
-                  For specific country inquiries, contact your local U.S. embassy or consulate. 
-                  General program questions can be submitted through the TechGirls website contact form.
+                  For specific country inquiries, contact your local U.S.
+                  embassy or consulate. General program questions can be
+                  submitted through the TechGirls website contact form.
                 </p>
               </CardContent>
             </Card>

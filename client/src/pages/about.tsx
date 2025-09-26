@@ -13,7 +13,7 @@ export default function About() {
           {/* Hero Section */}
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent mb-6">
-              About CodeHer
+              About MsoSTEM
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Empowering young women to break barriers in technology through interactive learning and scholarship opportunities.
@@ -30,7 +30,7 @@ export default function About() {
                 <h2 className="text-3xl font-bold text-gray-900">Our Mission</h2>
               </div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                CodeHer exists to bridge the gender gap in technology by providing an accessible, 
+                MsoSTEM exists to bridge the gender gap in technology by providing an accessible, 
                 engaging platform where girls and young women can learn programming fundamentals 
                 and discover scholarship opportunities. We believe that every girl deserves the 
                 chance to explore her potential in STEM fields, regardless of her background or 
@@ -102,7 +102,7 @@ export default function About() {
                     from pursuing STEM subjects or lacking access to supportive learning environments.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    CodeHer addresses this challenge by creating a welcoming space where girls can 
+                    MsoSTEM addresses this challenge by creating a welcoming space where girls can 
                     explore programming without intimidation, build confidence through achievable goals, 
                     and connect with opportunities that support their educational journey.
                   </p>
@@ -114,7 +114,7 @@ export default function About() {
                     scholarships and grants that can help fund their education and remove economic obstacles.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    Every girl who learns to code through CodeHer becomes part of a growing movement 
+                    Every girl who learns to code through MsoSTEM becomes part of a growing movement 
                     to diversify the tech industry and create more inclusive, innovative solutions for the world.
                   </p>
                 </div>
@@ -164,7 +164,7 @@ export default function About() {
               <h2 className="text-3xl font-bold mb-4">Join the Movement</h2>
               <p className="text-xl mb-6 opacity-90">
                 Whether you're just starting your coding journey or looking for your next opportunity, 
-                CodeHer is here to support you every step of the way.
+                MsoSTEM is here to support you every step of the way.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 

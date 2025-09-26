@@ -8,7 +8,7 @@ const successStories = [
     location: "San Francisco",
     education: "Stanford CS '23",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    quote: "CodeHer gave me the confidence to pursue computer science. The supportive community and step-by-step approach made coding feel achievable for the first time.",
+    quote: "MsoSTEM gave me the confidence to pursue computer science. The supportive community and step-by-step approach made coding feel achievable for the first time.",
     gradientClass: "from-primary to-secondary"
   },
   {
@@ -18,7 +18,7 @@ const successStories = [
     location: "Austin",
     achievement: "$25K Scholarship",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    quote: "I discovered my passion for web development through CodeHer. Now I'm building platforms to help other women in tech connect and grow.",
+    quote: "I discovered my passion for web development through MsoSTEM. Now I'm building platforms to help other women in tech connect and grow.",
     gradientClass: "from-secondary to-accent"
   },
   {

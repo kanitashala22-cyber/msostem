@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
                 <Code className="text-white text-xl" />
               </div>
-              <span className="text-3xl font-bold gradient-text">CodeHer</span>
+              <span className="text-3xl font-bold gradient-text">MsoSTEM</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               Empowering women to code, creating pathways to success, and building a more inclusive tech industry, one student at a time.
@@ -105,7 +105,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; 2024 CodeHer. All rights reserved.
+            &copy; 2024 MsoSTEM. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">

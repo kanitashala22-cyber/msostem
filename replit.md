@@ -1,6 +1,6 @@
 # Overview
 
-CodeHer is a comprehensive web application designed to empower young women in technology by providing interactive coding courses and scholarship opportunities. The platform focuses on HTML and CSS education with a modern, engaging interface featuring course progression tracking, an interactive code playground, and curated scholarship listings.
+MsoSTEM is a comprehensive web application designed to empower young women in technology by providing interactive coding courses and scholarship opportunities. The platform focuses on HTML and CSS education with a modern, engaging interface featuring course progression tracking, an interactive code playground, and curated scholarship listings.
 
 # User Preferences
 

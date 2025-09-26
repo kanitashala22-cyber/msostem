@@ -18,12 +18,13 @@ export default function Playground() {
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to CodeHer!</h1>
+        <h1>Welcome to MsoSTEM!</h1>
         <p>Start building amazing websites with HTML and CSS.</p>
         <button class="btn">Get Started</button>
     </div>
 </body>
 </html>`);
+
 
   const [cssCode, setCssCode] = useState(`body {
     font-family: 'Inter', sans-serif;
@@ -325,7 +326,7 @@ p {
                       <h4 className="font-semibold mb-2">HTML</h4>
                       <pre className="bg-gray-800 text-gray-300 p-4 rounded-lg text-sm overflow-x-auto">
 {`<nav class="navbar">
-  <div class="nav-brand">CodeHer</div>
+  <div class="nav-brand">MsoSTEM</div>
   <div class="nav-links">
     <a href="#home">Home</a>
     <a href="#about">About</a>

@@ -205,7 +205,7 @@ export class MemStorage implements IStorage {
         duration: "5 weeks",
         lessonsCount: 12,
         imageUrl:
-          "/attached_assets/generated_images/CSS_design_course_cover_2db0b318.png",
+          "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
         category: "css",
         content: {
           lessons: [
@@ -265,7 +265,7 @@ export class MemStorage implements IStorage {
         },
         createdAt: new Date(),
       },
-      {
+      /* {
         id: "course-3",
         title: "Responsive Web Design",
         description:
@@ -284,7 +284,7 @@ export class MemStorage implements IStorage {
           ],
         },
         createdAt: new Date(),
-      },
+      }, */
     ];
 
     courses.forEach((course) => this.courses.set(course.id, course));
@@ -298,7 +298,8 @@ export class MemStorage implements IStorage {
           "Fully-funded U.S. State Department program empowering young women (ages 15-17) to pursue STEM careers through an intensive summer exchange program in the United States.",
         amount: 25000, // Estimated full program value including travel, accommodation, and education
         deadline: new Date("2025-12-06"), // Next application cycle
-        field: "Science, Technology, Engineering, Mathematics (STEM)",
+        field:
+          "Science, Technology, Engineering, Mathematics, STEM, Leadership",
         location: "Virginia Tech University + U.S. Cities",
         eligibility:
           "Young women ages 15-17 from 37 eligible countries with strong interest in STEM fields",
@@ -331,7 +332,7 @@ export class MemStorage implements IStorage {
           "Competitive merit-based scholarship program bringing high school students from countries with significant Muslim populations to study for a full academic year in the United States, living with host families.",
         amount: 30000, // Estimated full program value including travel, accommodation, education, and stipend
         deadline: new Date("2025-03-31"), // Application deadlines vary by country, typically fall-winter
-        field: "Cultural Exchange, Leadership Development, Democracy Studies",
+        field: "Cultural Exchange, Leadership",
         location: "United States (Various High Schools)",
         eligibility:
           "High school students ages 15-18 from 45+ participating countries with significant Muslim populations",
@@ -348,7 +349,7 @@ export class MemStorage implements IStorage {
           "Competitive merit-based scholarship program bringing high school students from Europe, Eurasia, and Central Asia to live with American host families and attend U.S. high schools for a full academic year.",
         amount: 35000, // Estimated full program value including travel, accommodation, education, and activities
         deadline: new Date("2025-09-30"), // Applications typically open in fall
-        field: "Cultural Exchange, Leadership, Democracy & Entrepreneurship",
+        field: "Cultural Exchange, Leadership, Democracy",
         location: "United States (Various High Schools)",
         eligibility:
           "High school students ages 15-17 from 22 participating countries in Europe, Eurasia, and Central Asia",
@@ -365,7 +366,7 @@ export class MemStorage implements IStorage {
           "Dedicated to supporting women breaking barriers in science, technology, engineering, and mathematics.",
         amount: 7500,
         deadline: new Date("2024-06-30"),
-        field: "All STEM Fields",
+        field: "STEM, Science, Technology",
         location: "United States",
         eligibility: "Women in STEM programs",
         status: "open",

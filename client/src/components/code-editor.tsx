@@ -22,7 +22,7 @@ export default function CodeEditor({
   useEffect(() => {
     if (editorRef.current && !monacoEditor.current) {
       // Configure Monaco Editor
-      monaco.editor.defineTheme('codeher-dark', {
+      monaco.editor.defineTheme('MsoSTEM-dark', {
         base: 'vs-dark',
         inherit: true,
         rules: [
@@ -47,7 +47,7 @@ export default function CodeEditor({
       monacoEditor.current = monaco.editor.create(editorRef.current, {
         value: value,
         language: language,
-        theme: theme === 'vs-dark' ? 'codeher-dark' : 'vs-light',
+        theme: theme === 'vs-dark' ? 'MsoSTEM-dark' : 'vs-light',
         automaticLayout: true,
         minimap: { enabled: false },
         scrollBeyondLastLine: false,

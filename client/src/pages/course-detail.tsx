@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { Play, CheckCircle, Lock, Eye, Code } from "lucide-react";
 import type { Course } from "@shared/schema";
 import { CSS_LESSONS } from "./lessons-css";
+import eiffel from "@assets/generated_images/eiffel.webp";
+
 
 export default function CourseDetail() {
   const { id } = useParams();

@@ -13,18 +13,22 @@ interface CourseCardProps {
 export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
   return (
     <Card className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden group">
-      <img 
-        src={course.imageUrl || ""} 
+      <img
+        src={course.imageUrl || ""}
         alt={course.title}
-        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" 
+        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
       />
       <CardContent className="p-6">
         <div className="flex items-center justify-between mb-3">
-          <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-            course.level === 'beginner' ? 'bg-primary bg-opacity-10 text-primary' :
-            course.level === 'intermediate' ? 'bg-secondary bg-opacity-10 text-secondary' :
-            'bg-accent bg-opacity-10 text-accent'
-          }`}>
+          <span
+            className={`px-3 py-1 rounded-full text-sm font-medium ${
+              course.level === "beginner"
+                ? "bg-primary bg-opacity-10 text-primary"
+                : course.level === "intermediate"
+                  ? "bg-secondary bg-opacity-10 text-secondary"
+                  : "bg-accent bg-opacity-10 text-accent"
+            }`}
+          >
             {course.level.charAt(0).toUpperCase() + course.level.slice(1)}
           </span>
           <div className="flex items-center text-gray-500">
@@ -34,7 +38,7 @@ export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
         <p className="text-gray-600 mb-4">{course.description}</p>
-        
+
         {/* Progress Bar */}
         <div className="mb-4">
           <div className="flex justify-between text-sm text-gray-600 mb-1">
@@ -42,29 +46,35 @@ export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
             <span>{progress}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <ProgressBar 
-              progress={progress} 
+            <ProgressBar
+              progress={progress}
               className={`h-2 rounded-full ${
-                course.level === 'beginner' ? 'bg-primary' :
-                course.level === 'intermediate' ? 'bg-secondary' :
-                'bg-accent'
+                course.level === "beginner"
+                  ? "bg-primary"
+                  : course.level === "intermediate"
+                    ? "bg-secondary"
+                    : "bg-accent"
               }`}
             />
           </div>
         </div>
-        
+
         <div className="flex items-center justify-between">
           <div className="flex items-center text-gray-500">
             <Play className="w-4 h-4 mr-2" />
             <span className="text-sm">{course.lessonsCount} lessons</span>
           </div>
           <Link href={`/course/${course.id}`}>
-            <Button className={`${
-              course.level === 'beginner' ? 'bg-primary hover:bg-primary/90' :
-              course.level === 'intermediate' ? 'bg-secondary hover:bg-secondary/90' :
-              'bg-accent hover:bg-accent/90'
-            } text-white`}>
-              {course.id === "course-3" ? 'Coming Soon' : 'Continue'}
+            <Button
+              className={`${
+                course.level === "beginner"
+                  ? "bg-primary hover:bg-primary/90"
+                  : course.level === "intermediate"
+                    ? "bg-secondary hover:bg-secondary/90"
+                    : "bg-accent hover:bg-accent/90"
+              } text-white`}
+            >
+              {course.id === "course-3" ? "Coming Soon" : "Continue"}
             </Button>
           </Link>
         </div>

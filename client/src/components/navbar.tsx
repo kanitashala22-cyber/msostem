@@ -19,7 +19,7 @@ export default function Navbar() {
             <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
               <Code className="text-white text-lg" />
             </div>
-            <span className="text-2xl font-bold gradient-text">CodeHer</span>
+            <span className="text-2xl font-bold gradient-text">MsoSTEM</span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">

@@ -127,7 +127,7 @@ export default function Home() {
                           course.level === 'intermediate' ? 'bg-secondary hover:bg-secondary/90' :
                           'bg-accent hover:bg-accent/90'
                         } text-white`}>
-                          {index === 2 ? 'Coming Soon' : 'Continue'}
+                          Continue
                         </Button>
                       </Link>
                     </div>

@@ -11,27 +11,11 @@ import Scholarships from "@/pages/scholarships";
 import ScholarshipDetail from "@/pages/scholarship-detail";
 import Playground from "@/pages/playground";
 import About from "@/pages/about";
-import { ThemeProvider } from "@/hooks/use-theme";
-import Course from "@/pages/Course";
-
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <ThemeProvider>
-          <Toaster />
-          <Router />
-        </ThemeProvider>
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-}
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/:any*" component={Course} />
       <Route path="/courses" component={Courses} />
       <Route path="/courses/:id">
         {(params) => <Redirect to={`/course/${params.id}`} />}
@@ -43,6 +27,17 @@ function Router() {
       <Route path="/about" component={About} />
       <Route component={NotFound} />
     </Switch>
+  );
+}
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Router />
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 }
 

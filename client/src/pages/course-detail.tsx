@@ -1,6 +1,6 @@
 import { useParams } from "wouter";
 import { useQuery } from "@tanstack/react-query";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,8 @@ export default function CourseDetail() {
   const [htmlCode, setHtmlCode] = useState("");
   const [userHasEditedCode, setUserHasEditedCode] = useState(false);
   const { toast } = useToast();
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const { data: course, isLoading } = useQuery<Course>({
     queryKey: ["/api/courses", id],
@@ -259,7 +261,7 @@ export default function CourseDetail() {
             title: "Images - Adding Visual Content",
             completed: false,
             playgroundCode:
-              '<h1>Working with Images</h1>\\n\\n<img src=\"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400\" alt=\"Beautiful landscape with mountains and lake\" width=\"400\">\\n\\n<p>The image above shows a beautiful landscape.</p>\\n\\n<figure>\\n    <img src=\"https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=300\" alt=\"Fresh vegetables and fruits\" width=\"300\">\\n    <figcaption>Healthy fruits and vegetables for a balanced diet</figcaption>\\n</figure>\\n\\n<p>You can also use images as links:</p>\\n<a href=\"https://unsplash.com\">\\n    <img src=\"https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=200\" alt=\"Camera lens close-up\" width=\"200\">\\n</a>',
+              '<h1>Working with Images</h1>\\n\\n<img src=\"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400\" alt=\"Beautiful landscape with mountains and lake\" width=\"400\">\\n\\n<p>The image shows a man smiling.</p>\\n\\n<figure>\\n    <img src=\"https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=300\" alt=\"Fresh vegetables and fruits\" width=\"300\">\\n    <figcaption>Healthy fruits and vegetables for a balanced diet</figcaption>\\n</figure>\\n\\n<p>You can also use images as links:</p>\\n<a href=\"https://unsplash.com\">\\n    <img src=\"https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=200\" alt=\"Camera lens close-up\" width=\"200\">\\n</a>',
             content: {
               title: "Images - Adding Visual Content",
               description:
@@ -1086,6 +1088,43 @@ export default function CourseDetail() {
     });
   };
 
+  // Auto-grow textarea based on content
+  const autoGrowTextarea = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      const maxHeight = window.innerHeight * 0.7;
+      const newHeight = Math.min(textareaRef.current.scrollHeight, maxHeight);
+      textareaRef.current.style.height = `${newHeight}px`;
+    }
+  };
+
+  // Auto-resize iframe based on content
+  const autoResizeIframe = () => {
+    if (iframeRef.current && iframeRef.current.contentDocument) {
+      const body = iframeRef.current.contentDocument.body;
+      const html = iframeRef.current.contentDocument.documentElement;
+      const height = Math.max(
+        body?.scrollHeight || 0,
+        html?.scrollHeight || 0,
+        300
+      );
+      iframeRef.current.style.height = `${height}px`;
+    }
+  };
+
+  // Auto-grow textarea when code changes
+  useEffect(() => {
+    autoGrowTextarea();
+  }, [htmlCode]);
+
+  // Auto-resize iframe when code changes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      autoResizeIframe();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [htmlCode]);
+
   // Update playground code when lesson changes (only if user hasn't edited)
   useEffect(() => {
     if (currentLesson && currentLesson.playgroundCode && !userHasEditedCode) {
@@ -1281,12 +1320,13 @@ export default function CourseDetail() {
                         HTML Code
                       </label>
                       <textarea
+                        ref={textareaRef}
                         value={htmlCode}
                         onChange={(e) => {
                           setHtmlCode(e.target.value);
                           setUserHasEditedCode(true);
                         }}
-                        className="w-full h-40 p-3 border border-gray-300 rounded-lg font-mono text-sm resize-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                        className="w-full min-h-40 max-h-[70vh] p-3 border border-gray-300 rounded-lg font-mono text-sm overflow-y-auto focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                         placeholder="Enter your HTML code here..."
                         data-testid="textarea-html-code"
                       />
@@ -1296,12 +1336,14 @@ export default function CourseDetail() {
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Preview
                       </label>
-                      <div className="border border-gray-300 rounded-lg p-4 bg-white min-h-[200px]">
+                      <div className="border border-gray-300 rounded-lg p-4 bg-white">
                         <iframe
+                          ref={iframeRef}
                           srcDoc={`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:system-ui,sans-serif;margin:8px;line-height:1.4;}</style></head><body>${htmlCode}</body></html>`}
-                          className="w-full h-full min-h-[180px] border-0"
+                          className="w-full border-0"
                           title="HTML Preview"
                           data-testid="iframe-preview"
+                          onLoad={autoResizeIframe}
                         />
                       </div>
                     </div>

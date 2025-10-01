@@ -271,15 +271,16 @@ export class MemStorage implements IStorage {
         description:
           "Build websites that look perfect on every device using modern CSS Grid, Flexbox, and media queries.",
         level: "intermediate",
-        duration: "2 weeks",
-        lessonsCount: 2,
+        duration: "8 weeks",
+        lessonsCount: 30,
         imageUrl:
           "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
         category: "responsive",
         content: {
           lessons: [
-            { id: 1, title: "Mobile-First Design Philosophy", completed: false },
-            { id: 2, title: "Media Queries & Breakpoints", completed: false },
+            { id: 1, title: "Mobile-First Design", completed: false },
+            { id: 2, title: "CSS Grid", completed: false },
+            { id: 3, title: "Media Queries", completed: false },
           ],
         },
         createdAt: new Date(),

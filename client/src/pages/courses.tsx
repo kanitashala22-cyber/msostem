@@ -3,6 +3,50 @@ import CourseCard from "@/components/course-card";
 import Footer from "@/components/footer";
 import { useQuery } from "@tanstack/react-query";
 import type { Course } from "@shared/schema";
+import { CourseSidebar } from "@/components/CourseSidebar";
+import { LessonContent } from "@/components/LessonContent";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { lessonsData } from "@/data/lessons";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+
+export default function Course() {
+  const [activeLesson, setActiveLesson] = useState(lessonsData[0].id);
+
+  const lessons = lessonsData.map(l => ({
+    id: l.id,
+    title: l.title,
+    category: l.category,
+  }));
+
+  const currentLesson = lessonsData.find(l => l.id === activeLesson) || lessonsData[0];
+
+  const style = {
+    "--sidebar-width": "20rem",
+    "--sidebar-width-icon": "4rem",
+  };
+
+  return (
+    <SidebarProvider style={style as React.CSSProperties}>
+      <div className="flex h-screen w-full">
+        <CourseSidebar 
+          lessons={lessons}
+          activeLesson={activeLesson}
+          onLessonChange={setActiveLesson}
+        />
+        <div className="flex flex-col flex-1">
+          <header className="flex items-center justify-between p-4 border-b border-border bg-background sticky top-0 z-50">
+            <SidebarTrigger data-testid="button-sidebar-toggle" />
+            <ThemeToggle />
+          </header>
+          <main className="flex-1 overflow-y-auto bg-background">
+            <LessonContent lesson={currentLesson} />
+          </main>
+        </div>
+      </div>
+    </SidebarProvider>
+  );
+}
+
 
 export default function Courses() {
   const { data: courses, isLoading } = useQuery<Course[]>({

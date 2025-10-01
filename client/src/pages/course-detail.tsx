@@ -8,7 +8,6 @@ import { Badge } from "@/components/ui/badge";
 import { Play, CheckCircle, Lock, Eye, Code, Save } from "lucide-react";
 import type { Course } from "@shared/schema";
 import { CSS_LESSONS } from "./lessons-css";
-import { RESPONSIVE_LESSONS } from "./lessons-responsive";
 import eiffel from "@assets/generated_images/eiffel.webp";
 import { useToast } from "@/hooks/use-toast";
 

@@ -6,9 +6,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Save, Share, RotateCcw, Play } from "lucide-react";
+import { Save, RotateCcw, Play } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Playground() {
+  const { toast } = useToast();
   const [htmlCode, setHtmlCode] = useState(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,13 +112,21 @@ p {
   };
 
   const handleSave = () => {
-    // In a real app, this would save to the backend
-    alert("Project saved successfully!");
-  };
-
-  const handleShare = () => {
-    // In a real app, this would generate a shareable link
-    alert("Share link copied to clipboard!");
+    const fileName = `${projectTitle.replace(/\s+/g, '-').toLowerCase()}-${Date.now()}.html`;
+    const blob = new Blob([combinedCode], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    toast({
+      title: "File Downloaded!",
+      description: `Your project has been saved as ${fileName}`,
+    });
   };
 
   const combinedCode = `
@@ -168,13 +178,9 @@ p {
                     <RotateCcw className="w-4 h-4 mr-2" />
                     Reset
                   </Button>
-                  <Button onClick={handleSave} variant="outline" size="sm">
+                  <Button onClick={handleSave} variant="outline" size="sm" data-testid="button-save">
                     <Save className="w-4 h-4 mr-2" />
                     Save
-                  </Button>
-                  <Button onClick={handleShare} variant="outline" size="sm">
-                    <Share className="w-4 h-4 mr-2" />
-                    Share
                   </Button>
                 </div>
               </div>

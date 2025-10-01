@@ -51,6 +51,7 @@ export default function ScholarshipDetail() {
   const isBenjaminFranklin = scholarship.id === "scholarship-2";
   const isYES = scholarship.id === "scholarship-3";
   const isFLEX = scholarship.id === "scholarship-4";
+  const isAFS = scholarship.id === "scholarship-5";
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -774,6 +775,132 @@ export default function ScholarshipDetail() {
                         Tajikistan, Turkmenistan, Uzbekistan
                         <br />
                         <strong>East Asia:</strong> Mongolia
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ) : isAFS ? (
+            /* Benjamin Franklin Transatlantic Fellowship Content */
+            <div className="space-y-8">
+              <Card>
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    About About AFS Global You™ Adventurer
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    The AFS Global You™ Adventurer is a unique 5-week online exchange program designed for high school students around the world. This fully immersive, fully-funded program helps participants develop global competence, intercultural communication skills, leadership capacity, and digital collaboration skills.
+
+                    Through engaging activities, interactive discussions, and cross-cultural teamwork, students connect with peers from diverse backgrounds to become more empathetic, open-minded, and prepared to thrive in a globalized world.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Program Highlights
+                      </h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          5-week interactive virtual exchange
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Focus on global citizenship and intercultural skills
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Leadership development and teamwork activities
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Real-world challenges tied to UN Sustainable Development Goals (SDGs)
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Daily online interactions with peers from around the world
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Program Components
+                      </h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Global Competence Workshops: Training on communication, empathy, and cultural awareness
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Sustainability Challenges: Projects related to the SDGs
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Intercultural Dialogues: Interactive sessions with international peers
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Leadership Activities: Team-based collaboration across time zones
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                          Digital Collaboration Tools: Building skills in remote teamwork and problem-solving
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    Eligibility Requirements
+                  </h2>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Basic Requirements
+                      </h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Ages 14–17 at the program start</li>
+                        <li>
+                          • Open to students anywhere in the world
+                        </li>
+                        <li>• Strong interest in global issues, culture, and leadership</li>
+                        <li>• High proficiency in English</li>
+                        <li>• Access to stable internet connection and computer</li>
+                
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-3">
+                        Personal Qualities
+                      </h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Curiosity and open-mindedness</li>
+                        <li>
+                          • Willingness to collaborate with peers from different cultures
+                        </li>
+                        <li>• Strong teamwork and communication skills</li>
+                        <li>• Respectful and inclusive attitude</li>
+                        <li>• Open-minded and tolerant attitude</li>
+                        <li>• Desire to become an active global citizen</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <h3 className="font-semibold text-gray-900 mb-3">
+                      Participating Countries
+                    </h3>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <p className="text-sm text-gray-700">
+                        Countries from all over the world are eligible to participate in the AFS Global You Adventurer program.
                       </p>
                     </div>
                   </div>

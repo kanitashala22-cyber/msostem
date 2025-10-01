@@ -2,7 +2,6 @@ import Navbar from "@/components/navbar";
 import HeroSection from "@/components/hero-section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import ProgressBar from "@/components/progress-bar";
 
 import Footer from "@/components/footer";
 import { useQuery } from "@tanstack/react-query";
@@ -116,24 +115,6 @@ export default function Home() {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
                     <p className="text-gray-600 mb-4">{course.description}</p>
-                    
-                    {/* Progress Bar */}
-                    <div className="mb-4">
-                      <div className="flex justify-between text-sm text-gray-600 mb-1">
-                        <span>Progress</span>
-                        <span>{index === 0 ? '75%' : index === 1 ? '45%' : '0%'}</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <ProgressBar 
-                          progress={index === 0 ? 75 : index === 1 ? 45 : 0} 
-                          className={`h-2 rounded-full ${
-                            course.level === 'beginner' ? 'bg-primary' :
-                            course.level === 'intermediate' ? 'bg-secondary' :
-                            'bg-accent'
-                          }`}
-                        />
-                      </div>
-                    </div>
                     
                     <div className="flex items-center justify-between">
                       <div className="flex items-center text-gray-500">

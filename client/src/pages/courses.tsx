@@ -12,7 +12,7 @@ export default function Courses() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      
+
       <div className="pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -20,10 +20,11 @@ export default function Courses() {
               All <span className="gradient-text">Courses</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Master web development with our comprehensive HTML and CSS courses designed for beginners.
+              Master web development with our comprehensive HTML and CSS courses
+              designed for beginners.
             </p>
           </div>
-          
+
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3].map((i) => (
@@ -38,17 +39,17 @@ export default function Courses() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {courses?.map((course, index) => (
-                <CourseCard 
-                  key={course.id} 
-                  course={course} 
-                  progress={index === 0 ? 75 : index === 1 ? 45 : 0}
+                <CourseCard
+                  key={course.id}
+                  course={course}
+                  //  progress={index === 0 ? 75 : index === 1 ? 45 : 0}
                 />
               ))}
             </div>
           )}
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

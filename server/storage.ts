@@ -361,20 +361,20 @@ export class MemStorage implements IStorage {
       },
       {
         id: "scholarship-5",
-        title: "Women's Empowerment in STEM",
+        title: "AFS Global You™ Adventurer",
         description:
-          "Dedicated to supporting women breaking barriers in science, technology, engineering, and mathematics.",
+          "A 5-week interactive virtual exchange program, open to teens (aged 14-17) anywhere in the world, to develop key 21st-century global skills and build bridges across cultures.",
         amount: 7500,
-        deadline: new Date("2024-06-30"),
-        field: "STEM, Science, Technology",
-        location: "United States",
-        eligibility: "Women in STEM programs",
+        deadline: new Date("2025-06-30"),
+        field: "Civil Society, Leadership, Cultural Exchange",
+        location: "Virtual",
+        eligibility: "Students aged from 14-17 years old all over the world.",
         status: "open",
-        organizationName: "STEM Empowerment Alliance",
-        applicationUrl: "https://example.com/apply",
+        organizationName: "AFS",
+        applicationUrl: "https://afs.org/adventurer/",
         createdAt: new Date(),
       },
-      {
+      /* {
         id: "scholarship-6",
         title: "Outstanding Achievement Award",
         description:
@@ -388,7 +388,7 @@ export class MemStorage implements IStorage {
         organizationName: "Achievement Recognition Foundation",
         applicationUrl: "https://example.com/apply",
         createdAt: new Date(),
-      },
+      }, */
     ];
 
     scholarships.forEach((scholarship) =>

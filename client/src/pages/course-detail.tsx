@@ -1008,6 +1008,7 @@ export default function CourseDetail() {
   const LESSONS_BY_COURSE: Record<string, any[]> = {
     "course-1": HTML_LESSONS,
     "course-2": CSS_LESSONS,
+    "course-3": RESPONSIVE_LESSONS,
   };
 
   const lessons = LESSONS_BY_COURSE[id ?? ""] ?? [];

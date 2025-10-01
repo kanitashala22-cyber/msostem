@@ -265,7 +265,7 @@ export class MemStorage implements IStorage {
         },
         createdAt: new Date(),
       },
-      /* {
+       {
         id: "course-3",
         title: "Responsive Web Design",
         description:
@@ -284,7 +284,7 @@ export class MemStorage implements IStorage {
           ],
         },
         createdAt: new Date(),
-      }, */
+      }, 
     ];
 
     courses.forEach((course) => this.courses.set(course.id, course));

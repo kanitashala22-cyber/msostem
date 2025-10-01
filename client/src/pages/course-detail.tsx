@@ -5,10 +5,11 @@ import Navbar from "@/components/navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Play, CheckCircle, Lock, Eye, Code } from "lucide-react";
+import { Play, CheckCircle, Lock, Eye, Code, Save, Share2 } from "lucide-react";
 import type { Course } from "@shared/schema";
 import { CSS_LESSONS } from "./lessons-css";
 import eiffel from "@assets/generated_images/eiffel.webp";
+import { useToast } from "@/hooks/use-toast";
 
 
 export default function CourseDetail() {
@@ -16,6 +17,7 @@ export default function CourseDetail() {
   const [selectedLesson, setSelectedLesson] = useState(1);
   const [htmlCode, setHtmlCode] = useState("");
   const [userHasEditedCode, setUserHasEditedCode] = useState(false);
+  const { toast } = useToast();
 
   const { data: course, isLoading } = useQuery<Course>({
     queryKey: ["/api/courses", id],
@@ -1065,6 +1067,33 @@ export default function CourseDetail() {
     return formattedParagraphs.filter((p) => p).join("");
   };
 
+  // Save code to localStorage
+  const handleSave = () => {
+    const projectKey = `codeher_project_${id}_lesson_${selectedLesson}`;
+    localStorage.setItem(projectKey, htmlCode);
+    toast({
+      title: "Project Saved!",
+      description: "Your code has been saved to your browser.",
+    });
+  };
+
+  // Share code by copying to clipboard
+  const handleShare = async () => {
+    try {
+      await navigator.clipboard.writeText(htmlCode);
+      toast({
+        title: "Code Copied!",
+        description: "Your code has been copied to the clipboard. Share it with others!",
+      });
+    } catch (err) {
+      toast({
+        title: "Copy Failed",
+        description: "Unable to copy code to clipboard. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   // Update playground code when lesson changes (only if user hasn't edited)
   useEffect(() => {
     if (currentLesson && currentLesson.playgroundCode && !userHasEditedCode) {
@@ -1235,11 +1264,35 @@ export default function CourseDetail() {
               {/* Code Playground */}
               <Card className="lg:col-span-1">
                 <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Code className="h-6 w-6 text-purple-600" />
-                    <h2 className="text-xl font-semibold">
-                      Interactive Playground
-                    </h2>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <Code className="h-6 w-6 text-purple-600" />
+                      <h2 className="text-xl font-semibold">
+                        Interactive Playground
+                      </h2>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button
+                        onClick={handleSave}
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2"
+                        data-testid="button-save"
+                      >
+                        <Save className="h-4 w-4" />
+                        Save
+                      </Button>
+                      <Button
+                        onClick={handleShare}
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2"
+                        data-testid="button-share"
+                      >
+                        <Share2 className="h-4 w-4" />
+                        Share
+                      </Button>
+                    </div>
                   </div>
 
                   <div className="space-y-4">

@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Play, CheckCircle, Lock, Eye, Code, Save, Share2 } from "lucide-react";
+import { Play, CheckCircle, Lock, Eye, Code, Save } from "lucide-react";
 import type { Course } from "@shared/schema";
 import { CSS_LESSONS } from "./lessons-css";
 import eiffel from "@assets/generated_images/eiffel.webp";
@@ -1067,31 +1067,23 @@ export default function CourseDetail() {
     return formattedParagraphs.filter((p) => p).join("");
   };
 
-  // Save code to localStorage
+  // Download code as HTML file
   const handleSave = () => {
-    const projectKey = `codeher_project_${id}_lesson_${selectedLesson}`;
-    localStorage.setItem(projectKey, htmlCode);
+    const fileName = `lesson-${selectedLesson}-${Date.now()}.html`;
+    const blob = new Blob([htmlCode], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
     toast({
-      title: "Project Saved!",
-      description: "Your code has been saved to your browser.",
+      title: "File Downloaded!",
+      description: `Your code has been saved as ${fileName}`,
     });
-  };
-
-  // Share code by copying to clipboard
-  const handleShare = async () => {
-    try {
-      await navigator.clipboard.writeText(htmlCode);
-      toast({
-        title: "Code Copied!",
-        description: "Your code has been copied to the clipboard. Share it with others!",
-      });
-    } catch (err) {
-      toast({
-        title: "Copy Failed",
-        description: "Unable to copy code to clipboard. Please try again.",
-        variant: "destructive",
-      });
-    }
   };
 
   // Update playground code when lesson changes (only if user hasn't edited)
@@ -1271,28 +1263,16 @@ export default function CourseDetail() {
                         Interactive Playground
                       </h2>
                     </div>
-                    <div className="flex gap-2">
-                      <Button
-                        onClick={handleSave}
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2"
-                        data-testid="button-save"
-                      >
-                        <Save className="h-4 w-4" />
-                        Save
-                      </Button>
-                      <Button
-                        onClick={handleShare}
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2"
-                        data-testid="button-share"
-                      >
-                        <Share2 className="h-4 w-4" />
-                        Share
-                      </Button>
-                    </div>
+                    <Button
+                      onClick={handleSave}
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-2"
+                      data-testid="button-save"
+                    >
+                      <Save className="h-4 w-4" />
+                      Save
+                    </Button>
                   </div>
 
                   <div className="space-y-4">

@@ -271,8 +271,8 @@ export class MemStorage implements IStorage {
         description:
           "Learn to program Arduino microprocessors from scratch! Build exciting projects with easy-to-follow code examples, wiring diagrams, and interactive visuals.",
         level: "beginner",
-        duration: "3 weeks",
-        lessonsCount: 8,
+        duration: "4 weeks",
+        lessonsCount: 12,
         imageUrl:
           "https://images.unsplash.com/photo-1553406830-ef2513450d76?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
         category: "hardware",
@@ -285,7 +285,11 @@ export class MemStorage implements IStorage {
             { id: 5, title: "Controlling Motors & Movement", completed: false },
             { id: 6, title: "Working with LCD Displays", completed: false },
             { id: 7, title: "Building a Temperature Monitor", completed: false },
-            { id: 8, title: "Final Project - Smart Home Device", completed: false },
+            { id: 8, title: "Servo Motors & Precise Control", completed: false },
+            { id: 9, title: "Ultrasonic Distance Sensors", completed: false },
+            { id: 10, title: "Piezo Buzzers & Sound Generation", completed: false },
+            { id: 11, title: "Photoresistors & Light Sensing", completed: false },
+            { id: 12, title: "Final Project - Smart Home Automation", completed: false },
           ],
         },
         createdAt: new Date(),

@@ -1319,7 +1319,7 @@ export default function CourseDetail() {
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        HTML Code
+                        {id === "course-3" ? "Arduino C++" : "HTML Code"}
                       </label>
                       <textarea
                         ref={textareaRef}
@@ -1329,24 +1329,33 @@ export default function CourseDetail() {
                           setUserHasEditedCode(true);
                         }}
                         className="w-full min-h-40 max-h-[70vh] p-3 border border-gray-300 rounded-lg font-mono text-sm overflow-y-auto focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                        placeholder="Enter your HTML code here..."
+                        placeholder={id === "course-3" ? "Arduino code appears here..." : "Enter your HTML code here..."}
                         data-testid="textarea-html-code"
                       />
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Preview
+                        {id === "course-3" ? "Wiring Diagram" : "Preview"}
                       </label>
                       <div className="border border-gray-300 rounded-lg p-4 bg-white">
-                        <iframe
-                          ref={iframeRef}
-                          srcDoc={`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:system-ui,sans-serif;margin:8px;line-height:1.4;}</style></head><body>${htmlCode}</body></html>`}
-                          className="w-full border-0"
-                          title="HTML Preview"
-                          data-testid="iframe-preview"
-                          onLoad={autoResizeIframe}
-                        />
+                        {id === "course-3" && currentLesson?.wiringImage ? (
+                          <img 
+                            src={currentLesson.wiringImage} 
+                            alt="Wiring diagram" 
+                            className="w-full h-auto rounded"
+                            data-testid="img-wiring-diagram"
+                          />
+                        ) : (
+                          <iframe
+                            ref={iframeRef}
+                            srcDoc={`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:system-ui,sans-serif;margin:8px;line-height:1.4;}</style></head><body>${htmlCode}</body></html>`}
+                            className="w-full border-0"
+                            title="HTML Preview"
+                            data-testid="iframe-preview"
+                            onLoad={autoResizeIframe}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>

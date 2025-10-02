@@ -9,6 +9,9 @@ import motorWiringImg from "@assets/generated_images/Arduino_motor_driver_wiring
 import lcdWiringImg from "@assets/generated_images/Arduino_LCD_display_wiring_diagram_78c16099.png";
 import temperatureWiringImg from "@assets/generated_images/Arduino_temperature_sensor_wiring_diagram_174fcaeb.png";
 import smartHomeWiringImg from "@assets/generated_images/Arduino_smart_home_project_diagram_f7002808.png";
+import ultrasonicWiringImg from "@assets/generated_images/Arduino_ultrasonic_sensor_HC-SR04_wiring_c14f40ec.png";
+import buzzerWiringImg from "@assets/generated_images/Arduino_piezo_buzzer_simple_wiring_5f5507c7.png";
+import ldrWiringImg from "@assets/generated_images/Arduino_photoresistor_LDR_light_sensor_wiring_1272aeea.png";
 
 export const ARDUINO_LESSONS = [
   { 
@@ -490,7 +493,7 @@ void loop() {
     id: 9,
     title: "Ultrasonic Distance Sensors",
     completed: false,
-    wiringImage: buttonWiringImg,
+    wiringImage: ultrasonicWiringImg,
     playgroundCode: `// HC-SR04 Ultrasonic Distance Sensor
 // Wiring: VCC→5V, GND→GND, Trig→Pin 9, Echo→Pin 10
 
@@ -559,7 +562,7 @@ void loop() {
     id: 10,
     title: "Piezo Buzzers & Sound Generation",
     completed: false,
-    wiringImage: ledWiringImg,
+    wiringImage: buzzerWiringImg,
     playgroundCode: `// Piezo buzzer playing melodies
 // Wiring: Buzzer + → Pin 8, Buzzer - → GND
 
@@ -627,7 +630,7 @@ void loop() {
     id: 11,
     title: "Photoresistors & Light Sensing",
     completed: false,
-    wiringImage: potentiometerWiringImg,
+    wiringImage: ldrWiringImg,
     playgroundCode: `// Photoresistor (LDR) for automatic lighting
 // Wiring: LDR → A0 & 5V, 10kΩ resistor A0 → GND, LED → Pin 9
 

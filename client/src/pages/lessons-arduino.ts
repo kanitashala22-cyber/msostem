@@ -3,7 +3,12 @@
 
 import arduinoBoardImg from "@assets/generated_images/Cute_Arduino_board_cartoon_illustration_e7d8f8d5.png";
 import ledWiringImg from "@assets/generated_images/Arduino_LED_wiring_diagram_cartoon_f4ff2aa3.png";
-import componentsImg from "@assets/generated_images/Friendly_Arduino_components_cartoon_collection_80e14b22.png";
+import buttonWiringImg from "@assets/generated_images/Arduino_button_LED_wiring_diagram_f414be22.png";
+import potentiometerWiringImg from "@assets/generated_images/Arduino_potentiometer_sensor_wiring_diagram_5e5f02c8.png";
+import motorWiringImg from "@assets/generated_images/Arduino_motor_driver_wiring_diagram_47110d5d.png";
+import lcdWiringImg from "@assets/generated_images/Arduino_LCD_display_wiring_diagram_78c16099.png";
+import temperatureWiringImg from "@assets/generated_images/Arduino_temperature_sensor_wiring_diagram_174fcaeb.png";
+import smartHomeWiringImg from "@assets/generated_images/Arduino_smart_home_project_diagram_f7002808.png";
 
 export const ARDUINO_LESSONS = [
   { 
@@ -97,7 +102,7 @@ void loop() {
     id: 3, 
     title: "Understanding Digital Inputs & Buttons", 
     completed: false,
-    wiringImage: componentsImg,
+    wiringImage: buttonWiringImg,
     playgroundCode: `// Button controlling LED
 // Wiring: Button → Pin 2 & GND, LED → Pin 8 & resistor → GND
 
@@ -151,7 +156,7 @@ void loop() {
     id: 4, 
     title: "Analog Sensors & Reading Data", 
     completed: false,
-    wiringImage: componentsImg,
+    wiringImage: potentiometerWiringImg,
     playgroundCode: `// Potentiometer controlling LED brightness
 // Wiring: Potentiometer → A0, 5V, GND | LED → Pin 9, resistor, GND
 
@@ -208,7 +213,7 @@ void loop() {
     id: 5, 
     title: "Controlling Motors & Movement", 
     completed: false,
-    wiringImage: componentsImg,
+    wiringImage: motorWiringImg,
     playgroundCode: `// DC Motor control with L298N motor driver
 // Wiring: Motor driver pins to Arduino and motor
 
@@ -275,7 +280,7 @@ void loop() {
     id: 6, 
     title: "Working with LCD Displays", 
     completed: false,
-    wiringImage: componentsImg,
+    wiringImage: lcdWiringImg,
     playgroundCode: `// LCD Display showing messages
 // Wiring: I2C LCD to Arduino (SDA→A4, SCL→A5, VCC→5V, GND→GND)
 
@@ -333,7 +338,7 @@ void loop() {
     id: 7, 
     title: "Building a Temperature Monitor", 
     completed: false,
-    wiringImage: componentsImg,
+    wiringImage: temperatureWiringImg,
     playgroundCode: `// Temperature monitoring system with LED alerts
 // Wiring: DHT11 sensor → Pin 7, LEDs → Pins 8,9,10
 
@@ -415,26 +420,293 @@ void loop() {
   },
   { 
     id: 8, 
-    title: "Final Project - Smart Home Device", 
+    title: "Servo Motors & Precise Control", 
     completed: false,
-    wiringImage: componentsImg,
-    playgroundCode: `// Smart Home Control Center
-// Combines multiple sensors and outputs
+    wiringImage: motorWiringImg,
+    playgroundCode: `// Servo motor sweep and button control
+// Wiring: Servo → Pin 9, 5V, GND | Button → Pin 2, GND
+
+#include <Servo.h>
+
+Servo myServo;          // Create servo object
+int servoPin = 9;       // Servo control pin
+int buttonPin = 2;      // Button pin
+int angle = 90;         // Current angle
+
+void setup() {
+  myServo.attach(servoPin);
+  pinMode(buttonPin, INPUT_PULLUP);
+  myServo.write(90);    // Center position
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Sweep demonstration
+  for (angle = 0; angle <= 180; angle += 5) {
+    myServo.write(angle);
+    delay(30);
+  }
+  
+  delay(500);
+  
+  for (angle = 180; angle >= 0; angle -= 5) {
+    myServo.write(angle);
+    delay(30);
+  }
+  
+  delay(500);
+  
+  // Button control - press to move
+  if (digitalRead(buttonPin) == LOW) {
+    myServo.write(0);    // Move to 0 degrees
+    delay(1000);
+    myServo.write(180);  // Move to 180 degrees
+  }
+}`,
+    content: {
+      title: "Servo Motors & Precise Control",
+      description: "Learn to control servo motors for precise angular movements! Create projects like robot arms, automated doors, and camera gimbals. 🤖",
+      sections: [
+        {
+          title: "What is a Servo Motor?",
+          content: "**Servo Motors Overview:**\\n\\nA servo motor is a precision motor that can rotate to specific angles with high accuracy.\\n\\n**Key Differences from DC Motors:**\\n• **DC Motor**: Spins continuously, speed control\\n• **Servo Motor**: Precise position control (0-180°)\\n\\n**Common Uses:**\\n• Robot arms and joints\\n• RC cars steering\\n• Camera gimbals\\n• Automated doors\\n• Pan-tilt mechanisms\\n• Robotic hands\\n\\n**Advantages:**\\n• Very precise angle control\\n• Holds position with torque\\n• Easy to program\\n• Affordable ($2-5)"
+        },
+        {
+          title: "Servo Motor Wiring",
+          content: "**Standard Servo has 3 Wires:**\\n\\n🔴 **Red** → Power (5V from Arduino)\\n⚫ **Brown/Black** → Ground (GND)\\n🟠 **Orange/Yellow** → Signal (PWM pin)\\n\\n**Arduino Connection:**\\n```\\nServo Wire    →    Arduino\\nRed (Power)   →    5V\\nBrown (GND)   →    GND\\nOrange        →    Pin 9 (PWM)\\n```\\n\\n**Important Notes:**\\n• Servos can draw high current - use external 5V supply for multiple servos\\n• Always connect GND between Arduino and external power\\n• Use PWM-capable pins (3, 5, 6, 9, 10, 11)\\n• Keep wires short to reduce interference"
+        },
+        {
+          title: "Programming Servo Motors",
+          content: "**Servo Library Basics:**\\n\\n**1. Include Library:**\\n```cpp\\n#include <Servo.h>\\n```\\n\\n**2. Create Servo Object:**\\n```cpp\\nServo myServo;\\n```\\n\\n**3. Attach to Pin:**\\n```cpp\\nvoid setup() {\\n  myServo.attach(9);  // Pin 9\\n}\\n```\\n\\n**4. Control Position:**\\n```cpp\\nmyServo.write(90);   // Move to 90 degrees\\ndelay(1000);         // Wait 1 second\\nmyServo.write(0);    // Move to 0 degrees\\n```\\n\\n**Angle Range:**\\n• **0°** = Fully left/counterclockwise\\n• **90°** = Center position\\n• **180°** = Fully right/clockwise"
+        },
+        {
+          title: "Servo Projects & Ideas 🎨",
+          content: "**Beginner Projects:**\\n\\n1. **Automatic Door Lock**\\n   • Servo rotates to lock/unlock\\n   • Button or keypad control\\n\\n2. **Pet Feeder**\\n   • Servo opens food dispenser\\n   • Scheduled feeding times\\n\\n3. **Solar Panel Tracker**\\n   • Servo adjusts panel angle\\n   • Follows sun for max efficiency\\n\\n4. **Camera Pan-Tilt**\\n   • Two servos (X and Y axis)\\n   • Remote control or motion tracking\\n\\n5. **Robot Arm**\\n   • Multiple servos for joints\\n   • Pick and place objects\\n\\n**Tips:**\\n• Start with single servo projects\\n• Add sensors for automation\\n• Combine with other components\\n• Use 3D printing for mechanical parts"
+        }
+      ]
+    }
+  },
+  {
+    id: 9,
+    title: "Ultrasonic Distance Sensors",
+    completed: false,
+    wiringImage: buttonWiringImg,
+    playgroundCode: `// HC-SR04 Ultrasonic Distance Sensor
+// Wiring: VCC→5V, GND→GND, Trig→Pin 9, Echo→Pin 10
+
+int trigPin = 9;
+int echoPin = 10;
+int ledPin = 13;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Send ultrasonic pulse
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  
+  // Read echo time
+  long duration = pulseIn(echoPin, HIGH);
+  
+  // Calculate distance in cm
+  int distance = duration * 0.034 / 2;
+  
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+  
+  // LED alert if object too close
+  if (distance < 20) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+  
+  delay(100);
+}`,
+    content: {
+      title: "Ultrasonic Distance Sensors",
+      description: "Measure distances without touching! Learn how ultrasonic sensors work to detect objects and measure range - perfect for robots and automation. 📏",
+      sections: [
+        {
+          title: "How Ultrasonic Sensors Work",
+          content: "**HC-SR04 Ultrasonic Sensor:**\\n\\nWorks like a bat using echolocation!\\n\\n**Process:**\\n1. **Trigger pin** sends ultrasonic sound wave (40kHz)\\n2. Sound bounces off objects\\n3. **Echo pin** receives reflected sound\\n4. Calculate distance from travel time\\n\\n**Formula:**\\n```\\nDistance (cm) = (Time × Speed of Sound) / 2\\nDistance = (duration × 0.034) / 2\\n```\\n\\n**Range:**\\n• Minimum: 2cm\\n• Maximum: 400cm (4 meters)\\n• Accuracy: ±3mm\\n\\n**Advantages:**\\n• Non-contact measurement\\n• Weather resistant\\n• Very affordable ($2-3)"
+        },
+        {
+          title: "Sensor Connections",
+          content: "**HC-SR04 has 4 pins:**\\n\\n**VCC** → Arduino 5V\\n**GND** → Arduino GND\\n**Trig** → Arduino Pin 9 (any digital pin)\\n**Echo** → Arduino Pin 10 (any digital pin)\\n\\n**Wiring Tips:**\\n• No resistors needed for 5V Arduino\\n• For 3.3V boards, use voltage divider on Echo pin\\n• Keep wires reasonably short\\n• Sensor works best on flat surfaces\\n\\n**Mounting:**\\n• Face sensor forward (avoid obstacles)\\n• Ultrasound beams spread in 15° cone\\n• Soft materials (fabric, foam) absorb sound\\n• Hard surfaces reflect better"
+        },
+        {
+          title: "Distance Measurement Code",
+          content: "**Step-by-Step Process:**\\n\\n**1. Send Trigger Pulse:**\\n```cpp\\ndigitalWrite(trigPin, LOW);\\ndelayMicroseconds(2);\\ndigitalWrite(trigPin, HIGH);\\ndelayMicroseconds(10);  // 10µs pulse\\ndigitalWrite(trigPin, LOW);\\n```\\n\\n**2. Read Echo Time:**\\n```cpp\\nlong duration = pulseIn(echoPin, HIGH);\\n// Returns time in microseconds\\n```\\n\\n**3. Calculate Distance:**\\n```cpp\\nint distanceCm = duration * 0.034 / 2;\\nint distanceInch = duration * 0.0133 / 2;\\n```\\n\\n**Why divide by 2?**\\nSound travels to object AND back = double distance"
+        },
+        {
+          title: "Ultrasonic Projects 🚗",
+          content: "**Amazing Project Ideas:**\\n\\n1. **Parking Sensor**\\n   • Beep faster as car gets closer\\n   • LED indicators for distance\\n\\n2. **Automatic Trash Can**\\n   • Lid opens when hand detected\\n   • No-touch operation\\n\\n3. **Robot Navigation**\\n   • Obstacle avoidance\\n   • Wall following\\n   • Autonomous movement\\n\\n4. **Water Level Monitor**\\n   • Measure liquid level in tank\\n   • Send alerts when low\\n\\n5. **Security System**\\n   • Detect intruders\\n   • Count people entering/exiting\\n\\n6. **Hand Gesture Control**\\n   • Control devices with hand distance\\n   • Volume control, brightness, etc.\\n\\n**Combine with:**\\n• Servo motors for pan/tilt\\n• LCD for distance display\\n• Buzzer for proximity alerts"
+        }
+      ]
+    }
+  },
+  {
+    id: 10,
+    title: "Piezo Buzzers & Sound Generation",
+    completed: false,
+    wiringImage: ledWiringImg,
+    playgroundCode: `// Piezo buzzer playing melodies
+// Wiring: Buzzer + → Pin 8, Buzzer - → GND
+
+int buzzerPin = 8;
+
+// Musical note frequencies
+#define NOTE_C4  262
+#define NOTE_D4  294
+#define NOTE_E4  330
+#define NOTE_F4  349
+#define NOTE_G4  392
+#define NOTE_A4  440
+#define NOTE_B4  494
+#define NOTE_C5  523
+
+void setup() {
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  // Play "Happy Birthday" melody
+  int melody[] = {
+    NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4,
+    NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_G4, NOTE_F4
+  };
+  
+  int noteDurations[] = {
+    4, 8, 4, 4, 4, 2,
+    4, 8, 4, 4, 4, 2
+  };
+  
+  for (int i = 0; i < 12; i++) {
+    int duration = 1000 / noteDurations[i];
+    tone(buzzerPin, melody[i], duration);
+    delay(duration * 1.3);  // Pause between notes
+  }
+  
+  noTone(buzzerPin);
+  delay(2000);
+}`,
+    content: {
+      title: "Piezo Buzzers & Sound Generation",
+      description: "Make music and sound effects! Learn to control piezo buzzers to create tones, melodies, and audio alerts for your projects. 🎵",
+      sections: [
+        {
+          title: "What is a Piezo Buzzer?",
+          content: "**Piezo Buzzer Basics:**\\n\\nA small electronic device that makes sound when electricity is applied.\\n\\n**Two Types:**\\n\\n**1. Active Buzzer:**\\n• Has internal oscillator\\n• Makes fixed tone (beep)\\n• Just connect power (HIGH/LOW)\\n• Simpler but less flexible\\n\\n**2. Passive Buzzer:**\\n• No internal oscillator\\n• Requires PWM signal\\n• Can play different tones\\n• More versatile (music!)\\n\\n**How Passive Buzzers Work:**\\n• PWM signal vibrates ceramic disk\\n• Different frequencies = different notes\\n• Arduino's tone() function makes this easy"
+        },
+        {
+          title: "Buzzer Connections",
+          content: "**Simple 2-Wire Connection:**\\n\\n**Passive Buzzer:**\\n• Positive (+) → Arduino Pin 8 (any PWM pin)\\n• Negative (-) → Arduino GND\\n\\n**Active Buzzer:**\\n• Positive (+) → Arduino Pin 8\\n• Negative (-) → GND\\n• Or use transistor for louder sound\\n\\n**Tips:**\\n• Some buzzers have polarity, some don't\\n• If it doesn't work, try reversing wires\\n• Add 100Ω resistor for lower volume\\n• Use transistor (2N2222) for higher current\\n\\n**Louder Sound Circuit:**\\n```\\nArduino Pin 8 → 1kΩ resistor → Transistor Base\\nTransistor Collector → Buzzer +\\nTransistor Emitter → GND\\nBuzzer - → 5V\\n```"
+        },
+        {
+          title: "Making Sounds with Code",
+          content: "**Arduino tone() Function:**\\n\\n**Basic Tone:**\\n```cpp\\ntone(pin, frequency);\\n// Play frequency on pin\\n```\\n\\n**Tone with Duration:**\\n```cpp\\ntone(pin, frequency, duration);\\n// Play for specific milliseconds\\n```\\n\\n**Stop Tone:**\\n```cpp\\nnoTone(pin);\\n// Stop playing sound\\n```\\n\\n**Musical Notes (Frequencies):**\\n```cpp\\n#define NOTE_C4  262  // Middle C\\n#define NOTE_D4  294\\n#define NOTE_E4  330\\n#define NOTE_F4  349\\n#define NOTE_G4  392\\n#define NOTE_A4  440  // Concert A\\n#define NOTE_B4  494\\n#define NOTE_C5  523  // High C\\n```\\n\\n**Simple Beep:**\\n```cpp\\ntone(8, 1000, 200);  // 1kHz for 200ms\\ndelay(300);\\nnoTone(8);\\n```"
+        },
+        {
+          title: "Sound Projects 🎶",
+          content: "**Fun Project Ideas:**\\n\\n1. **Musical Doorbell**\\n   • Button press plays melody\\n   • Different tunes for different buttons\\n\\n2. **Game Sound Effects**\\n   • Victory sound\\n   • Game over tone\\n   • Level up melody\\n\\n3. **Alarm System**\\n   • Motion sensor triggers siren\\n   • Warning beeps before alarm\\n\\n4. **Piano Keyboard**\\n   • Multiple buttons for different notes\\n   • Play songs with button presses\\n\\n5. **Parking Assistant**\\n   • Faster beeps when closer to wall\\n   • Ultrasonic + buzzer\\n\\n6. **Morse Code Transmitter**\\n   • Translate text to beeps\\n   • Educational learning tool\\n\\n7. **Timer/Stopwatch**\\n   • Beep at intervals\\n   • Alert when time's up\\n\\n**Melody Libraries:**\\nFind Arduino tone libraries with popular songs already coded!"
+        }
+      ]
+    }
+  },
+  {
+    id: 11,
+    title: "Photoresistors & Light Sensing",
+    completed: false,
+    wiringImage: potentiometerWiringImg,
+    playgroundCode: `// Photoresistor (LDR) for automatic lighting
+// Wiring: LDR → A0 & 5V, 10kΩ resistor A0 → GND, LED → Pin 9
+
+int ldrPin = A0;
+int ledPin = 9;
+int threshold = 500;  // Adjust for your environment
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int lightLevel = analogRead(ldrPin);
+  
+  Serial.print("Light Level: ");
+  Serial.println(lightLevel);
+  
+  // Auto LED control based on ambient light
+  if (lightLevel < threshold) {
+    // Dark - turn LED on
+    digitalWrite(ledPin, HIGH);
+    Serial.println("LED: ON (Dark)");
+  } else {
+    // Bright - turn LED off
+    digitalWrite(ledPin, LOW);
+    Serial.println("LED: OFF (Bright)");
+  }
+  
+  // Smooth LED brightness based on light
+  int brightness = map(lightLevel, 0, 1023, 255, 0);
+  analogWrite(ledPin, brightness);
+  
+  delay(100);
+}`,
+    content: {
+      title: "Photoresistors & Light Sensing",
+      description: "Sense light levels and create smart lighting systems! Build automatic night lights, solar trackers, and light-responsive projects. ☀️",
+      sections: [
+        {
+          title: "What is a Photoresistor (LDR)?",
+          content: "**Light Dependent Resistor (LDR):**\\n\\nA resistor that changes resistance based on light intensity.\\n\\n**How it Works:**\\n• **Bright Light** → Low resistance (1kΩ - 10kΩ)\\n• **Darkness** → High resistance (1MΩ or more)\\n\\n**Also Called:**\\n• Photoresistor\\n• Photocell\\n• Light sensor\\n\\n**Characteristics:**\\n• Analog sensor (0-1023 values)\\n• Slow response time (100ms)\\n• No polarity - works both ways\\n• Very affordable ($0.50)\\n• Sensitive to visible light\\n• Not precise, but good enough for most projects\\n\\n**Applications:**\\n• Automatic street lights\\n• Camera exposure meters\\n• Solar panel tracking\\n• Security lights\\n• Plant grow lights"
+        },
+        {
+          title: "LDR Circuit & Wiring",
+          content: "**Voltage Divider Circuit:**\\n\\nLDR needs a fixed resistor to create readable voltage.\\n\\n**Wiring:**\\n```\\n5V → LDR → A0 → 10kΩ resistor → GND\\n```\\n\\n**Component Connection:**\\n1. **LDR leg 1** → Arduino 5V\\n2. **LDR leg 2** → Arduino A0\\n3. **10kΩ resistor** → A0 and GND\\n\\n**Why 10kΩ?**\\nCreates voltage divider with LDR:\\n• Bright: LDR = 1kΩ → High voltage at A0\\n• Dark: LDR = 1MΩ → Low voltage at A0\\n\\n**Reading Values:**\\n```cpp\\nint lightLevel = analogRead(A0);\\n// Returns 0 (dark) to 1023 (bright)\\n```\\n\\n**Calibration:**\\nRun this to see your light ranges:\\n```cpp\\nvoid loop() {\\n  Serial.println(analogRead(A0));\\n  delay(100);\\n}\\n```"
+        },
+        {
+          title: "Programming Light Detection",
+          content: "**Basic Light Reading:**\\n```cpp\\nint ldrPin = A0;\\nint lightValue = analogRead(ldrPin);\\n```\\n\\n**Threshold Detection:**\\n```cpp\\nint threshold = 500;  // Adjust for room\\nif (lightValue < threshold) {\\n  // It's dark\\n  digitalWrite(ledPin, HIGH);\\n} else {\\n  // It's bright\\n  digitalWrite(ledPin, LOW);\\n}\\n```\\n\\n**Smooth Brightness Control:**\\n```cpp\\n// Invert and scale: dark=bright LED\\nint brightness = map(lightValue, 0, 1023, 255, 0);\\nanalogWrite(ledPin, brightness);\\n```\\n\\n**Average Reading (Reduce Noise):**\\n```cpp\\nint getAverageLight() {\\n  long sum = 0;\\n  for(int i=0; i<10; i++) {\\n    sum += analogRead(ldrPin);\\n    delay(10);\\n  }\\n  return sum / 10;\\n}\\n```"
+        },
+        {
+          title: "Light Sensing Projects 💡",
+          content: "**Project Ideas:**\\n\\n1. **Automatic Night Light**\\n   • LED turns on when room gets dark\\n   • Saves energy during daytime\\n\\n2. **Smart Window Blinds**\\n   • Servo closes blinds when too bright\\n   • Opens in morning automatically\\n\\n3. **Solar Panel Tracker**\\n   • Two LDRs find brightest direction\\n   • Servo rotates panel toward sun\\n\\n4. **Plant Grow Light Timer**\\n   • Ensures plants get enough light\\n   • Supplement with LED when dark\\n\\n5. **Photography Light Meter**\\n   • Measure room brightness\\n   • Display on LCD in lux\\n\\n6. **Automatic Headlights**\\n   • For RC car or robot\\n   • Turns on lights in tunnels\\n\\n7. **Wake-Up Light Alarm**\\n   • Detects sunrise\\n   • Triggers alarm in morning\\n\\n**Advanced: Dual LDR Sun Tracker**\\nTwo LDRs determine brightest angle for solar tracking!"
+        }
+      ]
+    }
+  },
+  {
+    id: 12,
+    title: "Final Project - Smart Home Automation",
+    completed: false,
+    wiringImage: smartHomeWiringImg,
+    playgroundCode: `// Complete Smart Home Control System
+// Combines: Temperature, LCD, Motion, Light, Relay, Fan
 
 #include <DHT.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-// Sensors and Components
 #define DHTPIN 7
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-int motionPin = 2;      // PIR motion sensor
-int lightPin = A0;      // Light sensor (LDR)
-int relayPin = 8;       // Relay for lamp
-int fanPin = 9;         // Fan control
+int motionPin = 2;
+int lightPin = A0;
+int relayPin = 8;
+int fanPin = 9;
 
 void setup() {
   pinMode(motionPin, INPUT);
@@ -446,15 +718,11 @@ void setup() {
   dht.begin();
   Serial.begin(9600);
   
-  lcd.setCursor(0, 0);
-  lcd.print("Smart Home");
-  lcd.setCursor(0, 1);
-  lcd.print("Initializing...");
+  lcd.print("Smart Home v1.0");
   delay(2000);
 }
 
 void loop() {
-  // Read sensors
   float temp = dht.readTemperature();
   int lightLevel = analogRead(lightPin);
   int motion = digitalRead(motionPin);
@@ -462,53 +730,54 @@ void loop() {
   // Display on LCD
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Temp:");
+  lcd.print("T:");
   lcd.print(temp, 1);
-  lcd.print("C");
-  
-  lcd.setCursor(0, 1);
-  lcd.print("Light:");
+  lcd.print("C L:");
   lcd.print(lightLevel);
   
-  // Auto fan control based on temperature
+  lcd.setCursor(0, 1);
+  lcd.print("Motion:");
+  lcd.print(motion ? "YES" : "NO ");
+  
+  // Auto fan when hot
   if (temp > 28) {
-    analogWrite(fanPin, 200);  // Fan ON
+    analogWrite(fanPin, 200);
   } else {
-    analogWrite(fanPin, 0);     // Fan OFF
+    analogWrite(fanPin, 0);
   }
   
-  // Auto light control (motion + darkness)
-  if (motion == HIGH && lightLevel < 300) {
-    digitalWrite(relayPin, HIGH);  // Light ON
+  // Auto lights (motion + dark)
+  if (motion && lightLevel < 300) {
+    digitalWrite(relayPin, HIGH);
   } else {
-    digitalWrite(relayPin, LOW);   // Light OFF
+    digitalWrite(relayPin, LOW);
   }
   
-  delay(1000);
+  delay(500);
 }`,
     content: {
-      title: "Final Project - Smart Home Device",
-      description: "Put everything together! Build an intelligent home automation system combining sensors, displays, and automated controls. Time to create something amazing! 🏠",
+      title: "Final Project - Smart Home Automation System",
+      description: "Build the ultimate Arduino project! Combine everything you've learned into an intelligent home automation system with multiple sensors and automated controls. 🏠✨",
       sections: [
         {
-          title: "Project Overview",
-          content: "**Smart Home Control Center Features:**\\n\\n✅ **Temperature Monitoring** with automatic fan control\\n✅ **Motion Detection** for security and automation\\n✅ **Light Sensing** for adaptive lighting\\n✅ **LCD Display** showing real-time information\\n✅ **Automated Lamp Control** (motion + darkness)\\n✅ **Fan Control** based on temperature\\n\\n**Learning Goals:**\\n• Integrate multiple sensors\\n• Make decisions based on multiple inputs\\n• Create a user-friendly interface\\n• Build practical home automation\\n• Debug complex systems"
+          title: "Project Overview & Features",
+          content: "**Complete Smart Home System:**\\n\\n✅ **Temperature Monitoring** (DHT11)\\n✅ **Automatic Fan Control** (based on temp)\\n✅ **Motion Detection** (PIR sensor)\\n✅ **Light Level Sensing** (LDR)\\n✅ **Smart Lighting** (motion + darkness)\\n✅ **LCD Information Display** (real-time data)\\n✅ **Multiple Automated Rules**\\n\\n**What You'll Learn:**\\n• Integrate multiple sensors\\n• Make decisions from multiple inputs\\n• Create automation logic\\n• Build practical home systems\\n• Debug complex projects\\n• Professional project organization\\n\\n**Real-World Use Cases:**\\n• Energy saving automation\\n• Security monitoring\\n• Comfort optimization\\n• Elderly care assistance"
         },
         {
-          title: "Complete Parts List",
-          content: "**Required Components:**\\n\\n**Arduino & Power:**\\n• Arduino Uno\\n• 9V power adapter\\n\\n**Sensors:**\\n• DHT11 temperature/humidity sensor\\n• PIR motion sensor (HC-SR501)\\n• Light sensor (LDR + 10kΩ resistor)\\n\\n**Outputs:**\\n• I2C LCD display (16x2)\\n• 5V relay module\\n• DC fan (5V) or fan motor\\n• Lamp (110V/220V AC via relay)\\n\\n**Accessories:**\\n• Jumper wires\\n• Breadboard\\n• Resistors (220Ω, 10kΩ)\\n• Project enclosure (optional)\\n\\n**Estimated Cost:** $25-35 USD"
+          title: "Complete Parts & Cost",
+          content: "**Required Components:**\\n\\n**Controller:**\\n• Arduino Uno R3 ($10-15)\\n• 9V power adapter ($5)\\n• Breadboard ($3)\\n• Jumper wires ($3)\\n\\n**Sensors:**\\n• DHT11 temperature/humidity ($2)\\n• PIR motion sensor HC-SR501 ($3)\\n• Photoresistor LDR + 10kΩ ($1)\\n\\n**Outputs:**\\n• I2C LCD display 16x2 ($5)\\n• 5V relay module ($3)\\n• DC fan 5V ($4)\\n• LEDs + resistors ($2)\\n\\n**Optional:**\\n• Project enclosure ($5-10)\\n• Prototype PCB ($3)\\n• Power supply 5V 2A ($8)\\n\\n**Total Cost:** $40-50 USD\\n\\n**Tools Needed:**\\n• Wire strippers\\n• Multimeter (helpful)\\n• Computer with Arduino IDE"
         },
         {
-          title: "System Wiring Diagram",
-          content: "**Power Connections:**\\n• All VCC pins → 5V rail\\n• All GND pins → GND rail\\n• Arduino powered by 9V adapter\\n\\n**Sensor Connections:**\\n• DHT11 Data → Pin 7\\n• PIR Motion OUT → Pin 2\\n• LDR voltage divider → A0\\n• I2C LCD: SDA → A4, SCL → A5\\n\\n**Output Connections:**\\n• Relay control → Pin 8 (controls 110V lamp)\\n• Fan PWM → Pin 9 (5V DC fan)\\n\\n**Safety Note:**\\nRelay controls high voltage AC power. Use proper insulated enclosure and follow electrical safety guidelines!"
+          title: "System Wiring Guide",
+          content: "**Power Distribution:**\\n```\\n5V Rail: DHT11, PIR, LCD, Relay\\nGND Rail: All component grounds\\nArduino powered by 9V adapter\\n```\\n\\n**Sensor Connections:**\\n• **DHT11:** Data→Pin 7, VCC→5V, GND→GND\\n• **PIR Motion:** OUT→Pin 2, VCC→5V, GND→GND\\n• **LDR Circuit:** A0, voltage divider with 10kΩ\\n• **LCD I2C:** SDA→A4, SCL→A5, VCC→5V, GND→GND\\n\\n**Output Connections:**\\n• **Relay:** IN→Pin 8, controls 110V lamp\\n• **Fan:** PWM→Pin 9, 5V DC fan\\n\\n**Safety Tips:**\\n⚠️ Relay switches high voltage AC\\n⚠️ Use insulated enclosure\\n⚠️ Don't touch wires when powered\\n⚠️ Test with multimeter first\\n⚠️ Use proper wire gauge for AC"
         },
         {
-          title: "Logic & Programming",
-          content: "**Decision Making:**\\n\\n**Automatic Fan:**\\n```cpp\\nif (temp > 28) {\\n  // Hot: Turn fan ON\\n  analogWrite(fanPin, 200);\\n} else {\\n  // Cool: Turn fan OFF\\n  analogWrite(fanPin, 0);\\n}\\n```\\n\\n**Smart Lighting:**\\n```cpp\\nif (motion && lightLevel < 300) {\\n  // Motion detected AND dark\\n  digitalWrite(relayPin, HIGH);\\n} else {\\n  // No motion OR bright\\n  digitalWrite(relayPin, LOW);\\n}\\n```\\n\\n**Custom Thresholds:**\\nAdjust values for your environment:\\n• Temperature threshold (28°C)\\n• Light threshold (300)\\n• Fan speed (200)\\n• Timing delays"
+          title: "Automation Logic & Rules",
+          content: "**Smart Decision Making:**\\n\\n**Rule 1: Automatic Cooling**\\n```cpp\\nif (temperature > 28) {\\n  fanSpeed = 200;  // High speed\\n} else if (temperature > 25) {\\n  fanSpeed = 100;  // Low speed\\n} else {\\n  fanSpeed = 0;    // Off\\n}\\n```\\n\\n**Rule 2: Smart Lighting**\\n```cpp\\nif (motion && lightLevel < 300) {\\n  // Motion + Dark = Light ON\\n  relayState = HIGH;\\n} else {\\n  relayState = LOW;\\n}\\n```\\n\\n**Rule 3: Energy Saving**\\n```cpp\\nif (noMotionFor(10 minutes)) {\\n  // Turn off everything\\n  fanSpeed = 0;\\n  relayState = LOW;\\n}\\n```\\n\\n**Customization:**\\n• Adjust temperature thresholds\\n• Change light sensitivity\\n• Add time-based rules\\n• Create modes (home/away/night)"
         },
         {
-          title: "Next Steps & Advanced Features",
-          content: "**Congratulations!** You've built a complete Arduino system! 🎉\\n\\n**Expand Your Project:**\\n\\n1. **Add WiFi (ESP8266/ESP32)**\\n   • Control via smartphone app\\n   • Send notifications\\n   • Cloud data logging\\n\\n2. **Voice Control**\\n   • Integrate with Alexa/Google Home\\n   • Voice commands for devices\\n\\n3. **Time-Based Automation**\\n   • RTC module for schedules\\n   • Turn lights on/off at specific times\\n\\n4. **Energy Monitoring**\\n   • Current sensors\\n   • Track power consumption\\n\\n**Continue Learning:**\\n• ESP32 for IoT projects\\n• Raspberry Pi for complex systems\\n• PCB design for custom boards\\n• 3D printing for enclosures\\n\\n**You're now an Arduino maker! Keep creating! 🚀**"
+          title: "Next Level Projects 🚀",
+          content: "**Congratulations!** You're now an Arduino developer! 🎉\\n\\n**Expand Your System:**\\n\\n**1. Add Internet Connectivity**\\n• ESP8266 WiFi module ($5)\\n• Control from smartphone\\n• Send notifications\\n• Cloud data logging\\n• Blynk or IFTTT integration\\n\\n**2. Voice Control**\\n• Amazon Alexa integration\\n• Google Home commands\\n• Voice-activated scenes\\n\\n**3. Advanced Sensors**\\n• Gas/smoke detectors\\n• Water leak sensors\\n• Door/window contact sensors\\n• Current/power monitoring\\n\\n**4. Multiple Rooms**\\n• Wireless sensor nodes\\n• Central control hub\\n• Room-specific automation\\n\\n**Continue Your Journey:**\\n• Learn ESP32 for IoT\\n• Try Raspberry Pi for complex systems\\n• Design custom PCBs\\n• 3D print enclosures\\n• Share projects on GitHub\\n\\n**You're a maker now - keep building amazing things! 💪**"
         }
       ]
     }

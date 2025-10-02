@@ -1,7 +1,7 @@
 export const RESPONSIVE_LESSONS = [
   { 
     id: 1, 
-    title: "Mobile-First Design Philosophy", 
+    title: "Arduino Uno Board", 
     completed: false,
     playgroundCode: `<!DOCTYPE html>
 <html>
@@ -44,8 +44,8 @@ export const RESPONSIVE_LESSONS = [
 </body>
 </html>`,
     content: {
-      title: "Mobile-First Design Philosophy",
-      description: "Learn the mobile-first approach to building responsive websites! Start small and enhance for larger screens - this is how modern web development works. 📱",
+      title: "Arduino Uno Board",
+      description: "Hands-on Arduino robotics for beginners: learn to build and program devices that tackle real-world problems while boosting creativity.",
       sections: [
         {
           title: "What is Mobile-First Design?",

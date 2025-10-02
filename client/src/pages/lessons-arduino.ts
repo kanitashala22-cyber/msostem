@@ -1,11 +1,16 @@
 // Arduino Microprocessors Starter Kit - 8 comprehensive lessons
 // Beginner-friendly with code examples, wiring diagrams, and interactive visuals
 
+import arduinoBoardImg from "@assets/generated_images/Cute_Arduino_board_cartoon_illustration_e7d8f8d5.png";
+import ledWiringImg from "@assets/generated_images/Arduino_LED_wiring_diagram_cartoon_f4ff2aa3.png";
+import componentsImg from "@assets/generated_images/Friendly_Arduino_components_cartoon_collection_80e14b22.png";
+
 export const ARDUINO_LESSONS = [
   { 
     id: 1, 
     title: "Getting Started with Arduino Uno", 
     completed: false,
+    wiringImage: arduinoBoardImg,
     playgroundCode: `// Arduino Uno - LED Blink Example
 // This is your first Arduino program!
 
@@ -47,6 +52,7 @@ void loop() {
     id: 2, 
     title: "LED Blink - Your First Arduino Program", 
     completed: false,
+    wiringImage: ledWiringImg,
     playgroundCode: `// External LED on Pin 8
 // Wiring: LED long leg → Pin 8, short leg → 220Ω resistor → GND
 
@@ -91,6 +97,7 @@ void loop() {
     id: 3, 
     title: "Understanding Digital Inputs & Buttons", 
     completed: false,
+    wiringImage: componentsImg,
     playgroundCode: `// Button controlling LED
 // Wiring: Button → Pin 2 & GND, LED → Pin 8 & resistor → GND
 
@@ -144,6 +151,7 @@ void loop() {
     id: 4, 
     title: "Analog Sensors & Reading Data", 
     completed: false,
+    wiringImage: componentsImg,
     playgroundCode: `// Potentiometer controlling LED brightness
 // Wiring: Potentiometer → A0, 5V, GND | LED → Pin 9, resistor, GND
 
@@ -200,6 +208,7 @@ void loop() {
     id: 5, 
     title: "Controlling Motors & Movement", 
     completed: false,
+    wiringImage: componentsImg,
     playgroundCode: `// DC Motor control with L298N motor driver
 // Wiring: Motor driver pins to Arduino and motor
 
@@ -266,6 +275,7 @@ void loop() {
     id: 6, 
     title: "Working with LCD Displays", 
     completed: false,
+    wiringImage: componentsImg,
     playgroundCode: `// LCD Display showing messages
 // Wiring: I2C LCD to Arduino (SDA→A4, SCL→A5, VCC→5V, GND→GND)
 
@@ -323,6 +333,7 @@ void loop() {
     id: 7, 
     title: "Building a Temperature Monitor", 
     completed: false,
+    wiringImage: componentsImg,
     playgroundCode: `// Temperature monitoring system with LED alerts
 // Wiring: DHT11 sensor → Pin 7, LEDs → Pins 8,9,10
 
@@ -406,6 +417,7 @@ void loop() {
     id: 8, 
     title: "Final Project - Smart Home Device", 
     completed: false,
+    wiringImage: componentsImg,
     playgroundCode: `// Smart Home Control Center
 // Combines multiple sensors and outputs
 

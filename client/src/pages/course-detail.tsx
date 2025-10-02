@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Play, CheckCircle, Lock, Eye, Code, Save } from "lucide-react";
 import type { Course } from "@shared/schema";
 import { CSS_LESSONS } from "./lessons-css";
-import { RESPONSIVE_LESSONS } from "./lessons-responsive";
+import { ARDUINO_LESSONS } from "./lessons-arduino";
 import eiffel from "@assets/generated_images/eiffel.webp";
 import { useToast } from "@/hooks/use-toast";
 
@@ -1009,7 +1009,7 @@ export default function CourseDetail() {
   const LESSONS_BY_COURSE: Record<string, any[]> = {
     "course-1": HTML_LESSONS,
     "course-2": CSS_LESSONS,
-    "course-3": RESPONSIVE_LESSONS,
+    "course-3": ARDUINO_LESSONS,
   };
 
   const lessons = LESSONS_BY_COURSE[id ?? ""] ?? [];

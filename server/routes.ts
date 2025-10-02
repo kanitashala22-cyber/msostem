@@ -167,9 +167,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact Form
   app.post("/api/contact", async (req, res) => {
     try {
+      console.log("Contact form request received:", req.body);
       const { name, email, message } = contactFormSchema.parse(req.body);
       
-      await resend.emails.send({
+      console.log("Attempting to send email via Resend...");
+      const result = await resend.emails.send({
         from: "MsoSTEM Contact <onboarding@resend.dev>",
         to: "kanitashala22@gmail.com",
         replyTo: email,
@@ -192,10 +194,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
         `,
       });
 
+      console.log("Email sent successfully:", result);
       res.json({ success: true, message: "Email sent successfully" });
-    } catch (error) {
-      console.error("Contact form error:", error);
-      res.status(400).json({ message: "Failed to send email" });
+    } catch (error: any) {
+      console.error("Contact form error details:", {
+        message: error.message,
+        stack: error.stack,
+        response: error.response?.data,
+        name: error.name
+      });
+      res.status(400).json({ 
+        message: "Failed to send email",
+        error: error.message 
+      });
     }
   });
 

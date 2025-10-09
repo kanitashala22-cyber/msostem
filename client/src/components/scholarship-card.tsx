@@ -3,12 +3,20 @@ import { Button } from "@/components/ui/button";
 import { University, Calendar, GraduationCap, MapPin } from "lucide-react";
 import { Link } from "wouter";
 import type { Scholarship } from "@shared/schema";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ScholarshipCardProps {
   scholarship: Scholarship;
 }
 
 export default function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
+  const { t } = useLanguage();
+  
+  const scholarshipContent = t.scholarshipContent[scholarship.id as keyof typeof t.scholarshipContent];
+  const displayTitle = scholarshipContent?.title || scholarship.title;
+  const displayDescription = scholarshipContent?.description || scholarship.description;
+  const displayField = scholarshipContent?.field || scholarship.field;
+  const displayLocation = scholarshipContent?.location || scholarship.location;
   const getStatusColor = (status: string) => {
     switch (status) {
       case "open":
@@ -84,24 +92,24 @@ export default function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
         </div>
 
         <h3 className="text-xl font-bold text-gray-900 mb-2">
-          {scholarship.title}
+          {displayTitle}
         </h3>
-        <p className="text-gray-600 mb-4">{scholarship.description}</p>
+        <p className="text-gray-600 mb-4">{displayDescription}</p>
 
         <div className="space-y-2 mb-4">
           <div className="flex items-center text-sm text-gray-600">
             <Calendar className="w-4 h-4 mr-2 text-primary" />
             <span>
-              Deadline: {new Date(scholarship.deadline).toLocaleDateString()}
+              {t.home.scholarships.deadline}: {new Date(scholarship.deadline).toLocaleDateString()}
             </span>
           </div>
           <div className="flex items-center text-sm text-gray-600">
             <GraduationCap className="w-4 h-4 mr-2 text-primary" />
-            <span>{scholarship.field}</span>
+            <span>{displayField}</span>
           </div>
           <div className="flex items-center text-sm text-gray-600">
             <MapPin className="w-4 h-4 mr-2 text-primary" />
-            <span>{scholarship.location}</span>
+            <span>{displayLocation}</span>
           </div>
         </div>
 

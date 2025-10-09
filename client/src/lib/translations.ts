@@ -153,6 +153,48 @@ export const translations = {
       advanced: 'Advanced',
       free: 'Free',
       varies: 'Varies'
+    },
+    // Course Content
+    courseContent: {
+      'course-1': {
+        title: 'HTML Fundamentals',
+        description: 'Master the building blocks of the web with comprehensive, beginner-friendly HTML lessons and hands-on interactive projects. Learn everything from basic tags to advanced HTML5 features!'
+      },
+      'course-2': {
+        title: 'CSS Styling & Design',
+        description: 'Master the art of beautiful web design! Learn CSS from basics to advanced techniques including animations, layouts, and modern design principles that make websites stunning and professional.'
+      },
+      'course-3': {
+        title: 'Arduino Microprocessors Starter Kit',
+        description: 'Learn to program Arduino microprocessors from scratch! Build exciting projects with easy-to-follow code examples, wiring diagrams, and interactive visuals.'
+      }
+    },
+    // Scholarship Content
+    scholarshipContent: {
+      'scholarship-1': {
+        title: 'TechGirls',
+        description: 'Fully-funded U.S. State Department program empowering young women (ages 15-17) to pursue STEM careers through an intensive summer exchange program in the United States.',
+        field: 'Science, Technology, Engineering, Mathematics, STEM, Leadership',
+        location: 'Virginia Tech University + U.S. Cities',
+        eligibility: 'Young women ages 15-17 from 37 eligible countries with strong interest in STEM fields',
+        organizationName: 'U.S. Department of State'
+      },
+      'scholarship-2': {
+        title: 'Benjamin Franklin Transatlantic Fellowship',
+        description: 'Fully-funded 4-week intensive exchange program at Purdue University empowering European youth (ages 16-18) to explore diplomacy, leadership, and transatlantic relations in the United States.',
+        field: 'Diplomacy, Leadership, International Relations, Civil Society',
+        location: 'Purdue University, West Lafayette, Indiana',
+        eligibility: 'European citizens ages 16-18 with strong academic achievement and leadership potential',
+        organizationName: 'U.S. Department of State'
+      },
+      'scholarship-3': {
+        title: 'Kennedy-Lugar Youth Exchange & Study (YES)',
+        description: 'Competitive merit-based scholarship program bringing high school students from countries with significant Muslim populations to study for a full academic year in the United States, living with host families.',
+        field: 'Cultural Exchange, Leadership',
+        location: 'High Schools across the United States',
+        eligibility: 'High school students (ages 15-17) from designated countries with strong academic records',
+        organizationName: 'U.S. Department of State'
+      }
     }
   },
   sq: {
@@ -179,8 +221,8 @@ export const translations = {
         feature3Desc: 'Praktiko kodin menjëherë'
       },
       courses: {
-        title: 'Kurse Interaktive Kodimi',
-        titleHighlight: 'Kurse Kodimi',
+        title: 'Kurse Interaktive',
+        titleHighlight: ' Kodimi',
         subtitle: 'Mëso HTML dhe CSS përmes projekteve praktike dhe mësimeve interaktive të dizajnuara posaçërisht për fillestarë.',
         pathTitle: 'Udhëtimi Yt i Të Mësuarit Fillon Këtu',
         pathSubtitle: 'Ndiq rrugën tonë të strukturuar për të bërë të vetëbesuar në zhvillimin e uebit',
@@ -204,8 +246,8 @@ export const translations = {
         tryPlayground: 'Provo Lodrën'
       },
       scholarships: {
-        title: 'Bursa Teknologjike',
-        titleHighlight: 'Bursat',
+        title: 'Bursa dhe',
+        titleHighlight: 'Programe Shkëmbimi',
         subtitle: 'Zbulo mundësi financimi që mund të të ndihmojnë të ndjekësh ëndrrat në teknologji dhe shkenca kompjuterike.',
         viewAll: 'Shiko Të Gjitha Bursat',
         deadline: 'Afati',
@@ -307,6 +349,48 @@ export const translations = {
       advanced: 'I Avancuar',
       free: 'Falas',
       varies: 'Varion'
+    },
+    // Course Content
+    courseContent: {
+      'course-1': {
+        title: 'Bazat e HTML',
+        description: 'Zotëro blloqet ndërtuese të uebit me mësime gjithëpërfshirëse dhe miqësore për fillestarë të HTML dhe projekte interaktive praktike. Mëso gjithçka nga etiketat bazë deri te veçoritë e avancuara HTML5!'
+      },
+      'course-2': {
+        title: 'Stilizimi dhe Dizajni me CSS',
+        description: 'Zotëro artin e dizajnit të bukur të uebit! Mëso CSS nga bazat deri te teknikat e avancuara përfshirë animacionet, strukturat dhe parimet moderne të dizajnit që bëjnë faqet e internetit të mahnitshme dhe profesionale.'
+      },
+      'course-3': {
+        title: 'Kiti Fillestar i Mikroprocesuesve Arduino',
+        description: 'Mëso të programosh mikroprocesuesit Arduino nga e para! Ndërto projekte emocionuese me shembuj kodi të lehtë për tu ndjekur, diagrame lidhëse dhe vizuale interaktive.'
+      }
+    },
+    // Scholarship Content
+    scholarshipContent: {
+      'scholarship-1': {
+        title: 'TechGirls',
+        description: 'Program plotësisht i financuar nga Departamenti Amerikan i Shtetit që fuqizon gratë e reja (mosha 15-17) të ndjekin karriera STEM përmes një programi intensiv veror të shkëmbimit nëShtetet e Bashkuara.',
+        field: 'Shkenca, Teknologji, Inxhinieri, Matematikë, STEM, Udhëheqje',
+        location: 'Universiteti Teknologjik i Virxhinias + Qytete Amerikane',
+        eligibility: 'Gra të reja mosha 15-17 nga 37 vende të pranueshme me interes të fortë në fushat STEM',
+        organizationName: 'Departamenti Amerikan i Shtetit'
+      },
+      'scholarship-2': {
+        title: 'Bursë Benjamin Franklin Transatlantike',
+        description: 'Program shkëmbimi intensiv 4-javor plotësisht i financuar në Universitetin Purdue që fuqizon të rinjtë evropianë (mosha 16-18) të eksplorojnë diplomacinë, udhëheqjen dhe marrëdhëniet transatlantike në Shtetet e Bashkuara.',
+        field: 'Diplomaci, Udhëheqje, Marrëdhënie Ndërkombëtare, Shoqëria Civile',
+        location: 'Universiteti Purdue, West Lafayette, Indiana',
+        eligibility: 'Qytetarë evropianë mosha 16-18 me arritje të forta akademike dhe potencial udhëheqës',
+        organizationName: 'Departamenti Amerikan i Shtetit'
+      },
+      'scholarship-3': {
+        title: 'Programi i Shkëmbimit dhe Studimit Kennedy-Lugar (YES)',
+        description: 'Program bursash konkurrues bazuar në merita që sjell studentë të shkollës së mesme nga vende me popullsi të konsiderueshme myslimane për të studiuar për një vit të plotë akademik në Shtetet e Bashkuara, duke jetuar me familje pritëse.',
+        field: 'Shkëmbim Kulturor, Udhëheqje',
+        location: 'Shkolla të Mesme në të gjitha Shtetet e Bashkuara',
+        eligibility: 'Studentë të shkollës së mesme (mosha 15-17) nga vende të caktuara me rekorde të forta akademike',
+        organizationName: 'Departamenti Amerikan i Shtetit'
+      }
     }
   }
 };

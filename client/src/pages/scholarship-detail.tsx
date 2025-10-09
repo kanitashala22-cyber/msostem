@@ -15,9 +15,11 @@ import {
 } from "lucide-react";
 import type { Scholarship } from "@shared/schema"; //
 import techGirlsImage from "@assets/generated_images/techgirlstg.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ScholarshipDetail() {
   const { id } = useParams();
+  const { t } = useLanguage();
 
   const { data: scholarship, isLoading } = useQuery<Scholarship>({
     queryKey: ["/api/scholarships", id],
@@ -52,6 +54,15 @@ export default function ScholarshipDetail() {
   const isYES = scholarship.id === "scholarship-3";
   const isFLEX = scholarship.id === "scholarship-4";
   const isAFS = scholarship.id === "scholarship-5";
+  
+  // Get translated content
+  const scholarshipContent = t.scholarshipContent[scholarship.id as keyof typeof t.scholarshipContent];
+  const displayTitle = scholarshipContent?.title || scholarship.title;
+  const displayDescription = scholarshipContent?.description || scholarship.description;
+  const displayField = scholarshipContent?.field || scholarship.field;
+  const displayLocation = scholarshipContent?.location || scholarship.location;
+  const displayEligibility = scholarshipContent?.eligibility || scholarship.eligibility;
+  const displayOrganization = scholarshipContent?.organizationName || scholarship.organizationName;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -78,11 +89,11 @@ export default function ScholarshipDetail() {
             </Badge>
 
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              {scholarship.title}
+              {displayTitle}
             </h1>
 
             <p className="text-xl text-gray-600 mb-6">
-              {scholarship.description}
+              {displayDescription}
             </p>
 
             <div className="flex flex-wrap gap-4 text-sm text-gray-600">
@@ -101,11 +112,11 @@ export default function ScholarshipDetail() {
               </div>
               <div className="flex items-center">
                 <MapPin className="w-4 h-4 mr-2" />
-                <span>{scholarship.location}</span>
+                <span>{displayLocation}</span>
               </div>
               <div className="flex items-center">
                 <Users className="w-4 h-4 mr-2" />
-                <span>{scholarship.organizationName}</span>
+                <span>{displayOrganization}</span>
               </div>
             </div>
           </div>
@@ -919,20 +930,20 @@ export default function ScholarshipDetail() {
                     <h3 className="font-semibold text-gray-900 mb-2">
                       Field of Study
                     </h3>
-                    <p className="text-gray-700">{scholarship.field}</p>
+                    <p className="text-gray-700">{displayField}</p>
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">
                       Eligibility
                     </h3>
-                    <p className="text-gray-700">{scholarship.eligibility}</p>
+                    <p className="text-gray-700">{displayEligibility}</p>
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">
                       Organization
                     </h3>
                     <p className="text-gray-700">
-                      {scholarship.organizationName}
+                      {displayOrganization}
                     </p>
                   </div>
                 </div>

@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Clock, Play } from "lucide-react";
 import ProgressBar from "./progress-bar";
 import type { Course } from "@shared/schema";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface CourseCardProps {
   course: Course;
@@ -11,6 +12,11 @@ interface CourseCardProps {
 }
 
 export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
+  const { t } = useLanguage();
+  
+  const courseContent = t.courseContent[course.id as keyof typeof t.courseContent];
+  const displayTitle = courseContent?.title || course.title;
+  const displayDescription = courseContent?.description || course.description;
   return (
     <Card className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden group">
       <img
@@ -36,8 +42,8 @@ export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
             <span className="text-sm">{course.duration}</span>
           </div>
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
-        <p className="text-gray-600 mb-4">{course.description}</p>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{displayTitle}</h3>
+        <p className="text-gray-600 mb-4">{displayDescription}</p>
 
         {/* Progress Bar */}
         <div className="mb-4">

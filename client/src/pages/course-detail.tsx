@@ -11,10 +11,12 @@ import { CSS_LESSONS } from "./lessons-css";
 import { ARDUINO_LESSONS } from "./lessons-arduino";
 import eiffel from "@assets/generated_images/eiffel.webp";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 
 export default function CourseDetail() {
   const { id } = useParams();
+  const { t } = useLanguage();
   const [selectedLesson, setSelectedLesson] = useState(1);
   const [htmlCode, setHtmlCode] = useState("");
   const [userHasEditedCode, setUserHasEditedCode] = useState(false);
@@ -1151,7 +1153,7 @@ export default function CourseDetail() {
         <div className="flex items-center justify-center min-h-[50vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading course...</p>
+            <p className="text-gray-600">{t.course.loadingCourse}</p>
           </div>
         </div>
       </div>
@@ -1165,7 +1167,7 @@ export default function CourseDetail() {
         <div className="flex items-center justify-center min-h-[50vh]">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-800 mb-4">
-              Course not found
+              {t.course.courseNotFound}
             </h1>
             <p className="text-gray-600">
               The course you're looking for doesn't exist.
@@ -1207,7 +1209,7 @@ export default function CourseDetail() {
           <div className="lg:col-span-1">
             <Card>
               <CardContent className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Course Lessons</h2>
+                <h2 className="text-xl font-semibold mb-4">{t.course.courseLessons}</h2>
                 <div className="space-y-3">
                   {lessons.map((lesson) => (
                     <button
@@ -1232,7 +1234,7 @@ export default function CourseDetail() {
                             {lesson.title}
                           </p>
                           <p className="text-xs text-gray-500">
-                            Lesson {lesson.id}
+                            {t.course.lesson} {lesson.id}
                           </p>
                         </div>
                       </div>
@@ -1251,7 +1253,7 @@ export default function CourseDetail() {
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-6">
                     <Eye className="h-6 w-6 text-purple-600" />
-                    <h2 className="text-xl font-semibold">Lesson Content</h2>
+                    <h2 className="text-xl font-semibold">{t.course.lessonContent}</h2>
                   </div>
 
                   {currentLesson ? (
@@ -1288,7 +1290,7 @@ export default function CourseDetail() {
                     </div>
                   ) : (
                     <p className="text-gray-500">
-                      Select a lesson to view its content.
+                      {t.course.selectLesson}
                     </p>
                   )}
                 </CardContent>
@@ -1301,7 +1303,7 @@ export default function CourseDetail() {
                     <div className="flex items-center gap-3">
                       <Code className="h-6 w-6 text-purple-600" />
                       <h2 className="text-xl font-semibold">
-                        Interactive Playground
+                        {t.course.interactivePlayground}
                       </h2>
                     </div>
                     <Button
@@ -1312,14 +1314,14 @@ export default function CourseDetail() {
                       data-testid="button-save"
                     >
                       <Save className="h-4 w-4" />
-                      Save
+                      {t.course.save}
                     </Button>
                   </div>
 
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {id === "course-3" ? "Arduino C++" : "HTML Code"}
+                        {id === "course-3" ? t.course.arduinoCode : t.course.htmlCode}
                       </label>
                       <textarea
                         ref={textareaRef}
@@ -1336,7 +1338,7 @@ export default function CourseDetail() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {id === "course-3" ? "Wiring Diagram" : "Preview"}
+                        {id === "course-3" ? t.course.wiringDiagram : t.lesson.preview}
                       </label>
                       <div className="border border-gray-300 rounded-lg p-4 bg-white">
                         {id === "course-3" && currentLesson?.wiringImage ? (

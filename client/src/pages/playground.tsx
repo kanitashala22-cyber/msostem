@@ -8,9 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Save, RotateCcw, Play } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Playground() {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [htmlCode, setHtmlCode] = useState(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,10 +156,10 @@ p {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Code <span className="gradient-text">Playground</span>
+              {t.playground.title.replace(t.playground.titleHighlight, '')} <span className="gradient-text">{t.playground.titleHighlight}</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experiment with HTML and CSS in our interactive code editor. See your changes come to life instantly!
+              {t.playground.description}
             </p>
           </div>
           
@@ -170,17 +172,17 @@ p {
                     value={projectTitle}
                     onChange={(e) => setProjectTitle(e.target.value)}
                     className="text-lg font-semibold"
-                    placeholder="Project Title"
+                    placeholder={t.playground.projectTitle}
                   />
                 </div>
                 <div className="flex items-center gap-2">
                   <Button onClick={handleReset} variant="outline" size="sm">
                     <RotateCcw className="w-4 h-4 mr-2" />
-                    Reset
+                    {t.playground.reset}
                   </Button>
                   <Button onClick={handleSave} variant="outline" size="sm" data-testid="button-save">
                     <Save className="w-4 h-4 mr-2" />
-                    Save
+                    {t.playground.save}
                   </Button>
                 </div>
               </div>
@@ -194,7 +196,7 @@ p {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <i className="fab fa-html5 mr-2 text-orange-500"></i>
-                    HTML
+                    {t.playground.htmlTab}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -211,7 +213,7 @@ p {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <i className="fab fa-css3 mr-2 text-blue-500"></i>
-                    CSS
+                    {t.playground.cssTab}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -231,7 +233,7 @@ p {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Play className="w-5 h-5 mr-2 text-success" />
-                    Live Preview
+                    {t.playground.previewTab}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -251,15 +253,15 @@ p {
           {/* Code Examples */}
           <Card className="mt-8">
             <CardHeader>
-              <CardTitle>Try These Examples</CardTitle>
+              <CardTitle>{t.playground.tryExamples}</CardTitle>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="button" className="w-full">
                 <TabsList className="grid w-full grid-cols-4">
-                  <TabsTrigger value="button">Button</TabsTrigger>
-                  <TabsTrigger value="card">Card</TabsTrigger>
-                  <TabsTrigger value="navbar">Navbar</TabsTrigger>
-                  <TabsTrigger value="gradient">Gradient</TabsTrigger>
+                  <TabsTrigger value="button">{t.playground.button}</TabsTrigger>
+                  <TabsTrigger value="card">{t.playground.card}</TabsTrigger>
+                  <TabsTrigger value="navbar">{t.playground.navbar}</TabsTrigger>
+                  <TabsTrigger value="gradient">{t.playground.gradient}</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="button" className="mt-4">

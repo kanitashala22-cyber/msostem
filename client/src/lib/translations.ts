@@ -76,6 +76,9 @@ export const translations = {
     course: {
       overview: 'Overview',
       lessons: 'Lessons',
+      courseLessons: 'Course Lessons',
+      lessonContent: 'Lesson Content',
+      interactivePlayground: 'Interactive Playground',
       progress: 'Your Progress',
       completed: 'Completed',
       duration: 'Duration',
@@ -84,7 +87,16 @@ export const translations = {
       startCourse: 'Start Course',
       continueLearning: 'Continue Learning',
       lessonComplete: 'Lesson Complete',
-      weeks: 'weeks'
+      weeks: 'weeks',
+      loadingCourse: 'Loading course...',
+      courseNotFound: 'Course not found',
+      courseNotFoundDesc: "The course you're looking for doesn't exist.",
+      selectLesson: 'Select a lesson to view its content.',
+      lesson: 'Lesson',
+      htmlCode: 'HTML Code',
+      arduinoCode: 'Arduino C++',
+      wiringDiagram: 'Wiring Diagram',
+      save: 'Save'
     },
     // Lesson Detail
     lesson: {
@@ -115,14 +127,22 @@ export const translations = {
     // Playground
     playground: {
       title: 'Code Playground',
-      description: 'Practice your HTML and CSS skills in this interactive editor.',
+      titleHighlight: 'Playground',
+      description: 'Experiment with HTML and CSS in our interactive code editor. See your changes come to life instantly!',
+      projectTitle: 'Project Title',
+      reset: 'Reset',
       run: 'Run Code',
       clear: 'Clear',
-      save: 'Save Project',
+      save: 'Save',
       htmlTab: 'HTML',
       cssTab: 'CSS',
-      previewTab: 'Preview',
-      projectSaved: 'Project saved successfully!'
+      previewTab: 'Live Preview',
+      projectSaved: 'Project saved successfully!',
+      tryExamples: 'Try These Examples',
+      button: 'Button',
+      card: 'Card',
+      navbar: 'Navbar',
+      gradient: 'Gradient'
     },
     // Common
     common: {
@@ -210,6 +230,9 @@ export const translations = {
     course: {
       overview: 'Përmbledhje',
       lessons: 'Mësimet',
+      courseLessons: 'Mësimet e Kursit',
+      lessonContent: 'Përmbajtja e Mësimit',
+      interactivePlayground: 'Lodra Interaktive',
       progress: 'Progresi Yt',
       completed: 'Përfunduar',
       duration: 'Kohëzgjatja',
@@ -218,7 +241,16 @@ export const translations = {
       startCourse: 'Fillo Kursin',
       continueLearning: 'Vazhdo të Mësosh',
       lessonComplete: 'Mësimi Përfunduar',
-      weeks: 'javë'
+      weeks: 'javë',
+      loadingCourse: 'Duke ngarkuar kursin...',
+      courseNotFound: 'Kursi nuk u gjet',
+      courseNotFoundDesc: 'Kursi që po kërkon nuk ekziston.',
+      selectLesson: 'Zgjidh një mësim për të parë përmbajtjen.',
+      lesson: 'Mësimi',
+      htmlCode: 'Kodi HTML',
+      arduinoCode: 'Arduino C++',
+      wiringDiagram: 'Diagrami i Lidhjes',
+      save: 'Ruaj'
     },
     // Lesson Detail
     lesson: {
@@ -249,14 +281,22 @@ export const translations = {
     // Playground
     playground: {
       title: 'Lodra e Kodit',
-      description: 'Praktiko aftësitë tua në HTML dhe CSS në këtë editor interaktiv.',
+      titleHighlight: 'Lodra',
+      description: 'Eksperimento me HTML dhe CSS në editorin tonë interaktiv. Shiko ndryshimet të vijnë në jetë menjëherë!',
+      projectTitle: 'Titulli i Projektit',
+      reset: 'Rivendos',
       run: 'Ekzekuto Kodin',
       clear: 'Pastro',
-      save: 'Ruaj Projektin',
+      save: 'Ruaj',
       htmlTab: 'HTML',
       cssTab: 'CSS',
-      previewTab: 'Pamja Paraprake',
-      projectSaved: 'Projekti u ruajt me sukses!'
+      previewTab: 'Pamja e Drejtpërdrejtë',
+      projectSaved: 'Projekti u ruajt me sukses!',
+      tryExamples: 'Provo Këto Shembuj',
+      button: 'Butoni',
+      card: 'Karta',
+      navbar: 'Shiriti i Navigimit',
+      gradient: 'Gradienti'
     },
     // Common
     common: {

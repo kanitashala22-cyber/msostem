@@ -55,8 +55,8 @@ export default function ScholarshipDetail() {
   const isFLEX = scholarship.id === "scholarship-4";
   const isAFS = scholarship.id === "scholarship-5";
   
-  // Get translated content
-  const scholarshipContent = t.scholarshipContent[scholarship.id as keyof typeof t.scholarshipContent];
+  // Get translated content with proper type assertion
+  const scholarshipContent = (t.scholarshipContent as any)[scholarship.id];
   const displayTitle = scholarshipContent?.title || scholarship.title;
   const displayDescription = scholarshipContent?.description || scholarship.description;
   const displayField = scholarshipContent?.field || scholarship.field;

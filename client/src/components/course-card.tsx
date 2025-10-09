@@ -14,7 +14,8 @@ interface CourseCardProps {
 export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
   const { t } = useLanguage();
   
-  const courseContent = t.courseContent[course.id as keyof typeof t.courseContent];
+  // Get translated content with proper type assertion
+  const courseContent = (t.courseContent as any)[course.id];
   const displayTitle = courseContent?.title || course.title;
   const displayDescription = courseContent?.description || course.description;
   return (

@@ -12,7 +12,8 @@ interface ScholarshipCardProps {
 export default function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
   const { t } = useLanguage();
   
-  const scholarshipContent = t.scholarshipContent[scholarship.id as keyof typeof t.scholarshipContent];
+  // Get translated content with proper type assertion
+  const scholarshipContent = (t.scholarshipContent as any)[scholarship.id];
   const displayTitle = scholarshipContent?.title || scholarship.title;
   const displayDescription = scholarshipContent?.description || scholarship.description;
   const displayField = scholarshipContent?.field || scholarship.field;

@@ -195,6 +195,12 @@ export const translations = {
         eligibility: 'High school students (ages 15-17) from designated countries with strong academic records',
         organizationName: 'U.S. Department of State'
       }
+    },
+    // Lesson Content Translations
+    lessonContent: {
+      html: {} as any,
+      css: {} as any,
+      arduino: {} as any
     }
   },
   sq: {
@@ -390,6 +396,151 @@ export const translations = {
         location: 'Shkolla të Mesme në të gjitha Shtetet e Bashkuara',
         eligibility: 'Studentë të shkollës së mesme (mosha 15-17) nga vende të caktuara me rekorde të forta akademike',
         organizationName: 'Departamenti Amerikan i Shtetit'
+      }
+    },
+    // Lesson Content Translations
+    lessonContent: {
+      html: {
+        1: {
+          title: "Çfarë është HTML? - Faqja Juaj e Parë Web",
+          description: "Mirë se vini në botën emocionuese të zhvillimit të uebit! HTML është themeli i çdo faqeje interneti. Le të zbulojmë çfarë e bën uebin të funksionojë dhe të krijojmë faqen tuaj të parë! 🌟",
+          sections: [
+            {
+              title: "Çfarë është HTML?",
+              content: "HTML do të thotë HyperText Markup Language. Mendojeni si skeleti i një faqeje interneti:\\n\\n• **HyperText**: Tekst me lidhje me tekst tjetër\\n• **Markup**: Kode të veçanta që përshkruajnë përmbajtjen\\n• **Language**: Një sistem që kompjuterët kuptojnë\\n\\nHTML i tregon shfletuesve se çfarë është çdo pjesë e përmbajtjes - nëse është një titull, paragraf, imazh ose lidhje. Është si plani i një shtëpie!"
+            },
+            {
+              title: "Si Funksionojnë Faqet e Internetit",
+              content: "Kur vizitoni një faqe interneti:\\n1. Shfletuesi juaj kërkon faqen nga një server\\n2. Serveri dërgon kodin HTML\\n3. Shfletuesi lexon HTML-në dhe e shfaq atë\\n4. Ju shihni faqen e bukur!\\n\\nHTML është kudo - çdo faqe e internetit e përdor, nga blogje të thjeshta tek aplikacione komplekse si Facebook dhe Google."
+            },
+            {
+              title: "Etiketat HTML - Blloqet Ndërtuese",
+              content: "HTML përdor 'etiketa' për të shënuar përmbajtjen:\\n\\n• Etiketat janë të rrethuar me kllapa këndore: `<tag>`\\n• Shumica e etiketave vijnë në çifte: `<tag>përmbajtje</tag>`\\n• Etiketa hapëse fillon elementin\\n• Etiketa mbyllëse e përfundon atë (ka një pjerrake)\\n\\nShembull: `<h1>Ky është një titull</h1>`"
+            },
+            {
+              title: "Provoje Vetë!",
+              content: "Në lodër, provo:\\n1. Ndryshoni 'Hello, World!' me mesazhin tuaj\\n2. Shtoni një paragraf tjetër me `<p>Teksti juaj këtu</p>`\\n3. Bëni disa tekste të trasha me `<strong>tekst i trashë</strong>`\\n4. Shikoni si ndryshimet shfaqen menjëherë!\\n\\nUrime - tani po shkruani HTML! 🎉"
+            }
+          ]
+        },
+        2: {
+          title: "Struktura e Dokumentit HTML & DOCTYPE",
+          description: "Çdo dokument HTML ndjek një strukturë specifike - si një recetë me përbërës thelbësorë! Mësoni anatominë e një faqeje dhe pse struktura e saktë është e rëndësishme. 🏗️",
+          sections: [
+            {
+              title: "Deklarimi DOCTYPE",
+              content: "`<!DOCTYPE html>` i tregon shfletuesit se ky është një dokument HTML5.\\n\\n**Pse është e rëndësishme:**\\n• Siguron që faqja juaj të shfaqet saktë\\n• Parandalon problemet e renderimit në 'quirks mode'\\n• Duhet të jetë rreshti i parë\\n• Shkronjat e vogla janë standarde\\n\\nMendojeni DOCTYPE si shfaqjen e kartës tuaj të identitetit te shfletuesi - identifikon llojin e dokumentit që keni!"
+            },
+            {
+              title: "Elementi HTML",
+              content: "Elementi `<html>` mbështjell gjithçka tjetër:\\n\\n```html\\n<html lang=\"sq\">\\n  <!-- Gjithçka shkon këtu -->\\n</html>\\n```\\n\\n**Atributi lang:**\\n• U tregon lexuesve të ekranit çfarë gjuhe të përdorin\\n• Ndihmon motorët e kërkimit të kuptojnë përmbajtjen tuaj\\n• Përdorni 'sq' për shqip, 'en' për anglisht, etj.\\n• I rëndësishëm për akses!"
+            },
+            {
+              title: "Head vs Body - Dy Seksione të Rëndësishme",
+              content: "Çdo dokument HTML ka dy pjesë kryesore:\\n\\n**`<head>` (i padukshëm për përdoruesit):**\\n• Titulli i faqes (shfaqet në tab të shfletuesit)\\n• Informacioni meta\\n• Lidhjet me skedarët CSS dhe JavaScript\\n• Informacioni për motorët e kërkimit\\n\\n**`<body>` (i dukshëm për përdoruesit):**\\n• Tërë përmbajtja që njerëzit shohin\\n• Tekst, imazhe, lidhje, video\\n• Gjithçka që përbën faqen tuaj"
+            },
+            {
+              title: "Etiketat Meta Thelbësore",
+              content: 'Etiketat meta japin informacion të rëndësishëm:\\n\\n• `<meta charset="UTF-8">` - Trajton të gjitha karakteret e tekstit\\n• `<meta name="viewport"...>` - E bën faqen tuaj miqësore për celular\\n• `<title>` - Titulli i faqes në tab dhe rezultatet e kërkimit\\n\\nKëto mund të duken të padukshme, por janë thelbësore për një faqe profesionale!'
+            },
+            {
+              title: "Praktikë për Strukturën e Dokumentit! 📋",
+              content: "Në lodër, eksperimentoni me:\\n1. Ndryshoni titullin e faqes dhe shikojeni të përditësohet në tab të shfletuesit\\n2. Shtoni më shumë përmbajtje brenda `<body>`\\n3. Provoni kode të ndryshme gjuhësh në atributin lang\\n4. Vini re se si shfletuesi kupton këtë strukturë\\n\\nStruktura e saktë është themeli i çdo faqeje të shkëlqyer!"
+            }
+          ]
+        }
+      },
+      css: {
+        1: {
+          title: "Çfarë është CSS? - Stilizimi i Faqes Tuaj të Parë",
+          description: "Mirë se vini në botën e mahnitshme të CSS! CSS (Cascading Style Sheets) transformon HTML-në e thjeshtë në faqe të bukura dhe profesionale. Le të fillojmë udhëtimin tuaj në dizajn! 🎨",
+          sections: [
+            {
+              title: "Çfarë është CSS?",
+              content: "CSS do të thotë **Cascading Style Sheets**. Mendojeni si artisti i make-up-it për faqet e internetit:\\n\\n• **Cascading**: Stilet rrjedhin nga prindërit tek elementet fëmijë\\n• **Style**: Kontrollon si duken gjërat (ngjyra, fontet, paraqitja)\\n• **Sheets**: Koleksione të organizuara të rregullave të stilit\\n\\nNëse HTML është skeleti, CSS është lëkura, rrobat dhe make-up-i që i bën faqet e bukura!"
+            },
+            {
+              title: "Si Funksionon CSS",
+              content: "CSS funksionon duke zgjedhur elementet HTML dhe duke aplikuar stile:\\n\\n1. **Selector**: Targeton cilin element HTML të stilizojë\\n2. **Property**: Çfarë aspekti të ndryshojë (ngjyra, madhësia, etj.)\\n3. **Value**: Si ta ndryshojë\\n\\nShembull: `h1 { color: purple; }` i bën të gjitha titujt h1 të purpurt!"
+            },
+            {
+              title: "Tre Mënyra për të Shtuar CSS",
+              content: "Mund të shtoni CSS në tre mënyra:\\n\\n• **Inline**: `<p style=\"color: red;\">Tekst</p>`\\n• **Internal**: Etiketa `<style>` në `<head>`\\n• **External**: Skedar i veçantë `.css`\\n\\n**Praktika më e mirë**: Përdorni skedarë CSS të jashtëm për organizim më të mirë!"
+            },
+            {
+              title: "Provoje Vetë! 🎨",
+              content: "Në lodër, eksperimentoni me:\\n1. Ndryshoni ngjyrën e h1 nga e purpurt në ngjyrën tuaj të preferuar\\n2. Provoni fonte të ndryshme: `font-family: Georgia;`\\n3. Shtoni më shumë stile te paragrafi\\n4. Krijoni një klasë të re dhe aplikojeni te teksti\\n\\nShikoni si ndryshimet tuaja transformojnë menjëherë pamjen!"
+            }
+          ]
+        },
+        2: {
+          title: "Selektorët CSS - Targetimi i Elementeve HTML",
+          description: "Selektorët janë mënyra se si i tregoni CSS-së cilat elemente HTML të stilizojë. Zotëroni selektorët dhe ju kontrolloni saktësisht si duket faqja juaj! 🎯",
+          sections: [
+            {
+              title: "Selektorët e Elementeve",
+              content: "Targetoni elementet HTML me emrin e etiketës:\\n\\n```css\\nh1 { color: blue; }\\np { font-size: 16px; }\\ndiv { background-color: lightgray; }\\n```\\n\\n**Përdorni për**: Stilizimin e të gjithë elementeve të të njëjtit lloj"
+            },
+            {
+              title: "Selektorët e Klasës (.class)",
+              content: "Targetoni elementet me atribute specifike klase:\\n\\n**HTML**: `<p class=\"highlight\">Tekst</p>`\\n**CSS**: `.highlight { background-color: yellow; }`\\n\\n• Përdorni një pikë (.) para emrit të klasës\\n• Mund të përdoret në elemente të shumta\\n• Lloji i selektorit **më i përdorur**"
+            },
+            {
+              title: "Selektorët ID (#id)",
+              content: "Targetoni një element specifik me ID unik:\\n\\n**HTML**: `<div id=\"header\">Përmbajtje</div>`\\n**CSS**: `#header { background-color: navy; }`\\n\\n• Përdorni një hash (#) para emrit ID\\n• Duhet të jetë **unik** në faqe\\n• Specificiteti më i lartë se klasat"
+            },
+            {
+              title: "Praktikë Selektorësh! 🎪",
+              content: "Në lodër, provoni:\\n1. Shtoni një klasë të re `.warning` me tekst të kuq\\n2. Stilizoni të gjitha elementet `<p>` me një margin\\n3. Krijoni një ID `#footer` me sfond të errët\\n4. Përdorni selektorë të shumtë: `h1, h2, h3 { font-family: Georgia; }`\\n\\nEksperimentoni dhe shikoni si funksionojnë selektorë të ndryshëm!"
+            }
+          ]
+        }
+      },
+      arduino: {
+        1: {
+          title: "Fillimi me Arduino Uno",
+          description: "Mirë se vini te Arduino! Mësoni për bordin Arduino Uno, kuptoni komponentët e tij dhe shkruani programin tuaj të parë. Arduino e bën elektronikën argëtuese dhe të lehtë! 🤖",
+          sections: [
+            {
+              title: "Çfarë është Arduino?",
+              content: "Arduino është një **bord mikrokontrolleri** që e bën elektronikën dhe programimin të akses për të gjithë!\\n\\n**Karakteristika Kryesore:**\\n• Kompjuter i vogël që mund ta programoni\\n• 14 pine hyrje/dalje dixhitale\\n• 6 pine hyrje analoge\\n• Lidhje USB për programim\\n• Tension operimi 5V\\n• Perfekt për të mësuar elektronikë!\\n\\nMendojeni si një tru të vogël që mund të kontrollojë drita, motorë, sensorë dhe më shumë!"
+            },
+            {
+              title: "Komponentët e Bordit Arduino",
+              content: "**Pjesët Kryesore të Arduino Uno:**\\n\\n• **Porta USB**: Lidhuni me kompjuterin për programim\\n• **Power Jack**: Furnizim energjie të jashtme 7-12V\\n• **Pine Dixhitale (0-13)**: Lexoni/shkruani sinjale HIGH ose LOW\\n• **Pine Analoge (A0-A5)**: Lexoni vlerat e sensorëve (0-1023)\\n• **Pine GND**: Lidhje tokësimi (0V)\\n• **Pine 5V & 3.3V**: Pine furnizimi energjie\\n• **Butoni Reset**: Rinis programin tuaj\\n• **LED_BUILTIN**: LED e integruar në pin 13"
+            },
+            {
+              title: "Bazat e Programimit Arduino",
+              content: "Arduino përdor një gjuhë të ngjashme me C/C++. Çdo program ka dy funksione kryesore:\\n\\n**setup()**: Ekzekutohet një herë kur fillon Arduino\\n```cpp\\nvoid setup() {\\n  // Inicializoni pinet, sensorët, etj.\\n  pinMode(13, OUTPUT);\\n}\\n```\\n\\n**loop()**: Ekzekutohet vazhdimisht përgjithmonë\\n```cpp\\nvoid loop() {\\n  // Kodi kryesor i programit tuaj\\n  digitalWrite(13, HIGH);\\n  delay(1000);\\n}\\n```"
+            },
+            {
+              title: "Provoje Vetë! 💡",
+              content: "Në lodrën e kodit, do të shihni një program të thjeshtë për LED që ndizet e fik:\\n\\n1. **pinMode()**: Vendos pin 13 si OUTPUT\\n2. **digitalWrite()**: Ndez LED ON (HIGH) ose OFF (LOW)\\n3. **delay()**: Pret për milisekonda të specifikuara\\n\\n**Eksperimentoni:**\\n• Ndryshoni delay(1000) në delay(500) për vezullim më të shpejtë\\n• Provoni delay(100) për vezullim shumë të shpejtë\\n• Përdorni vlera të ndryshme delay për HIGH dhe LOW\\n\\nKy program i thjeshtë është themeli i të gjitha projekteve Arduino!"
+            }
+          ]
+        },
+        2: {
+          title: "Vezullimi i LED - Programi Juaj i Parë Arduino",
+          description: "Ndërtoni qarqen tuaj të parë! Mësoni si të lidhni një LED me Arduino dhe ta kontrolloni me kod. Këtu takohettë harduer-i me softuer-in! 💡",
+          sections: [
+            {
+              title: "Komponentët që ju Nevojiten",
+              content: "**Lista e Pjesëve:**\\n• Bordi Arduino Uno\\n• 1 LED (çfarëdo ngjyre)\\n• 1 rezistencë (220Ω - 330Ω)\\n• Tela lidhëse\\n• Breadboard (opsionale)\\n\\n**Bazat e LED:**\\n• LED-të kanë dy këmbë: **anode (+)** këmba e gjatë dhe **cathode (-)** këmba e shkurtër\\n• Gjithmonë përdorni një rezistencë për të parandaluar djegien e LED\\n• Rrymori rrjedh nga anode te cathode"
+            },
+            {
+              title: "Lidhja e Qarkut LED",
+              content: "**Lidhja Hap-pas-Hapi:**\\n\\n1. **Këmba e gjatë LED (anode)** → Lidheni me **Pin 8**\\n2. **Këmba e shkurtër LED (cathode)** → Lidheni me **rezistencë 220Ω**\\n3. **Fundi tjetër i rezistencës** → Lidheni me **GND (Ground)**\\n\\n**Pse rezistencë?**\\nPinet Arduino japin 5V, por LED-të zakonisht kanë nevojë vetëm 2-3V. Rezistenca kufizon rrymën për të mbrojtur LED-in.\\n\\n**Këshillë**: LED-të e kuqe kanë nevojë ~2V, LED-të Blu/Të bardha ~3V"
+            },
+            {
+              title: "Kuptimi i Kodit",
+              content: "**Shpjegimi i Kodit:**\\n\\n```cpp\\nint ledPin = 8;  // Variabla ruan numrin e pin\\n```\\nKrjon një variabël për të mbajtur mend se në cilin pin është LED\\n\\n```cpp\\npinMode(ledPin, OUTPUT);\\n```\\nI tregon Arduino se pin 8 do të dërgojë sinjale OUT\\n\\n```cpp\\ndigitalWrite(ledPin, HIGH);  // 5V në pin\\ndigitalWrite(ledPin, LOW);   // 0V në pin\\n```\\nHIGH = LED ON, LOW = LED OFF\\n\\n```cpp\\ndelay(500);  // Pret 500 milisekonda\\n```\\nPauzon programin (1000ms = 1 sekondë)"
+            },
+            {
+              title: "Eksperimente për të Provuar! 🔬",
+              content: "**Sfidoni veten:**\\n\\n1. **Kodi Morse**: Krijoni modelin SOS (3 vezullime të shkurtra, 3 të gjata, 3 të shkurtra)\\n2. **Semafori**: Simuloni një sekuencë semafori\\n3. **LED të Shumëfishta**: Lidhni LED në pine 8, 9, 10 dhe krijoni modele\\n4. **Rrahje Zemre**: Bëni LED të zbehet dhe ndizet si rrahje zemre\\n\\n**Zgjidhja e Problemeve:**\\n• LED nuk ndizet? Kontrolloni polaritetin (këmba e gjatë te pin)\\n• LED shumë e dobët? Kontrolloni vlerën e rezistencës\\n• LED u dogj? Harruat rezistencën?"
+            }
+          ]
+        }
       }
     }
   }

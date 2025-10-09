@@ -1183,6 +1183,38 @@ export default function CourseDetail() {
   const displayTitle = courseContent?.title || course.title;
   const displayDescription = courseContent?.description || course.description;
 
+  // Helper function to get translated lesson content
+  const getTranslatedLessonContent = (lesson: any) => {
+    if (!lesson) return null;
+    
+    // Determine course type based on course ID
+    let courseType = '';
+    if (course.id === 'course-1') courseType = 'html';
+    else if (course.id === 'course-2') courseType = 'css';
+    else if (course.id === 'course-3') courseType = 'arduino';
+    
+    // Get translated lesson content from translations
+    const translatedContent = (t.lessonContent as any)?.[courseType]?.[lesson.id];
+    
+    // If translation exists and has content, use it; otherwise use original
+    if (translatedContent && translatedContent.title) {
+      return {
+        ...lesson,
+        content: {
+          title: translatedContent.title,
+          description: translatedContent.description,
+          sections: translatedContent.sections
+        }
+      };
+    }
+    
+    // Fallback to original lesson content
+    return lesson;
+  };
+
+  // Get translated current lesson
+  const translatedCurrentLesson = getTranslatedLessonContent(currentLesson);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50">
       <Navbar />
@@ -1261,19 +1293,19 @@ export default function CourseDetail() {
                     <h2 className="text-xl font-semibold">{t.course.lessonContent}</h2>
                   </div>
 
-                  {currentLesson ? (
+                  {translatedCurrentLesson ? (
                     <div className="space-y-6">
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                          {currentLesson.content.title}
+                          {translatedCurrentLesson.content.title}
                         </h3>
                         <p className="text-gray-600 text-lg leading-relaxed">
-                          {currentLesson.content.description}
+                          {translatedCurrentLesson.content.description}
                         </p>
                       </div>
 
                       <div className="space-y-6">
-                        {currentLesson.content.sections.map(
+                        {translatedCurrentLesson.content.sections.map(
                           (section, index) => (
                             <div
                               key={index}
@@ -1346,9 +1378,9 @@ export default function CourseDetail() {
                         {id === "course-3" ? t.course.wiringDiagram : t.lesson.preview}
                       </label>
                       <div className="border border-gray-300 rounded-lg p-4 bg-white">
-                        {id === "course-3" && currentLesson?.wiringImage ? (
+                        {id === "course-3" && translatedCurrentLesson?.wiringImage ? (
                           <img 
-                            src={currentLesson.wiringImage} 
+                            src={translatedCurrentLesson.wiringImage} 
                             alt="Wiring diagram" 
                             className="w-full h-auto rounded"
                             data-testid="img-wiring-diagram"

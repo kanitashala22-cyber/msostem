@@ -55,29 +55,19 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-6">Learn</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <Link href="/courses">
-                  <a className="hover:text-white transition-colors duration-300">HTML Fundamentals</a>
-                </Link>
+                <Link href="/courses" className="hover:text-white transition-colors duration-300">HTML Fundamentals</Link>
               </li>
               <li>
-                <Link href="/courses">
-                  <a className="hover:text-white transition-colors duration-300">CSS Styling</a>
-                </Link>
+                <Link href="/courses" className="hover:text-white transition-colors duration-300">CSS Styling</Link>
               </li>
               <li>
-                <Link href="/courses">
-                  <a className="hover:text-white transition-colors duration-300">Responsive Design</a>
-                </Link>
+                <Link href="/courses" className="hover:text-white transition-colors duration-300">Responsive Design</Link>
               </li>
               <li>
-                <Link href="/playground">
-                  <a className="hover:text-white transition-colors duration-300">Code Playground</a>
-                </Link>
+                <Link href="/playground" className="hover:text-white transition-colors duration-300">Code Playground</Link>
               </li>
               <li>
-                <Link href="/courses">
-                  <a className="hover:text-white transition-colors duration-300">Learning Path</a>
-                </Link>
+                <Link href="/courses" className="hover:text-white transition-colors duration-300">Learning Path</Link>
               </li>
             </ul>
           </div>
@@ -86,9 +76,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-6">Resources</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <Link href="/scholarships">
-                  <a className="hover:text-white transition-colors duration-300">Scholarships</a>
-                </Link>
+                <Link href="/scholarships" className="hover:text-white transition-colors duration-300">Scholarships</Link>
               </li>
               <li>
                 <a href="#community" className="hover:text-white transition-colors duration-300">Community</a>

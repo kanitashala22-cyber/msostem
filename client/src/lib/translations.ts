@@ -12,10 +12,17 @@ export const translations = {
     // Home Page
     home: {
       hero: {
-        title: 'Empower Your Future in Tech',
-        subtitle: 'Learn to code, build amazing projects, and discover scholarship opportunities designed for young women in technology.',
-        ctaCourses: 'Explore Courses',
-        ctaScholarships: 'Find Scholarships'
+        title: 'Empower Your',
+        titleAnimated: 'Tech Journey',
+        subtitle: 'Join thousands of young women learning to code with HTML & CSS, and discover scholarships that can transform your future in tech.',
+        ctaCourses: 'Start Your Journey',
+        ctaScholarships: 'Explore Scholarships',
+        feature1Title: 'Interactive Learning',
+        feature1Desc: 'Hands-on coding experience',
+        feature2Title: 'Scholarship Access',
+        feature2Desc: 'Find funding opportunities',
+        feature3Title: 'Live Playground',
+        feature3Desc: 'Practice coding instantly'
       },
       courses: {
         title: 'Featured Courses',
@@ -114,10 +121,17 @@ export const translations = {
     // Home Page
     home: {
       hero: {
-        title: 'Fuqizo të Ardhmen Tënde në Teknologji',
-        subtitle: 'Mëso të kodosh, ndërto projekte të mahnitshme dhe zbulo mundësi bursash të dizajnuara për gra të reja në teknologji.',
-        ctaCourses: 'Eksploro Kurset',
-        ctaScholarships: 'Gjej Bursa'
+        title: 'Fuqizo',
+        titleAnimated: 'Udhëtimin Tënd Teknologjik',
+        subtitle: 'Bashkohu me mijëra gra të reja që mësojnë të kodojnë me HTML & CSS, dhe zbulo bursa që mund të transformojnë të ardhmen tënde në teknologji.',
+        ctaCourses: 'Fillo Udhëtimin',
+        ctaScholarships: 'Eksploro Bursat',
+        feature1Title: 'Mësim Interaktiv',
+        feature1Desc: 'Përvojë praktike kodimi',
+        feature2Title: 'Akses në Bursa',
+        feature2Desc: 'Gjej mundësi financimi',
+        feature3Title: 'Lodra e Drejtpërdrejtë',
+        feature3Desc: 'Praktiko kodin menjëherë'
       },
       courses: {
         title: 'Kurset e Zgjedhura',

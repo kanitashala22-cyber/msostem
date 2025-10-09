@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Play, GraduationCap, Code } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+  
   return (
     <section className="pt-16 pb-20 overflow-hidden">
       <div className="hero-gradient min-h-screen flex items-center relative">
@@ -11,23 +14,23 @@ export default function HeroSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-white space-y-8 animate-slide-up">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                Empower Your 
-                <span className="block typing-animation">Tech Journey</span>
+                {t.home.hero.title} 
+                <span className="block typing-animation">{t.home.hero.titleAnimated}</span>
               </h1>
               <p className="text-xl lg:text-2xl text-gray-100 max-w-2xl">
-                Join thousands of young women learning to code with HTML & CSS, and discover scholarships that can transform your future in tech.
+                {t.home.hero.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/courses">
-                  <Button className="bg-white text-primary px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                  <Button className="bg-white text-primary px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transition-all duration-300 hover:shadow-xl" data-testid="button-hero-courses">
                     <Play className="w-5 h-5 mr-2" />
-                    Start Your Journey
+                    {t.home.hero.ctaCourses}
                   </Button>
                 </Link>
                 <Link href="/scholarships">
-                  <Button className="glass-morphism text-white px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transition-all duration-300">
+                  <Button className="glass-morphism text-white px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transition-all duration-300" data-testid="button-hero-scholarships">
                     <GraduationCap className="w-5 h-5 mr-2" />
-                    Explore Scholarships
+                    {t.home.hero.ctaScholarships}
                   </Button>
                 </Link>
               </div>
@@ -38,22 +41,22 @@ export default function HeroSection() {
                   <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3 animate-glow">
                     <Code className="w-8 h-8 text-white" />
                   </div>
-                  <div className="text-white font-semibold">Interactive Learning</div>
-                  <div className="text-gray-200 text-sm">Hands-on coding experience</div>
+                  <div className="text-white font-semibold">{t.home.hero.feature1Title}</div>
+                  <div className="text-gray-200 text-sm">{t.home.hero.feature1Desc}</div>
                 </div>
                 <div className="text-center animate-slide-up" style={{animationDelay: '0.7s'}}>
                   <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3 animate-glow">
                     <GraduationCap className="w-8 h-8 text-white" />
                   </div>
-                  <div className="text-white font-semibold">Scholarship Access</div>
-                  <div className="text-gray-200 text-sm">Find funding opportunities</div>
+                  <div className="text-white font-semibold">{t.home.hero.feature2Title}</div>
+                  <div className="text-gray-200 text-sm">{t.home.hero.feature2Desc}</div>
                 </div>
                 <div className="text-center animate-slide-up" style={{animationDelay: '0.9s'}}>
                   <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3 animate-glow">
                     <Play className="w-8 h-8 text-white" />
                   </div>
-                  <div className="text-white font-semibold">Live Playground</div>
-                  <div className="text-gray-200 text-sm">Practice coding instantly</div>
+                  <div className="text-white font-semibold">{t.home.hero.feature3Title}</div>
+                  <div className="text-gray-200 text-sm">{t.home.hero.feature3Desc}</div>
                 </div>
               </div>
             </div>

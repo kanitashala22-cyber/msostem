@@ -2,10 +2,13 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export default function Navbar() {
   const [location] = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const isActive = (path: string) => location === path;
 
@@ -27,32 +30,26 @@ export default function Navbar() {
               isActive('/courses') 
                 ? 'text-primary' 
                 : 'text-gray-700 hover:text-primary'
-            }`}>
-              Courses
+            }`} data-testid="link-courses">
+              {t.nav.courses}
             </Link>
             <Link href="/scholarships" className={`font-medium transition-colors duration-300 ${
               isActive('/scholarships') 
                 ? 'text-primary' 
                 : 'text-gray-700 hover:text-primary'
-            }`}>
-              Scholarships
+            }`} data-testid="link-scholarships">
+              {t.nav.scholarships}
             </Link>
             <Link href="/playground" className={`font-medium transition-colors duration-300 ${
               isActive('/playground') 
                 ? 'text-primary' 
                 : 'text-gray-700 hover:text-primary'
-            }`}>
-              Playground
+            }`} data-testid="link-playground">
+              {t.nav.playground}
             </Link>
-            <Link href="/about" className={`font-medium transition-colors duration-300 ${
-              isActive('/about') 
-                ? 'text-primary' 
-                : 'text-gray-700 hover:text-primary'
-            }`}>
-              About
-            </Link>
-            <Button className="bg-primary text-white hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              Start Learning
+            <LanguageSwitcher />
+            <Button className="bg-primary text-white hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg" data-testid="button-start-learning">
+              {t.course.startCourse}
             </Button>
           </div>
           
@@ -79,8 +76,9 @@ export default function Navbar() {
                   : 'text-gray-700 hover:text-primary'
               }`}
               onClick={() => setIsMenuOpen(false)}
+              data-testid="link-courses-mobile"
             >
-              Courses
+              {t.nav.courses}
             </Link>
             <Link 
               href="/scholarships"
@@ -90,8 +88,9 @@ export default function Navbar() {
                   : 'text-gray-700 hover:text-primary'
               }`}
               onClick={() => setIsMenuOpen(false)}
+              data-testid="link-scholarships-mobile"
             >
-              Scholarships
+              {t.nav.scholarships}
             </Link>
             <Link 
               href="/playground"
@@ -101,22 +100,13 @@ export default function Navbar() {
                   : 'text-gray-700 hover:text-primary'
               }`}
               onClick={() => setIsMenuOpen(false)}
+              data-testid="link-playground-mobile"
             >
-              Playground
+              {t.nav.playground}
             </Link>
-            <Link 
-              href="/about"
-              className={`block font-medium transition-colors duration-300 ${
-                isActive('/about') 
-                  ? 'text-primary' 
-                  : 'text-gray-700 hover:text-primary'
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Button className="w-full bg-primary text-white hover:bg-primary/90 transition-all duration-300">
-              Start Learning
+            <LanguageSwitcher />
+            <Button className="w-full bg-primary text-white hover:bg-primary/90 transition-all duration-300" data-testid="button-start-learning-mobile">
+              {t.course.startCourse}
             </Button>
           </div>
         )}

@@ -8,8 +8,11 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { Play, Clock, CheckCircle, Rocket, Search, Eye, Code, GraduationCap } from "lucide-react";
 import type { Course, Scholarship } from "@shared/schema";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
+  
   const { data: courses, isLoading: coursesLoading } = useQuery<Course[]>({
     queryKey: ["/api/courses"],
   });
@@ -31,40 +34,40 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Interactive <span className="gradient-text">Coding Courses</span>
+              {t.home.courses.title.replace(t.home.courses.titleHighlight, '')} <span className="gradient-text">{t.home.courses.titleHighlight}</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Learn HTML and CSS through hands-on projects and interactive lessons designed specifically for beginners.
+              {t.home.courses.subtitle}
             </p>
           </div>
           
           {/* Learning Path Overview */}
           <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 mb-12 text-white animate-slide-up">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-3">Your Learning Journey Starts Here</h3>
-              <p className="text-white/90 text-lg">Follow our structured path to become confident in web development</p>
+              <h3 className="text-2xl font-bold mb-3">{t.home.courses.pathTitle}</h3>
+              <p className="text-white/90 text-lg">{t.home.courses.pathSubtitle}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center animate-float" style={{animationDelay: '0.2s'}}>
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
                   <Code className="w-8 h-8 text-white" />
                 </div>
-                <div className="font-semibold text-lg mb-2">1. Learn HTML</div>
-                <div className="text-white/80">Build the structure of web pages</div>
+                <div className="font-semibold text-lg mb-2">{t.home.courses.step1Title}</div>
+                <div className="text-white/80">{t.home.courses.step1Desc}</div>
               </div>
               <div className="text-center animate-float" style={{animationDelay: '0.4s'}}>
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
                   <div className="text-2xl">🎨</div>
                 </div>
-                <div className="font-semibold text-lg mb-2">2. Style with CSS</div>
-                <div className="text-white/80">Make your pages beautiful and responsive</div>
+                <div className="font-semibold text-lg mb-2">{t.home.courses.step2Title}</div>
+                <div className="text-white/80">{t.home.courses.step2Desc}</div>
               </div>
               <div className="text-center animate-float" style={{animationDelay: '0.6s'}}>
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
                   <Rocket className="w-8 h-8 text-white" />
                 </div>
-                <div className="font-semibold text-lg mb-2">3. Build Projects</div>
-                <div className="text-white/80">Create amazing websites and portfolios</div>
+                <div className="font-semibold text-lg mb-2">{t.home.courses.step3Title}</div>
+                <div className="text-white/80">{t.home.courses.step3Desc}</div>
               </div>
             </div>
           </div>
@@ -106,7 +109,7 @@ export default function Home() {
                         course.level === 'intermediate' ? 'bg-secondary bg-opacity-10 text-secondary' :
                         'bg-accent bg-opacity-10 text-accent'
                       }`}>
-                        {course.level.charAt(0).toUpperCase() + course.level.slice(1)}
+                        {course.level === 'beginner' ? t.common.beginner : course.level === 'intermediate' ? t.common.intermediate : t.common.advanced}
                       </span>
                       <div className="flex items-center text-gray-500">
                         <Clock className="w-4 h-4 mr-1" />
@@ -119,15 +122,15 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center text-gray-500">
                         <Play className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{course.lessonsCount} lessons</span>
+                        <span className="text-sm">{course.lessonsCount} {t.home.courses.lessons}</span>
                       </div>
                       <Link href={`/course/${course.id}`}>
                         <Button className={`${
                           course.level === 'beginner' ? 'bg-primary hover:bg-primary/90' :
                           course.level === 'intermediate' ? 'bg-secondary hover:bg-secondary/90' :
                           'bg-accent hover:bg-accent/90'
-                        } text-white`}>
-                          Continue
+                        } text-white`} data-testid={`button-continue-${course.id}`}>
+                          {t.home.courses.continue}
                         </Button>
                       </Link>
                     </div>
@@ -146,32 +149,32 @@ export default function Home() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/20 rounded-lg mr-3 animate-pulse">
                     <Code className="w-6 h-6 text-primary" />
                   </div>
-                  Interactive Code Playground
+                  {t.home.courses.playgroundTitle}
                 </h3>
                 <p className="text-gray-300 text-lg mb-6">
-                  Practice your skills in our live code editor with instant preview. See your changes in real-time!
+                  {t.home.courses.playgroundDesc}
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-center animate-fade-in" style={{animationDelay: '0.2s'}}>
                     <CheckCircle className="w-5 h-5 text-success mr-3" />
-                    Live HTML/CSS preview
+                    {t.home.courses.playgroundFeature1}
                   </li>
                   <li className="flex items-center animate-fade-in" style={{animationDelay: '0.4s'}}>
                     <CheckCircle className="w-5 h-5 text-success mr-3" />
-                    Syntax highlighting & auto-complete
+                    {t.home.courses.playgroundFeature2}
                   </li>
                   <li className="flex items-center animate-fade-in" style={{animationDelay: '0.6s'}}>
                     <CheckCircle className="w-5 h-5 text-success mr-3" />
-                    Save and share your projects
+                    {t.home.courses.playgroundFeature3}
                   </li>
                   <li className="flex items-center animate-fade-in" style={{animationDelay: '0.8s'}}>
                     <CheckCircle className="w-5 h-5 text-success mr-3" />
-                    Step-by-step guided tutorials
+                    {t.home.courses.playgroundFeature4}
                   </li>
                 </ul>
                 <Link href="/playground">
-                  <Button className="mt-6 bg-primary text-white hover:bg-primary/90 font-semibold">
-                    Try the Playground
+                  <Button className="mt-6 bg-primary text-white hover:bg-primary/90 font-semibold" data-testid="button-try-playground">
+                    {t.home.courses.tryPlayground}
                   </Button>
                 </Link>
               </div>
@@ -232,10 +235,10 @@ export default function Home() {
             <div className="absolute left-1/4 top-0 w-6 h-6 bg-secondary/10 rounded-full animate-float"></div>
             <div className="absolute right-1/3 top-8 w-4 h-4 bg-primary/20 rounded-full animate-float" style={{animationDelay: '1.5s'}}></div>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 animate-slide-up">
-              Tech <span className="gradient-text">Scholarships</span>
+              {t.home.scholarships.title.replace(t.home.scholarships.titleHighlight, '')} <span className="gradient-text">{t.home.scholarships.titleHighlight}</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.3s'}}>
-              Discover funding opportunities that can help you pursue your dreams in technology and computer science.
+              {t.home.scholarships.subtitle}
             </p>
           </div>
           
@@ -263,7 +266,7 @@ export default function Home() {
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-bold text-success">${scholarship.amount.toLocaleString()}</div>
-                        <div className="text-sm text-gray-500">Award Amount</div>
+                        <div className="text-sm text-gray-500">{t.home.scholarships.amount}</div>
                       </div>
                     </div>
                     
@@ -273,7 +276,7 @@ export default function Home() {
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center text-sm text-gray-600">
                         <i className="fas fa-calendar-alt mr-2 text-primary w-4"></i>
-                        <span>Deadline: {new Date(scholarship.deadline).toLocaleDateString()}</span>
+                        <span>{t.home.scholarships.deadline}: {new Date(scholarship.deadline).toLocaleDateString()}</span>
                       </div>
                       <div className="flex items-center text-sm text-gray-600">
                         <GraduationCap className="w-4 h-4 mr-2 text-primary" />
@@ -292,14 +295,14 @@ export default function Home() {
                         scholarship.status === 'closing_soon' ? 'bg-orange-100 text-orange-800' :
                         'bg-red-100 text-red-800'
                       }`}>
-                        {scholarship.status === 'open' ? 'Open' :
-                         scholarship.status === 'upcoming' ? 'Upcoming' :
-                         scholarship.status === 'closing_soon' ? 'Closing Soon' :
-                         'Closed'}
+                        {scholarship.status === 'open' ? t.home.scholarships.statusOpen :
+                         scholarship.status === 'upcoming' ? t.home.scholarships.statusUpcoming :
+                         scholarship.status === 'closing_soon' ? t.home.scholarships.statusClosingSoon :
+                         t.home.scholarships.statusClosed}
                       </span>
                       <Link href={`/scholarships/${scholarship.id}`}>
-                        <span className="bg-primary text-white hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 cursor-pointer">
-                          View Details
+                        <span className="bg-primary text-white hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 cursor-pointer" data-testid={`button-view-scholarship-${scholarship.id}`}>
+                          {t.home.scholarships.viewDetails}
                         </span>
                       </Link>
                     </div>
@@ -311,8 +314,8 @@ export default function Home() {
           
           <div className="text-center mt-12">
             <Link href="/scholarships">
-              <Button className="bg-primary text-white px-8 py-3 hover:bg-primary/90 font-semibold">
-                View All Scholarships
+              <Button className="bg-primary text-white px-8 py-3 hover:bg-primary/90 font-semibold" data-testid="button-view-all-scholarships">
+                {t.home.scholarships.viewAll}
               </Button>
             </Link>
           </div>

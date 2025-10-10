@@ -375,11 +375,122 @@ export const translations = {
     scholarshipContent: {
       'scholarship-1': {
         title: 'TechGirls',
-        description: 'Program plotësisht i financuar nga Departamenti Amerikan i Shtetit që fuqizon gratë e reja (mosha 15-17) të ndjekin karriera STEM përmes një programi intensiv veror të shkëmbimit nëShtetet e Bashkuara.',
+        description: 'Program plotësisht i financuar nga Departamenti Amerikan i Shtetit që fuqizon gratë e reja (mosha 15-17) të ndjekin karriera STEM përmes një programi intensiv veror të shkëmbimit në Shtetet e Bashkuara.',
         field: 'Shkenca, Teknologji, Inxhinieri, Matematikë, STEM, Udhëheqje',
         location: 'Universiteti Teknologjik i Virxhinias + Qytete Amerikane',
         eligibility: 'Gra të reja mosha 15-17 nga 37 vende të pranueshme me interes të fortë në fushat STEM',
-        organizationName: 'Departamenti Amerikan i Shtetit'
+        organizationName: 'Departamenti Amerikan i Shtetit',
+        aboutProgram: {
+          title: 'Rreth Programit TechGirls',
+          description: 'TechGirls është një program prestigjioz, plotësisht i financuar nga Departamenti Amerikan i Shtetit që fuqizon gratë e reja nga e gjithë bota të ndjekin karriera në shkencë, teknologji, inxhinieri dhe matematikë (STEM). Kjo mundësi që ndryshon jetën kombinon trajnim intensiv teknologjik në Universitetin Virginia Tech me zhytje kulturore në të gjithë Shtetet e Bashkuara.',
+          programHighlights: {
+            title: 'Pikat Kryesore të Programit',
+            items: [
+              'Përvojë intensive 23-ditore në Shtetet e Bashkuara',
+              '38 orë kurse STEM në teknologjitë më të reja',
+              'Kamp teknologjik në Universitetin Virginia Tech',
+              'Përvojë zhytjeje kulturore me familje pritëse',
+              'Program mentorimi 7-mujor pas shkëmbimit'
+            ]
+          },
+          whatsIncluded: {
+            title: 'Çfarë Përfshihet',
+            items: [
+              'Biletë avioni ndërkombëtar vajtje-ardhje',
+              'Të gjitha akomodimet dhe ushqimet',
+              'Aktivitete edukative dhe vizita në terren',
+              'Vizita në kompani teknologjike (NASA, Smithsonian)',
+              'Shpenzime jetese dhe aktivitete kulturore'
+            ]
+          }
+        },
+        eligibilityRequirements: {
+          title: 'Kushtet e Pranimit',
+          basicRequirements: {
+            title: 'Kërkesat Bazë',
+            items: [
+              'Mosha 15-17 në fillim të programit',
+              'Qytetarë/rezidentë të vendeve të pranueshme',
+              'Interes i fortë në fushat STEM',
+              'Njohuri të avancuara të ndërmjetme të anglishtes',
+              'Pozicion i mirë akademik',
+              'Nuk kërkohet përvojë e mëparshme në kodim'
+            ]
+          },
+          personalQualities: {
+            title: 'Cilësi Personale',
+            items: [
+              'Potencial i dukshëm udhëheqës',
+              'Përvojë në shërbim komunitar',
+              'Pjekuri dhe mendje e hapur',
+              'Angazhim për projekt veprimi në komunitet',
+              'Përvojë e kufizuar e mëparshme në SHBA (e preferuar)'
+            ]
+          },
+          eligibleCountries: {
+            title: 'Vende/Territore të Pranueshme (37 gjithsej)',
+            regions: {
+              subSaharanAfrica: 'Afrika Subsahariane: Kamerun, Kenia, Nigjeria, Ruanda, Afrika e Jugut, Zambia',
+              eastAsiaPacific: 'Azia Lindore & Paqësori: Kamboxhia, Fixhi, Indonezia, Mongolia, Tajvan, Vietnami',
+              europeEurasia: 'Evropa & Eurazia: Shqipëria, Qipro, Greqia, Kosova, Mali i Zi, Turqia',
+              middleEastNorthAfrica: 'Lindja e Mesme & Afrika e Veriut: Algjeria, Egjipti, Jordania, Libani, Maroku, Territoret Palestineze, Tunizia',
+              southCentralAsia: 'Azia e Jugut & Qendrore: Kazakistani, Kirgizistani, Pakistani, Taxhikistani, Turkmenistani, Uzbekistani',
+              westernHemisphere: 'Hemisfera Perëndimore: Brazili, Kosta Rika, Ekuadori, Panama, Peruja, Surinami',
+              unitedStates: 'Shtetet e Bashkuara: Qytetarët dhe rezidentët amerikanë janë gjithashtu të pranueshëm'
+            }
+          }
+        },
+        programStructure: {
+          title: 'Struktura e Programit',
+          phase1: {
+            title: 'Faza 1: Kampi Teknologjik në Virginia Tech',
+            description: 'Kamp teknologjik intensiv që ofron trajnim praktik STEM, vizita në laboratorë, ndjekje të punës me profesionistë teknologjikë dhe punëtori udhëheqjeje.'
+          },
+          phase2: {
+            title: 'Faza 2: Zhytje Komunitare',
+            description: 'Zhytje kulturore në qytete amerikane përfshirë Austin, Cincinnati, Denver, Detroit, Kansas City ose Seattle. Përjetoni jetën me familje pritëse dhe vizitoni kompani të mëdha teknologjike.'
+          },
+          phase3: {
+            title: 'Faza 3: Projekti i Veprimit Komunitar',
+            description: 'Kur të ktheheni në shtëpi, zbatoni një projekt STEM bazuar në komunitet si fillimi i klubeve teknologjike, mësimi i kodimit ose organizimi i panairit të karrierave.'
+          }
+        },
+        applicationInfo: {
+          title: 'Informacion për Aplikimin',
+          timeline: {
+            title: 'Kalendari i Aplikimit 2026',
+            items: [
+              'Aplikimi Hapet: Vjeshtë 2025',
+              'Afati i Aplikimit: Dhjetor 2025',
+              'Njoftimi: Mars 2026',
+              'Datat e Programit: Korrik 2026'
+            ]
+          },
+          requirements: {
+            title: 'Kërkesat për Aplikim',
+            items: [
+              'Plotëso aplikimin online në anglisht',
+              'Fotografi personale/portret',
+              'Transkripti akademik më i fundit',
+              'Ese dhe deklarata personale',
+              'Të gjitha përgjigjet duhet të jenë punë origjinale'
+            ]
+          },
+          selectionProcess: {
+            title: 'Procesi i Përzgjedhjes',
+            items: [
+              'Komiteti i pavarur shqyrton aplikimet',
+              'Intervista në ambasadën amerikane për kandidatët ndërkombëtarë',
+              'Intervista Legacy International për kandidatët amerikanë',
+              'Përzgjedhja finale dhe njoftimi'
+            ]
+          }
+        },
+        badgeText: {
+          open: 'E Hapur për Aplikime',
+          upcoming: 'Periudha e Ardhshme e Aplikimit',
+          closingSoon: 'Mbyllet Së Shpejti'
+        }
       },
       'scholarship-2': {
         title: 'Bursë Benjamin Franklin Transatlantike',

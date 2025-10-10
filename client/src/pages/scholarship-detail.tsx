@@ -82,10 +82,10 @@ export default function ScholarshipDetail() {
               }`}
             >
               {scholarship.status === "open"
-                ? "Open for Applications"
+                ? (scholarshipContent?.badgeText?.open || "Open for Applications")
                 : scholarship.status === "upcoming"
-                  ? "Upcoming Application Period"
-                  : "Closing Soon"}
+                  ? (scholarshipContent?.badgeText?.upcoming || "Upcoming Application Period")
+                  : (scholarshipContent?.badgeText?.closingSoon || "Closing Soon")}
             </Badge>
 
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -139,72 +139,50 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    About TechGirls Program
+                    {scholarshipContent?.aboutProgram?.title || "About TechGirls Program"}
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    TechGirls is a prestigious, fully-funded U.S. Department of
-                    State exchange program that empowers young women from around
-                    the world to pursue careers in science, technology,
-                    engineering, and mathematics (STEM). This life-changing
-                    opportunity combines intensive technology training at
-                    Virginia Tech University with cultural immersion across the
-                    United States.
+                    {scholarshipContent?.aboutProgram?.description || "TechGirls is a prestigious, fully-funded U.S. Department of State exchange program that empowers young women from around the world to pursue careers in science, technology, engineering, and mathematics (STEM). This life-changing opportunity combines intensive technology training at Virginia Tech University with cultural immersion across the United States."}
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Program Highlights
+                        {scholarshipContent?.aboutProgram?.programHighlights?.title || "Program Highlights"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          23-day intensive experience in the United States
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          38 hours of cutting-edge STEM coursework
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Technology camp at Virginia Tech University
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Host family cultural immersion experience
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          7-month mentoring program post-exchange
-                        </li>
+                        {(scholarshipContent?.aboutProgram?.programHighlights?.items || [
+                          "23-day intensive experience in the United States",
+                          "38 hours of cutting-edge STEM coursework",
+                          "Technology camp at Virginia Tech University",
+                          "Host family cultural immersion experience",
+                          "7-month mentoring program post-exchange"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        What's Included
+                        {scholarshipContent?.aboutProgram?.whatsIncluded?.title || "What's Included"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Round-trip international airfare
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          All accommodation and meals
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Educational activities and site visits
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Tech company visits (NASA, Smithsonian)
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Living stipend and cultural activities
-                        </li>
+                        {(scholarshipContent?.aboutProgram?.whatsIncluded?.items || [
+                          "Round-trip international airfare",
+                          "All accommodation and meals",
+                          "Educational activities and site visits",
+                          "Tech company visits (NASA, Smithsonian)",
+                          "Living stipend and cultural activities"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -215,66 +193,65 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    Eligibility Requirements
+                    {scholarshipContent?.eligibilityRequirements?.title || "Eligibility Requirements"}
                   </h2>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Basic Requirements
+                        {scholarshipContent?.eligibilityRequirements?.basicRequirements?.title || "Basic Requirements"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Ages 15-17 at program start</li>
-                        <li>• Citizens/residents of eligible countries</li>
-                        <li>• Strong interest in STEM fields</li>
-                        <li>• Advanced intermediate English proficiency</li>
-                        <li>• Good academic standing</li>
-                        <li>• No prior coding experience required</li>
+                        {(scholarshipContent?.eligibilityRequirements?.basicRequirements?.items || [
+                          "Ages 15-17 at program start",
+                          "Citizens/residents of eligible countries",
+                          "Strong interest in STEM fields",
+                          "Advanced intermediate English proficiency",
+                          "Good academic standing",
+                          "No prior coding experience required"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Personal Qualities
+                        {scholarshipContent?.eligibilityRequirements?.personalQualities?.title || "Personal Qualities"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Demonstrated leadership potential</li>
-                        <li>• Community service experience</li>
-                        <li>• Maturity and open-mindedness</li>
-                        <li>• Commitment to community action project</li>
-                        <li>• Limited prior U.S. experience (preferred)</li>
+                        {(scholarshipContent?.eligibilityRequirements?.personalQualities?.items || [
+                          "Demonstrated leadership potential",
+                          "Community service experience",
+                          "Maturity and open-mindedness",
+                          "Commitment to community action project",
+                          "Limited prior U.S. experience (preferred)"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
 
                   <div className="mt-6">
                     <h3 className="font-semibold text-gray-900 mb-3">
-                      Eligible Countries/Territories (37 total)
+                      {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.title || "Eligible Countries/Territories (37 total)"}
                     </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-700">
-                        <strong>Sub-Saharan Africa:</strong> Cameroon, Kenya,
-                        Nigeria, Rwanda, South Africa, Zambia
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.subSaharanAfrica || "Sub-Saharan Africa: Cameroon, Kenya, Nigeria, Rwanda, South Africa, Zambia"}
                         <br />
-                        <strong>East Asia & Pacific:</strong> Cambodia, Fiji,
-                        Indonesia, Mongolia, Taiwan, Vietnam
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.eastAsiaPacific || "East Asia & Pacific: Cambodia, Fiji, Indonesia, Mongolia, Taiwan, Vietnam"}
                         <br />
-                        <strong>Europe & Eurasia:</strong> Albania, Cyprus,
-                        Greece, Kosovo, Montenegro, Türkiye
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.europeEurasia || "Europe & Eurasia: Albania, Cyprus, Greece, Kosovo, Montenegro, Türkiye"}
                         <br />
-                        <strong>Middle East & North Africa:</strong> Algeria,
-                        Egypt, Jordan, Lebanon, Morocco, Palestinian
-                        Territories, Tunisia
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.middleEastNorthAfrica || "Middle East & North Africa: Algeria, Egypt, Jordan, Lebanon, Morocco, Palestinian Territories, Tunisia"}
                         <br />
-                        <strong>South & Central Asia:</strong> Kazakhstan,
-                        Kyrgyzstan, Pakistan, Tajikistan, Turkmenistan,
-                        Uzbekistan
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.southCentralAsia || "South & Central Asia: Kazakhstan, Kyrgyzstan, Pakistan, Tajikistan, Turkmenistan, Uzbekistan"}
                         <br />
-                        <strong>Western Hemisphere:</strong> Brazil, Costa Rica,
-                        Ecuador, Panama, Peru, Suriname
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.westernHemisphere || "Western Hemisphere: Brazil, Costa Rica, Ecuador, Panama, Peru, Suriname"}
                         <br />
-                        <strong>United States:</strong> U.S. citizens and
-                        residents are also eligible
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.unitedStates || "United States: U.S. citizens and residents are also eligible"}
                       </p>
                     </div>
                   </div>
@@ -285,41 +262,34 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    Program Structure
+                    {scholarshipContent?.programStructure?.title || "Program Structure"}
                   </h2>
 
                   <div className="space-y-6">
                     <div className="border-l-4 border-primary pl-6">
                       <h3 className="font-semibold text-gray-900 mb-2">
-                        Phase 1: Tech Camp at Virginia Tech
+                        {scholarshipContent?.programStructure?.phase1?.title || "Phase 1: Tech Camp at Virginia Tech"}
                       </h3>
                       <p className="text-gray-700">
-                        Intensive technology camp featuring hands-on STEM
-                        training, lab visits, job shadowing with tech
-                        professionals, and leadership workshops.
+                        {scholarshipContent?.programStructure?.phase1?.description || "Intensive technology camp featuring hands-on STEM training, lab visits, job shadowing with tech professionals, and leadership workshops."}
                       </p>
                     </div>
 
                     <div className="border-l-4 border-secondary pl-6">
                       <h3 className="font-semibold text-gray-900 mb-2">
-                        Phase 2: Community Immersion
+                        {scholarshipContent?.programStructure?.phase2?.title || "Phase 2: Community Immersion"}
                       </h3>
                       <p className="text-gray-700 mb-2">
-                        Cultural immersion in U.S. cities including Austin,
-                        Cincinnati, Denver, Detroit, Kansas City, or Seattle.
-                        Experience host family life and visit major tech
-                        companies.
+                        {scholarshipContent?.programStructure?.phase2?.description || "Cultural immersion in U.S. cities including Austin, Cincinnati, Denver, Detroit, Kansas City, or Seattle. Experience host family life and visit major tech companies."}
                       </p>
                     </div>
 
                     <div className="border-l-4 border-accent pl-6">
                       <h3 className="font-semibold text-gray-900 mb-2">
-                        Phase 3: Community Action Project
+                        {scholarshipContent?.programStructure?.phase3?.title || "Phase 3: Community Action Project"}
                       </h3>
                       <p className="text-gray-700">
-                        Upon returning home, implement a community-based STEM
-                        project such as starting tech clubs, teaching coding, or
-                        organizing career fairs.
+                        {scholarshipContent?.programStructure?.phase3?.description || "Upon returning home, implement a community-based STEM project such as starting tech clubs, teaching coding, or organizing career fairs."}
                       </p>
                     </div>
                   </div>
@@ -330,48 +300,56 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    Application Information
+                    {scholarshipContent?.applicationInfo?.title || "Application Information"}
                   </h2>
 
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
                     <h3 className="font-semibold text-blue-900 mb-2">
-                      2026 Application Timeline
+                      {scholarshipContent?.applicationInfo?.timeline?.title || "2026 Application Timeline"}
                     </h3>
                     <ul className="text-blue-800 space-y-1">
-                      <li>• Application Opens: Fall 2025</li>
-                      <li>• Application Deadline: December 2025</li>
-                      <li>• Notification: March 2026</li>
-                      <li>• Program Dates: July 2026</li>
+                      {(scholarshipContent?.applicationInfo?.timeline?.items || [
+                        "Application Opens: Fall 2025",
+                        "Application Deadline: December 2025",
+                        "Notification: March 2026",
+                        "Program Dates: July 2026"
+                      ]).map((item: string, idx: number) => (
+                        <li key={idx}>• {item}</li>
+                      ))}
                     </ul>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Application Requirements
+                        {scholarshipContent?.applicationInfo?.requirements?.title || "Application Requirements"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Complete online application in English</li>
-                        <li>• Personal portrait/headshot photo</li>
-                        <li>• Most recent academic transcript</li>
-                        <li>• Essays and personal statements</li>
-                        <li>• All responses must be original work</li>
+                        {(scholarshipContent?.applicationInfo?.requirements?.items || [
+                          "Complete online application in English",
+                          "Personal portrait/headshot photo",
+                          "Most recent academic transcript",
+                          "Essays and personal statements",
+                          "All responses must be original work"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Selection Process
+                        {scholarshipContent?.applicationInfo?.selectionProcess?.title || "Selection Process"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Independent committee reviews applications</li>
-                        <li>
-                          • U.S. embassy interviews for international candidates
-                        </li>
-                        <li>
-                          • Legacy International interviews for U.S. candidates
-                        </li>
-                        <li>• Final selection and notification</li>
+                        {(scholarshipContent?.applicationInfo?.selectionProcess?.items || [
+                          "Independent committee reviews applications",
+                          "U.S. embassy interviews for international candidates",
+                          "Legacy International interviews for U.S. candidates",
+                          "Final selection and notification"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -959,7 +937,7 @@ export default function ScholarshipDetail() {
               className="bg-primary hover:bg-primary/90 text-white flex-1"
             >
               <a
-                href={scholarship.applicationUrl}
+                href={scholarship.applicationUrl || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
               >

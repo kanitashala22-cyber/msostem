@@ -393,29 +393,21 @@ export default function ScholarshipDetail() {
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Program Components
+                        {scholarshipContent?.aboutProgram?.programComponents?.title || "Program Components"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Academic seminars on U.S. foreign policy
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Democracy and civil society discussions
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Communications and advocacy training
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Site visits to government institutions
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Meetings with policy makers and experts
-                        </li>
+                        {(scholarshipContent?.aboutProgram?.programComponents?.items || [
+                          "Academic seminars on U.S. foreign policy",
+                          "Democracy and civil society discussions",
+                          "Communications and advocacy training",
+                          "Site visits to government institutions",
+                          "Meetings with policy makers and experts"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -425,53 +417,53 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    Eligibility Requirements
+                    {scholarshipContent?.eligibilityRequirements?.title || "Eligibility Requirements"}
                   </h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Basic Requirements
+                        {scholarshipContent?.eligibilityRequirements?.basicRequirements?.title || "Basic Requirements"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Ages 16-18 at program start</li>
-                        <li>
-                          • European citizenship or legal permanent residency
-                        </li>
-                        <li>• Strong academic achievement</li>
-                        <li>• High proficiency in English</li>
-                        <li>• Little to no prior U.S. experience</li>
-                        <li>• Commitment to return home post-program</li>
+                        {(scholarshipContent?.eligibilityRequirements?.basicRequirements?.items || [
+                          "Ages 16-18 at program start",
+                          "European citizenship or legal permanent residency",
+                          "Strong academic achievement",
+                          "High proficiency in English",
+                          "Little to no prior U.S. experience",
+                          "Commitment to return home post-program"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Personal Qualities
+                        {scholarshipContent?.eligibilityRequirements?.personalQualities?.title || "Personal Qualities"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Demonstrated leadership potential</li>
-                        <li>
-                          • Interest in diplomacy and international relations
-                        </li>
-                        <li>• Maturity and independence</li>
-                        <li>• Strong social skills and flexibility</li>
-                        <li>• Open-minded and tolerant attitude</li>
-                        <li>• Community service engagement</li>
+                        {(scholarshipContent?.eligibilityRequirements?.personalQualities?.items || [
+                          "Demonstrated leadership potential",
+                          "Interest in diplomacy and international relations",
+                          "Maturity and independence",
+                          "Strong social skills and flexibility",
+                          "Open-minded and tolerant attitude",
+                          "Community service engagement"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
 
                   <div className="mt-6">
                     <h3 className="font-semibold text-gray-900 mb-3">
-                      Participating Countries
+                      {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.title || "Participating Countries"}
                     </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-700">
-                        European countries including: Albania, Austria, Belgium,
-                        Cyprus, Czech Republic, Estonia, Finland, France,
-                        Germany, Greece, Hungary, Ireland, Italy, Kosovo,
-                        Latvia, Lithuania, Luxembourg, Malta, Netherlands,
-                        Poland, Portugal, Slovakia, Slovenia, Spain, and others.
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.description || "European countries including: Albania, Austria, Belgium, Cyprus, Czech Republic, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Kosovo, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Slovakia, Slovenia, Spain, and others."}
                       </p>
                     </div>
                   </div>
@@ -484,72 +476,50 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    About Kennedy-Lugar Youth Exchange & Study (YES)
+                    {scholarshipContent?.aboutProgram?.title || "About Kennedy-Lugar Youth Exchange & Study (YES)"}
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    The Kennedy-Lugar Youth Exchange & Study (YES) program is a
-                    competitive, merit-based scholarship program funded by the
-                    U.S. State Department that brings high school students from
-                    countries with significant Muslim populations to the United
-                    States for a full academic year. Students live with
-                    volunteer American host families and attend U.S. high
-                    schools, serving as cultural ambassadors.
+                    {scholarshipContent?.aboutProgram?.description || "The Kennedy-Lugar Youth Exchange & Study (YES) program is a competitive, merit-based scholarship program funded by the U.S. State Department that brings high school students from countries with significant Muslim populations to the United States for a full academic year. Students live with volunteer American host families and attend U.S. high schools, serving as cultural ambassadors."}
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Program Highlights
+                        {scholarshipContent?.aboutProgram?.programHighlights?.title || "Program Highlights"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Full academic year (9-10 months) in the U.S.
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Live with volunteer American host families
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Attend regular U.S. high schools
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Cultural immersion and leadership development
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Serve as youth cultural ambassadors
-                        </li>
+                        {(scholarshipContent?.aboutProgram?.programHighlights?.items || [
+                          "Full academic year (9-10 months) in the U.S.",
+                          "Live with volunteer American host families",
+                          "Attend regular U.S. high schools",
+                          "Cultural immersion and leadership development",
+                          "Serve as youth cultural ambassadors"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        What's Included
+                        {scholarshipContent?.aboutProgram?.whatsIncluded?.title || "What's Included"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Round-trip international airfare
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Room and board with host family
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          High school tuition and fees
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Medical benefits and visa fees
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Orientation and ongoing support
-                        </li>
+                        {(scholarshipContent?.aboutProgram?.whatsIncluded?.items || [
+                          "Round-trip international airfare",
+                          "Room and board with host family",
+                          "High school tuition and fees",
+                          "Medical benefits and visa fees",
+                          "Orientation and ongoing support"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -559,60 +529,63 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    Eligibility Requirements
+                    {scholarshipContent?.eligibilityRequirements?.title || "Eligibility Requirements"}
                   </h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Basic Requirements
+                        {scholarshipContent?.eligibilityRequirements?.basicRequirements?.title || "Basic Requirements"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Ages 15-18 (high school students)</li>
-                        <li>• Citizens/residents of participating countries</li>
-                        <li>• Merit-based selection through competition</li>
-                        <li>• Good academic standing</li>
-                        <li>• English language proficiency</li>
-                        <li>• No previous long-term U.S. experience</li>
+                        {(scholarshipContent?.eligibilityRequirements?.basicRequirements?.items || [
+                          "Ages 15-18 (high school students)",
+                          "Citizens/residents of participating countries",
+                          "Merit-based selection through competition",
+                          "Good academic standing",
+                          "English language proficiency",
+                          "No previous long-term U.S. experience"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Personal Qualities
+                        {scholarshipContent?.eligibilityRequirements?.personalQualities?.title || "Personal Qualities"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Leadership potential and maturity</li>
-                        <li>• Cultural curiosity and open-mindedness</li>
-                        <li>• Commitment to cultural exchange</li>
-                        <li>• Community service orientation</li>
-                        <li>• Academic excellence and motivation</li>
-                        <li>• Strong communication skills</li>
+                        {(scholarshipContent?.eligibilityRequirements?.personalQualities?.items || [
+                          "Leadership potential and maturity",
+                          "Cultural curiosity and open-mindedness",
+                          "Commitment to cultural exchange",
+                          "Community service orientation",
+                          "Academic excellence and motivation",
+                          "Strong communication skills"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
 
                   <div className="mt-6">
                     <h3 className="font-semibold text-gray-900 mb-3">
-                      Participating Countries (45+ countries)
+                      {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.title || "Participating Countries (45+ countries)"}
                     </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-700">
-                        <strong>Southeast Asia:</strong> Indonesia, Malaysia,
-                        Philippines, Thailand
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.southeastAsia || "Southeast Asia: Indonesia, Malaysia, Philippines, Thailand"}
                         <br />
-                        <strong>Europe & Eurasia:</strong> Bosnia and
-                        Herzegovina, Bulgaria, Turkey
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.europeEurasia || "Europe & Eurasia: Bosnia and Herzegovina, Bulgaria, Turkey"}
                         <br />
-                        <strong>Middle East & North Africa:</strong> Egypt,
-                        Jordan, Morocco, Tunisia
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.middleEastNorthAfrica || "Middle East & North Africa: Egypt, Jordan, Morocco, Tunisia"}
                         <br />
-                        <strong>South & Central Asia:</strong> India, Pakistan
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.southCentralAsia || "South & Central Asia: India, Pakistan"}
                         <br />
-                        <strong>Sub-Saharan Africa:</strong> Ghana, Mali,
-                        Senegal, South Africa
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.subSaharanAfrica || "Sub-Saharan Africa: Ghana, Mali, Senegal, South Africa"}
                         <br />
-                        And many other countries with significant Muslim
-                        populations.
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.note || "And many other countries with significant Muslim populations."}
                       </p>
                     </div>
                   </div>
@@ -625,72 +598,50 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    About Future Leaders Exchange (FLEX)
+                    {scholarshipContent?.aboutProgram?.title || "About Future Leaders Exchange (FLEX)"}
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    The Future Leaders Exchange (FLEX) program is a competitive,
-                    merit-based scholarship program funded by the U.S. State
-                    Department that brings high school students from Europe,
-                    Eurasia, and Central Asia to the United States for a full
-                    academic year. With over 32,000 alumni since 1993, FLEX
-                    promotes mutual understanding and lasting peace through
-                    youth exchange.
+                    {scholarshipContent?.aboutProgram?.description || "The Future Leaders Exchange (FLEX) program is a competitive, merit-based scholarship program funded by the U.S. State Department that brings high school students from Europe, Eurasia, and Central Asia to the United States for a full academic year. With over 32,000 alumni since 1993, FLEX promotes mutual understanding and lasting peace through youth exchange."}
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Program Highlights
+                        {scholarshipContent?.aboutProgram?.programHighlights?.title || "Program Highlights"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Full academic year (9-10 months) in the U.S.
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Live with volunteer American host families
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Attend regular U.S. public high schools
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Extremely competitive (1 in 50 acceptance rate)
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Focus on democracy and entrepreneurship
-                        </li>
+                        {(scholarshipContent?.aboutProgram?.programHighlights?.items || [
+                          "Full academic year (9-10 months) in the U.S.",
+                          "Live with volunteer American host families",
+                          "Attend regular U.S. public high schools",
+                          "Extremely competitive (1 in 50 acceptance rate)",
+                          "Focus on democracy and entrepreneurship"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Program Requirements
+                        {scholarshipContent?.aboutProgram?.programRequirements?.title || "Program Requirements"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          30+ hours of community service
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Cultural orientation activities
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Leadership development workshops
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Cultural ambassador responsibilities
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Alumni network participation
-                        </li>
+                        {(scholarshipContent?.aboutProgram?.programRequirements?.items || [
+                          "30+ hours of community service",
+                          "Cultural orientation activities",
+                          "Leadership development workshops",
+                          "Cultural ambassador responsibilities",
+                          "Alumni network participation"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -700,58 +651,61 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    Eligibility Requirements
+                    {scholarshipContent?.eligibilityRequirements?.title || "Eligibility Requirements"}
                   </h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Basic Requirements
+                        {scholarshipContent?.eligibilityRequirements?.basicRequirements?.title || "Basic Requirements"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Ages 15-17 (some sources say up to 19)</li>
-                        <li>• Citizens of participating countries</li>
-                        <li>• Currently enrolled in high school</li>
-                        <li>• Strong academic performance</li>
-                        <li>• English language proficiency</li>
-                        <li>• No significant prior U.S. experience</li>
+                        {(scholarshipContent?.eligibilityRequirements?.basicRequirements?.items || [
+                          "Ages 15-17 (some sources say up to 19)",
+                          "Citizens of participating countries",
+                          "Currently enrolled in high school",
+                          "Strong academic performance",
+                          "English language proficiency",
+                          "No significant prior U.S. experience"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Personal Qualities
+                        {scholarshipContent?.eligibilityRequirements?.personalQualities?.title || "Personal Qualities"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Exceptional leadership potential</li>
-                        <li>• Strong character and maturity</li>
-                        <li>• Commitment to community service</li>
-                        <li>• Interest in democracy and free market economy</li>
-                        <li>• Cultural adaptability and openness</li>
-                        <li>• Academic excellence and curiosity</li>
+                        {(scholarshipContent?.eligibilityRequirements?.personalQualities?.items || [
+                          "Exceptional leadership potential",
+                          "Strong character and maturity",
+                          "Commitment to community service",
+                          "Interest in democracy and free market economy",
+                          "Cultural adaptability and openness",
+                          "Academic excellence and curiosity"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
 
                   <div className="mt-6">
                     <h3 className="font-semibold text-gray-900 mb-3">
-                      Participating Countries (22 countries)
+                      {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.title || "Participating Countries (22 countries)"}
                     </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-700">
-                        <strong>Eastern Europe:</strong> Czech Republic,
-                        Estonia, Hungary, Latvia, Lithuania, Poland, Romania,
-                        Slovakia
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.easternEurope || "Eastern Europe: Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia"}
                         <br />
-                        <strong>Southeast Europe:</strong> Greece, Montenegro,
-                        Serbia
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.southeastEurope || "Southeast Europe: Greece, Montenegro, Serbia"}
                         <br />
-                        <strong>Eurasia:</strong> Armenia, Azerbaijan, Belarus,
-                        Georgia, Moldova, Russia, Ukraine
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.eurasia || "Eurasia: Armenia, Azerbaijan, Belarus, Georgia, Moldova, Russia, Ukraine"}
                         <br />
-                        <strong>Central Asia:</strong> Kazakhstan, Kyrgyzstan,
-                        Tajikistan, Turkmenistan, Uzbekistan
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.centralAsia || "Central Asia: Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan"}
                         <br />
-                        <strong>East Asia:</strong> Mongolia
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.regions?.eastAsia || "East Asia: Mongolia"}
                       </p>
                     </div>
                   </div>
@@ -759,73 +713,55 @@ export default function ScholarshipDetail() {
               </Card>
             </div>
           ) : isAFS ? (
-            /* Benjamin Franklin Transatlantic Fellowship Content */
+            /* AFS Global You™ Adventurer Content */
             <div className="space-y-8">
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    About About AFS Global You™ Adventurer
+                    {scholarshipContent?.aboutProgram?.title || "About AFS Global You™ Adventurer"}
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    The AFS Global You™ Adventurer is a unique 5-week online exchange program designed for high school students around the world. This fully immersive, fully-funded program helps participants develop global competence, intercultural communication skills, leadership capacity, and digital collaboration skills.
-
-                    Through engaging activities, interactive discussions, and cross-cultural teamwork, students connect with peers from diverse backgrounds to become more empathetic, open-minded, and prepared to thrive in a globalized world.
+                    {scholarshipContent?.aboutProgram?.description || "The AFS Global You™ Adventurer is a unique 5-week online exchange program designed for high school students around the world. This fully immersive, fully-funded program helps participants develop global competence, intercultural communication skills, leadership capacity, and digital collaboration skills. Through engaging activities, interactive discussions, and cross-cultural teamwork, students connect with peers from diverse backgrounds to become more empathetic, open-minded, and prepared to thrive in a globalized world."}
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Program Highlights
+                        {scholarshipContent?.aboutProgram?.programHighlights?.title || "Program Highlights"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          5-week interactive virtual exchange
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Focus on global citizenship and intercultural skills
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Leadership development and teamwork activities
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Real-world challenges tied to UN Sustainable Development Goals (SDGs)
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Daily online interactions with peers from around the world
-                        </li>
+                        {(scholarshipContent?.aboutProgram?.programHighlights?.items || [
+                          "5-week interactive virtual exchange",
+                          "Focus on global citizenship and intercultural skills",
+                          "Leadership development and teamwork activities",
+                          "Real-world challenges tied to UN Sustainable Development Goals (SDGs)",
+                          "Daily online interactions with peers from around the world"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Program Components
+                        {scholarshipContent?.aboutProgram?.programComponents?.title || "Program Components"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Global Competence Workshops: Training on communication, empathy, and cultural awareness
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Sustainability Challenges: Projects related to the SDGs
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Intercultural Dialogues: Interactive sessions with international peers
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Leadership Activities: Team-based collaboration across time zones
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Digital Collaboration Tools: Building skills in remote teamwork and problem-solving
-                        </li>
+                        {(scholarshipContent?.aboutProgram?.programComponents?.items || [
+                          "Global Competence Workshops: Training on communication, empathy, and cultural awareness",
+                          "Sustainability Challenges: Projects related to the SDGs",
+                          "Intercultural Dialogues: Interactive sessions with international peers",
+                          "Leadership Activities: Team-based collaboration across time zones",
+                          "Digital Collaboration Tools: Building skills in remote teamwork and problem-solving"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -835,49 +771,52 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    Eligibility Requirements
+                    {scholarshipContent?.eligibilityRequirements?.title || "Eligibility Requirements"}
                   </h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Basic Requirements
+                        {scholarshipContent?.eligibilityRequirements?.basicRequirements?.title || "Basic Requirements"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Ages 14–17 at the program start</li>
-                        <li>
-                          • Open to students anywhere in the world
-                        </li>
-                        <li>• Strong interest in global issues, culture, and leadership</li>
-                        <li>• High proficiency in English</li>
-                        <li>• Access to stable internet connection and computer</li>
-                
+                        {(scholarshipContent?.eligibilityRequirements?.basicRequirements?.items || [
+                          "Ages 14–17 at the program start",
+                          "Open to students anywhere in the world",
+                          "Strong interest in global issues, culture, and leadership",
+                          "High proficiency in English",
+                          "Access to stable internet connection and computer"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Personal Qualities
+                        {scholarshipContent?.eligibilityRequirements?.personalQualities?.title || "Personal Qualities"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Curiosity and open-mindedness</li>
-                        <li>
-                          • Willingness to collaborate with peers from different cultures
-                        </li>
-                        <li>• Strong teamwork and communication skills</li>
-                        <li>• Respectful and inclusive attitude</li>
-                        <li>• Open-minded and tolerant attitude</li>
-                        <li>• Desire to become an active global citizen</li>
+                        {(scholarshipContent?.eligibilityRequirements?.personalQualities?.items || [
+                          "Curiosity and open-mindedness",
+                          "Willingness to collaborate with peers from different cultures",
+                          "Strong teamwork and communication skills",
+                          "Respectful and inclusive attitude",
+                          "Open-minded and tolerant attitude",
+                          "Desire to become an active global citizen"
+                        ]).map((item: string, idx: number) => (
+                          <li key={idx}>• {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
 
                   <div className="mt-6">
                     <h3 className="font-semibold text-gray-900 mb-3">
-                      Participating Countries
+                      {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.title || "Participating Countries"}
                     </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-700">
-                        Countries from all over the world are eligible to participate in the AFS Global You Adventurer program.
+                        {scholarshipContent?.eligibilityRequirements?.eligibleCountries?.description || "Countries from all over the world are eligible to participate in the AFS Global You Adventurer program."}
                       </p>
                     </div>
                   </div>

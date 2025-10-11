@@ -208,7 +208,7 @@ export const translations = {
     nav: {
       courses: 'Kurset',
       scholarships: 'Bursat',
-      playground: 'Lodra e Kodit',
+      playground: 'Hapësira e Kodit',
       language: 'Gjuha'
     },
     // Home Page
@@ -223,7 +223,7 @@ export const translations = {
         feature1Desc: 'Përvojë praktike kodimi',
         feature2Title: 'Akses në Bursa',
         feature2Desc: 'Gjej mundësi financimi',
-        feature3Title: 'Lodra e Drejtpërdrejtë',
+        feature3Title: 'Hapësira e Drejtpërdrejtë',
         feature3Desc: 'Praktiko kodin menjëherë'
       },
       courses: {
@@ -243,7 +243,7 @@ export const translations = {
         weeks: 'javë',
         startLearning: 'Fillo të Mësosh',
         continue: 'Vazhdo',
-        playgroundTitle: 'Lodra e Kodit Interaktiv',
+        playgroundTitle: 'Hapësira e Kodit Interaktiv',
         playgroundDesc: 'Praktiko aftësitë në editorin tonë të drejtpërdrejtë me pamje paraprake të menjëhershme. Shiko ndryshimet në kohë reale!',
         playgroundFeature1: 'Pamje paraprake HTML/CSS e drejtpërdrejtë',
         playgroundFeature2: 'Theksim sintakse dhe plotësim automatik',
@@ -280,7 +280,7 @@ export const translations = {
       lessons: 'Mësimet',
       courseLessons: 'Mësimet e Kursit',
       lessonContent: 'Përmbajtja e Mësimit',
-      interactivePlayground: 'Lodra Interaktive',
+      interactivePlayground: 'Hapësira Interaktive',
       progress: 'Progresi Yt',
       completed: 'Përfunduar',
       duration: 'Kohëzgjatja',
@@ -324,12 +324,13 @@ export const translations = {
       applyNow: 'Apliko Tani',
       backToScholarships: 'Kthehu te Bursat',
       deadline: 'Afati i Aplikimit',
-      amount: 'Shuma e Çmimit'
+      amount: 'Shuma e Çmimit',
+      description: 'Zbuloni mundësi financimi që mund të ju ndihmojnë të ndiqni ëndrrat tuaja në teknologji dhe shkenca kompjuterike.'
     },
     // Playground
     playground: {
-      title: 'Lodra e Kodit',
-      titleHighlight: 'Lodra',
+      title: 'Hapësira e Kodit',
+      titleHighlight: 'e Kodit',
       description: 'Eksperimento me HTML dhe CSS në editorin tonë interaktiv. Shiko ndryshimet të vijnë në jetë menjëherë!',
       projectTitle: 'Titulli i Projektit',
       reset: 'Rivendos',
@@ -498,7 +499,98 @@ export const translations = {
         field: 'Diplomaci, Udhëheqje, Marrëdhënie Ndërkombëtare, Shoqëria Civile',
         location: 'Universiteti Purdue, West Lafayette, Indiana',
         eligibility: 'Qytetarë evropianë mosha 16-18 me arritje të forta akademike dhe potencial udhëheqës',
-        organizationName: 'Departamenti Amerikan i Shtetit'
+        organizationName: 'Departamenti Amerikan i Shtetit',
+        aboutProgram: {
+          title: 'Rreth Bursës Benjamin Franklin Transatlantike',
+          description: 'Benjamin Franklin Transatlantic Fellowship (BFTF) është një program prestigjioz 4-javor i shkëmbimit veror i organizuar nga Universiteti Purdue që bashkon liderët e rinj evropianë për të eksploruar diplomacinë, udhëheqjen dhe marrëdhëniet transatlantike në Shtetet e Bashkuara. Ky program i financuar plotësisht i Departamentit të Shtetit të SHBA-së i fuqizon pjesëmarrësit të bëhen ambasadorë të ardhshëm të bashkëpunimit ndërkombëtar.',
+          programHighlights: {
+            title: 'Pikat Kryesore të Programit',
+            items: [
+              'Program intensiv 4-javor në Universitetin Purdue',
+              'Fokus në diplomacinë dhe marrëdhëniet transatlantike',
+              'Punëtori të zhvillimit të udhëheqjes',
+              'Zhytje kulturore në qytete të shumta amerikane',
+              'Ndërveprime me grupe shumëkombëshe'
+            ]
+          },
+          programComponents: {
+            title: 'Komponentët e Programit',
+            items: [
+              'Seminare akademike për politikën e jashtme amerikane',
+              'Diskutime për demokracinë dhe shoqërinë civile',
+              'Trajnim për komunikim dhe avokim',
+              'Vizita në institucione qeveritare',
+              'Takime me hartuesit e politikave dhe ekspertët'
+            ]
+          }
+        },
+        eligibilityRequirements: {
+          title: 'Kushtet e Pranimit',
+          basicRequirements: {
+            title: 'Kërkesat Bazë',
+            items: [
+              'Mosha 16-18 në fillim të programit',
+              'Shtetësi evropiane ose vendbanim i përhershëm ligjor',
+              'Arritje të forta akademike',
+              'Njohuri të larta të gjuhës angleze',
+              'Përvojë e vogël ose asnjë përvojë e mëparshme në SHBA',
+              'Angazhim për t\'u kthyer në shtëpi pas programit'
+            ]
+          },
+          personalQualities: {
+            title: 'Cilësi Personale',
+            items: [
+              'Potencial i dukshëm udhëheqës',
+              'Interes në diplomaci dhe marrëdhënie ndërkombëtare',
+              'Pjekuri dhe pavarësi',
+              'Aftësi të forta sociale dhe fleksibilitet',
+              'Qëndrim i hapur dhe tolerant',
+              'Angazhim në shërbim komunitar'
+            ]
+          },
+          eligibleCountries: {
+            title: 'Vende Pjesëmarrëse',
+            regions: {
+              europe: 'Vende evropiane përfshirë: Shqipëria, Austria, Belgjika, Qipro, Republika Çeke, Estonia, Finlanda, Franca, Gjermania, Greqia, Hungaria, Irlanda, Italia, Kosova, Letonia, Lituania, Luksemburgu, Malta, Holanda, Polonia, Portugalia, Sllovakia, Sllovenia, Spanja dhe të tjerë.'
+            }
+          }
+        },
+        applicationInfo: {
+          title: 'Informacion për Aplikimin',
+          timeline: {
+            title: 'Kalendari i Aplikimit',
+            items: [
+              'Aplikimi Hapet: Vjeshtë (variabile sipas vendit)',
+              'Afati i Aplikimit: Dimër (variabile sipas vendit)',
+              'Njoftimi: Pranverë',
+              'Datat e Programit: Verë (4 javë)'
+            ]
+          },
+          requirements: {
+            title: 'Kërkesat për Aplikim',
+            items: [
+              'Plotëso aplikimin online në anglisht',
+              'Ese personale dhe deklarata',
+              'Transkripti akademik',
+              'Letra rekomandimi',
+              'Kontakto ambasadën amerikane lokale për detaje'
+            ]
+          },
+          selectionProcess: {
+            title: 'Procesi i Përzgjedhjes',
+            items: [
+              'Komiteti i pavarur shqyrton aplikimet',
+              'Intervista në ambasadën amerikane për kandidatët ndërkombëtarë',
+              'Intervista Legacy International për kandidatët amerikanë',
+              'Përzgjedhja finale dhe njoftimi'
+            ]
+          }
+        },
+        badgeText: {
+          open: 'E Hapur për Aplikime',
+          upcoming: 'Periudha e Ardhshme e Aplikimit',
+          closingSoon: 'Mbyllet Së Shpejti'
+        }
       },
       'scholarship-3': {
         title: 'Programi i Shkëmbimit dhe Studimit Kennedy-Lugar (YES)',
@@ -506,7 +598,304 @@ export const translations = {
         field: 'Shkëmbim Kulturor, Udhëheqje',
         location: 'Shkolla të Mesme në të gjitha Shtetet e Bashkuara',
         eligibility: 'Studentë të shkollës së mesme (mosha 15-17) nga vende të caktuara me rekorde të forta akademike',
-        organizationName: 'Departamenti Amerikan i Shtetit'
+        organizationName: 'Departamenti Amerikan i Shtetit',
+        aboutProgram: {
+          title: 'Rreth Programit Kennedy-Lugar Youth Exchange & Study (YES)',
+          description: 'Programi Kennedy-Lugar Youth Exchange & Study (YES) është një program bursash konkurrues bazuar në merita, i financuar nga Departamenti Amerikan i Shtetit, që sjell studentë të shkollës së mesme nga vende me popullsi të konsiderueshme myslimane në Shtetet e Bashkuara për një vit të plotë akademik. Studentët jetojnë me familje amerikane vullnetare pritëse dhe frekuentojnë shkolla të mesme amerikane, duke shërbyer si ambasadorë kulturorë.',
+          programHighlights: {
+            title: 'Pikat Kryesore të Programit',
+            items: [
+              'Vit akademik i plotë (9-10 muaj) në SHBA',
+              'Jetojnë me familje amerikane vullnetare pritëse',
+              'Frekuentojnë shkolla të rregullta të mesme amerikane',
+              'Zhytje kulturore dhe zhvillim udhëheqës',
+              'Shërbejnë si ambasadorë kulturorë të rinj'
+            ]
+          },
+          whatsIncluded: {
+            title: 'Çfarë Përfshihet',
+            items: [
+              'Biletë avioni ndërkombëtar vajtje-ardhje',
+              'Dhomë dhe ushqim me familjen pritëse',
+              'Tarifat e shkollës së mesme dhe pagesat',
+              'Përfitime mjekësore dhe tarifa vize',
+              'Orientim dhe mbështetje e vazhdueshme'
+            ]
+          }
+        },
+        eligibilityRequirements: {
+          title: 'Kushtet e Pranimit',
+          basicRequirements: {
+            title: 'Kërkesat Bazë',
+            items: [
+              'Mosha 15-18 (studentë të shkollës së mesme)',
+              'Qytetarë/rezidentë të vendeve pjesëmarrëse',
+              'Përzgjedhje bazuar në merita përmes konkurrimit',
+              'Pozicion i mirë akademik',
+              'Njohuri të gjuhës angleze',
+              'Asnjë përvojë afatgjatë e mëparshme në SHBA'
+            ]
+          },
+          personalQualities: {
+            title: 'Cilësi Personale',
+            items: [
+              'Potencial udhëheqës dhe pjekuri',
+              'Kuriozitet kulturor dhe mendje e hapur',
+              'Angazhim për shkëmbim kulturor',
+              'Orientim për shërbim komunitar',
+              'Shkëlqim akademik dhe motivim',
+              'Aftësi të forta komunikimi'
+            ]
+          },
+          eligibleCountries: {
+            title: 'Vende Pjesëmarrëse (45+ vende)',
+            regions: {
+              southeastAsia: 'Azia Juglindore: Indonezia, Malajzia, Filipinet, Tailanda',
+              europeEurasia: 'Evropa & Eurazia: Bosnja dhe Hercegovina, Bullgaria, Turqia',
+              middleEastNorthAfrica: 'Lindja e Mesme & Afrika Veriore: Egjipti, Jordania, Maroku, Tunizia',
+              southCentralAsia: 'Azia Jugore & Qendrore: India, Pakistani',
+              subSaharanAfrica: 'Afrika Subsahariane: Gana, Mali, Senegali, Afrika e Jugut',
+              other: 'Dhe shumë vende të tjera me popullsi të konsiderueshme myslimane.'
+            }
+          }
+        },
+        applicationInfo: {
+          title: 'Informacion për Aplikimin',
+          timeline: {
+            title: 'Kalendari i Aplikimit',
+            items: [
+              'Aplikimi Hapet: Vjeshtë (variabile sipas vendit)',
+              'Afati i Aplikimit: Dimër',
+              'Njoftimi: Pranverë',
+              'Datat e Programit: Vit akademik i plotë (Gusht/Shtator - Maj/Qershor)'
+            ]
+          },
+          requirements: {
+            title: 'Kërkesat për Aplikim',
+            items: [
+              'Plotëso aplikimin online',
+              'Transkripti akademik',
+              'Ese dhe deklarata personale',
+              'Letra rekomandimi',
+              'Intervista (për finalistët)'
+            ]
+          },
+          selectionProcess: {
+            title: 'Procesi i Përzgjedhjes',
+            items: [
+              'Shqyrtim fillestare i aplikimeve',
+              'Intervista për kandidatët e përzgjedhur',
+              'Vlerësim nga organizata partnere lokale',
+              'Përzgjedhja finale nga Departamenti i Shtetit'
+            ]
+          }
+        },
+        badgeText: {
+          open: 'E Hapur për Aplikime',
+          upcoming: 'Periudha e Ardhshme e Aplikimit',
+          closingSoon: 'Mbyllet Së Shpejti'
+        }
+      },
+      'scholarship-4': {
+        title: 'Programi i Shkëmbimit të Liderëve të Ardhshëm (FLEX)',
+        description: 'Program bursash konkurrues bazuar në merita i financuar nga Departamenti Amerikan i Shtetit që sjell studentë të shkollës së mesme nga Evropa, Eurazia dhe Azia Qendrore në Shtetet e Bashkuara për një vit të plotë akademik.',
+        field: 'Shkëmbim Kulturor, Udhëheqje, Demokraci',
+        location: 'Shkolla të Mesme Publike në të gjitha Shtetet e Bashkuara',
+        eligibility: 'Studentë të shkollës së mesme (mosha 15-17) nga 22 vende pjesëmarrëse me arritje të forta akademike',
+        organizationName: 'Departamenti Amerikan i Shtetit',
+        aboutProgram: {
+          title: 'Rreth Programit Future Leaders Exchange (FLEX)',
+          description: 'Programi Future Leaders Exchange (FLEX) është një program bursash konkurrues bazuar në merita i financuar nga Departamenti Amerikan i Shtetit që sjell studentë të shkollës së mesme nga Evropa, Eurazia dhe Azia Qendrore në Shtetet e Bashkuara për një vit të plotë akademik. Me mbi 32,000 ish-studentë që nga viti 1993, FLEX promovon mirëkuptim të ndërsjellë dhe paqe të qëndrueshme përmes shkëmbimit të rinisë.',
+          programHighlights: {
+            title: 'Pikat Kryesore të Programit',
+            items: [
+              'Vit akademik i plotë (9-10 muaj) në SHBA',
+              'Jetojnë me familje amerikane vullnetare pritëse',
+              'Frekuentojnë shkolla të rregullta publike të mesme amerikane',
+              'Shumë konkurrues (1 në 50 përqindje pranimi)',
+              'Fokus në demokraci dhe sipërmarrje'
+            ]
+          },
+          programComponents: {
+            title: 'Kërkesat e Programit',
+            items: [
+              '30+ orë shërbim komunitar',
+              'Aktivitete orientimi kulturor',
+              'Punëtori zhvillimi udhëheqës',
+              'Përgjegjësi si ambasadorë kulturorë',
+              'Pjesëmarrje në rrjetin e ish-studentëve'
+            ]
+          }
+        },
+        eligibilityRequirements: {
+          title: 'Kushtet e Pranimit',
+          basicRequirements: {
+            title: 'Kërkesat Bazë',
+            items: [
+              'Mosha 15-17 (disa burime thonë deri në 19)',
+              'Qytetarë të vendeve pjesëmarrëse',
+              'Aktualisht të regjistruar në shkollën e mesme',
+              'Performancë e fortë akademike',
+              'Njohuri të gjuhës angleze',
+              'Asnjë përvojë e konsiderueshme e mëparshme në SHBA'
+            ]
+          },
+          personalQualities: {
+            title: 'Cilësi Personale',
+            items: [
+              'Potencial i jashtëzakonshëm udhëheqës',
+              'Karakter i fortë dhe pjekuri',
+              'Angazhim për shërbim komunitar',
+              'Interes në demokraci dhe ekonomi të tregut të lirë',
+              'Përshtatshmëri kulturore dhe hapje',
+              'Shkëlqim akademik dhe kuriozitet'
+            ]
+          },
+          eligibleCountries: {
+            title: 'Vende Pjesëmarrëse (22 vende)',
+            regions: {
+              easternEurope: 'Evropa Lindore: Republika Çeke, Estonia, Hungaria, Letonia, Lituania, Polonia, Rumania, Sllovakia',
+              southeastEurope: 'Evropa Juglindore: Greqia, Mali i Zi, Serbia',
+              eurasia: 'Eurazia: Armenia, Azerbajxhani, Bjellorusia, Gjeorgjia, Moldavia, Rusia, Ukraina',
+              centralAsia: 'Azia Qendrore: Kazakistani, Kirgizistani, Taxhikistani, Turkmenistani, Uzbekistani',
+              eastAsia: 'Azia Lindore: Mongolia'
+            }
+          }
+        },
+        applicationInfo: {
+          title: 'Informacion për Aplikimin',
+          timeline: {
+            title: 'Kalendari i Aplikimit',
+            items: [
+              'Aplikimi Hapet: Vjeshtë',
+              'Afati i Aplikimit: Dimër',
+              'Njoftimi: Pranverë/Verë',
+              'Datat e Programit: Vit akademik i plotë (Gusht/Shtator - Maj/Qershor)'
+            ]
+          },
+          requirements: {
+            title: 'Kërkesat për Aplikim',
+            items: [
+              'Plotëso aplikimin online përmes organizatës partnere',
+              'Test i gjuhës angleze (TOEFL ose ekuivalent)',
+              'Transkripti akademik',
+              'Ese dhe deklarata personale',
+              'Intervista (për finalistët)'
+            ]
+          },
+          selectionProcess: {
+            title: 'Procesi i Përzgjedhjes',
+            items: [
+              'Testim kombëtar dhe shqyrtim i aplikimit',
+              'Intervista me panelin e organizatës partnere',
+              'Përzgjedhje semifinale',
+              'Intervista finale dhe përzgjedhje nga Departamenti i Shtetit'
+            ]
+          }
+        },
+        badgeText: {
+          open: 'E Hapur për Aplikime',
+          upcoming: 'Periudha e Ardhshme e Aplikimit',
+          closingSoon: 'Mbyllet Së Shpejti'
+        }
+      },
+      'scholarship-5': {
+        title: 'AFS Global You™ Adventurer',
+        description: 'Program unik shkëmbimi virtual 5-javor i dizajnuar për studentë të shkollës së mesme në të gjithë botën. Ky program plotësisht zhytës dhe plotësisht i financuar ndihmon pjesëmarrësit të zhvillojnë kompetencë globale, aftësi komunikimi ndërkulturor, kapacitet udhëheqës dhe aftësi bashkëpunimi dixhital.',
+        field: 'Qytetari Globale, Udhëheqje, Aftësi Ndërkulturore',
+        location: 'Online/Virtual (nga kudo në botë)',
+        eligibility: 'Studentë të shkollës së mesme mosha 14-17 nga çdo vend me akses në internet',
+        organizationName: 'AFS Intercultural Programs',
+        aboutProgram: {
+          title: 'Rreth AFS Global You™ Adventurer',
+          description: 'AFS Global You™ Adventurer është një program unik shkëmbimi virtual 5-javor i dizajnuar për studentë të shkollës së mesme në të gjithë botën. Ky program plotësisht zhytës dhe plotësisht i financuar ndihmon pjesëmarrësit të zhvillojnë kompetencë globale, aftësi komunikimi ndërkulturor, kapacitet udhëheqës dhe aftësi bashkëpunimi dixhital. Përmes aktiviteteve angazhuese, diskutimeve interaktive dhe punës në ekip ndërkulturore, studentët lidhen me bashkëmoshatarë nga sfondet e ndryshme për të bërë më empatikë, me mendje të hapur dhe të përgatitur për të përparuar në një botë të globalizuar.',
+          programHighlights: {
+            title: 'Pikat Kryesore të Programit',
+            items: [
+              'Shkëmbim virtual interaktiv 5-javor',
+              'Fokus në qytetarinë globale dhe aftësitë ndërkulturore',
+              'Aktivitete zhvillimi udhëheqës dhe punë ekipore',
+              'Sfida të botës reale të lidhura me Objektivat e Zhvillimit të Qëndrueshëm të OKB-së (SDGs)',
+              'Ndërveprime të përditshme online me bashkëmoshatarë nga e gjithë bota'
+            ]
+          },
+          programComponents: {
+            title: 'Komponentët e Programit',
+            items: [
+              'Punëtori për Kompetencë Globale: Trajnim për komunikim, empati dhe vetëdijesim kulturor',
+              'Sfida të Qëndrueshmërisë: Projekte të lidhura me SDGs',
+              'Dialogë Ndërkulturore: Sesione interaktive me bashkëmoshatarë ndërkombëtarë',
+              'Aktivitete Udhëheqëse: Bashkëpunim bazuar në ekip përmes zonave kohore',
+              'Mjete Bashkëpunimi Dixhital: Ndërtimi i aftësive në punë ekipore dhe zgjidhje problemesh në distancë'
+            ]
+          }
+        },
+        eligibilityRequirements: {
+          title: 'Kushtet e Pranimit',
+          basicRequirements: {
+            title: 'Kërkesat Bazë',
+            items: [
+              'Mosha 14-17 në fillim të programit',
+              'E hapur për studentë nga kudo në botë',
+              'Interes i fortë në çështje globale, kulturë dhe udhëheqje',
+              'Njohuri të larta të gjuhës angleze',
+              'Akses në lidhje të qëndrueshme interneti dhe kompjuter'
+            ]
+          },
+          personalQualities: {
+            title: 'Cilësi Personale',
+            items: [
+              'Kuriozitet dhe mendje e hapur',
+              'Dëshirë për të bashkëpunuar me bashkëmoshatarë nga kultura të ndryshme',
+              'Aftësi të forta pune në ekip dhe komunikimi',
+              'Qëndrim i respektueshëm dhe gjithëpërfshirës',
+              'Qëndrim tolerant dhe me mendje të hapur',
+              'Dëshirë për të bërë qytetar aktiv global'
+            ]
+          },
+          eligibleCountries: {
+            title: 'Vende Pjesëmarrëse',
+            regions: {
+              worldwide: 'Vende nga e gjithë bota janë të pranueshme për të marrë pjesë në programin AFS Global You Adventurer.'
+            }
+          }
+        },
+        applicationInfo: {
+          title: 'Informacion për Aplikimin',
+          timeline: {
+            title: 'Kalendari i Aplikimit',
+            items: [
+              'Sesione të shumta gjatë vitit',
+              'Kontrollo faqen e internetit të AFS për datat specifike',
+              'Aplikimi Hapet: Disa javë para seancës',
+              'Kohëzgjatja e Programit: 5 javë (virtual)'
+            ]
+          },
+          requirements: {
+            title: 'Kërkesat për Aplikim',
+            items: [
+              'Plotëso aplikimin online në faqen e internetit të AFS',
+              'Deklaratë personale duke shprehur interesin',
+              'Akses në pajisje me kamerë dhe internet',
+              'Angazhim për pjesëmarrje aktive në të gjitha sesionet',
+              'Pëlqim prindëror (për studentë nën 18 vjeç)'
+            ]
+          },
+          selectionProcess: {
+            title: 'Procesi i Përzgjedhjes',
+            items: [
+              'Shqyrtim i aplikimit nga ekipi i AFS',
+              'Vlerësim bazuar në interesin dhe angazhimin',
+              'Konfirmim i pranimeve',
+              'Sesion orientimi para fillimit të programit'
+            ]
+          }
+        },
+        badgeText: {
+          open: 'E Hapur për Aplikime',
+          upcoming: 'Sesionet e Ardhshme Disponibël',
+          closingSoon: 'Mbyllet Së Shpejti'
+        }
       }
     },
     // Lesson Content Translations

@@ -205,7 +205,7 @@ export default function Scholarships() {
               Tech <span className="gradient-text">Scholarships</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover funding opportunities that can help you pursue your
+               Discover funding opportunities that can help you pursue your
               dreams in technology and computer science.
             </p>
           </div>

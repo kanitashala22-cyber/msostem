@@ -362,46 +362,34 @@ export default function ScholarshipDetail() {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    About Benjamin Franklin Transatlantic Fellowship
+                    {scholarshipContent?.aboutProgram?.title || "About Benjamin Franklin Transatlantic Fellowship"}
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    The Benjamin Franklin Transatlantic Fellowship (BFTF) is a
-                    prestigious 4-week summer exchange program hosted by Purdue
-                    University that brings together young European leaders to
-                    explore diplomacy, leadership, and transatlantic relations
-                    in the United States. This fully-funded U.S. State
-                    Department program empowers participants to become future
-                    ambassadors of international cooperation.
+                    {scholarshipContent?.aboutProgram?.description || "The Benjamin Franklin Transatlantic Fellowship (BFTF) is a prestigious 4-week summer exchange program hosted by Purdue University that brings together young European leaders to explore diplomacy, leadership, and transatlantic relations in the United States. This fully-funded U.S. State Department program empowers participants to become future ambassadors of international cooperation."}
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">
-                        Program Highlights
+                        {scholarshipContent?.aboutProgram?.programHighlights?.title || "Program Highlights"}
                       </h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start">
+                        
                           <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          4-week intensive program at Purdue University
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Focus on diplomacy and transatlantic relations
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Leadership development workshops
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Cultural immersion in multiple U.S. cities
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-                          Multinational group interactions
-                        </li>
-                      </ul>
-                    </div>
+                          {(scholarshipContent?.aboutProgram?.programHighlights?.items || [
+                          "4-week intensive program at Purdue University",
+                          "Focus on diplomacy and transatlantic relations",
+                          "Leadership development workshops",
+                          "Cultural immersion in multiple U.S. cities",
+                          "Multinational group interactions"
+              ]).map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-3">

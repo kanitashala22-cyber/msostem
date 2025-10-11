@@ -71,12 +71,29 @@ export const translations = {
         statusClosed: 'Closed'
       },
       footer: {
-        about: 'About CodeHer',
-        aboutText: 'Empowering young women to excel in technology through quality education and scholarship opportunities.',
+        about: 'About MsoSTEM',
+        aboutText: 'Empowering women to code, creating pathways to success, and building a more inclusive tech industry, one student at a time.',
         quickLinks: 'Quick Links',
+        learn: 'Learn',
+        resources: 'Resources',
         contact: 'Contact',
+        phone: 'Phone',
         email: 'Email',
-        rights: 'All rights reserved.'
+        rights: 'All rights reserved.',
+        htmlFundamentals: 'HTML Fundamentals',
+        cssStyling: 'CSS Styling',
+        responsiveDesign: 'Responsive Design',
+        codePlayground: 'Code Playground',
+        learningPath: 'Learning Path',
+        scholarships: 'Scholarships',
+        community: 'Community',
+        successStories: 'Success Stories',
+        mentorship: 'Mentorship',
+        careerGuide: 'Career Guide',
+        privacyPolicy: 'Privacy Policy',
+        termsOfService: 'Terms of Service',
+        contactUs: 'Contact Us',
+        futureCollaboration: 'For future collaboration'
       }
     },
     // Course Page
@@ -280,12 +297,29 @@ export const translations = {
         statusClosed: 'E Mbyllur'
       },
       footer: {
-        about: 'Rreth CodeHer',
-        aboutText: 'Fuqizimi i grave të reja për të shkëlqyer në teknologji përmes arsimit cilësor dhe mundësive të bursave.',
+        about: 'Rreth MsoSTEM',
+        aboutText: 'Fuqizimi i grave për të koduar, krijimi i rrugëve drejt suksesit dhe ndërtimi i një industrie teknologjike më gjithëpërfshirëse, një studente në një kohë.',
         quickLinks: 'Lidhje të Shpejta',
+        learn: 'Mëso',
+        resources: 'Burimet',
         contact: 'Kontakti',
+        phone: 'Telefoni',
         email: 'Email',
-        rights: 'Të gjitha të drejtat e rezervuara.'
+        rights: 'Të gjitha të drejtat e rezervuara.',
+        htmlFundamentals: 'Bazat e HTML',
+        cssStyling: 'Stilizimi CSS',
+        responsiveDesign: 'Dizajni Responsive',
+        codePlayground: 'Hapësira e Kodit',
+        learningPath: 'Rruga e Mësimit',
+        scholarships: 'Bursat',
+        community: 'Komuniteti',
+        successStories: 'Histori Suksesi',
+        mentorship: 'Mentorimi',
+        careerGuide: 'Udhëzuesi i Karrierës',
+        privacyPolicy: 'Politika e Privatësisë',
+        termsOfService: 'Kushtet e Shërbimit',
+        contactUs: 'Na Kontaktoni',
+        futureCollaboration: 'Për bashkëpunim të ardhshëm'
       }
     },
     // Course Page

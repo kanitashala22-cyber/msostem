@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Code } from "lucide-react";
+import { Code, Phone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
@@ -17,8 +17,17 @@ export default function Footer() {
               <span className="text-3xl font-bold gradient-text">MsoSTEM</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              Empowering women to code, creating pathways to success, and building a more inclusive tech industry, one student at a time.
+              {t.home.footer.aboutText}
             </p>
+            <div className="mb-6">
+              <div className="flex items-center text-gray-400 mb-2">
+                <Phone className="w-4 h-4 mr-2 text-primary" />
+                <span className="text-sm">{t.home.footer.futureCollaboration}:</span>
+              </div>
+              <a href="tel:+383045141019" className="text-primary hover:text-primary/80 font-semibold transition-colors duration-300">
+                +383 045 141 019
+              </a>
+            </div>
             <div className="flex space-x-4">
               <a 
                 href="#" 
@@ -52,43 +61,43 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-6">Learn</h3>
+            <h3 className="text-lg font-semibold mb-6">{t.home.footer.learn}</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <Link href="/courses" className="hover:text-white transition-colors duration-300">HTML Fundamentals</Link>
+                <Link href="/courses" className="hover:text-white transition-colors duration-300">{t.home.footer.htmlFundamentals}</Link>
               </li>
               <li>
-                <Link href="/courses" className="hover:text-white transition-colors duration-300">CSS Styling</Link>
+                <Link href="/courses" className="hover:text-white transition-colors duration-300">{t.home.footer.cssStyling}</Link>
               </li>
               <li>
-                <Link href="/courses" className="hover:text-white transition-colors duration-300">Responsive Design</Link>
+                <Link href="/courses" className="hover:text-white transition-colors duration-300">{t.home.footer.responsiveDesign}</Link>
               </li>
               <li>
-                <Link href="/playground" className="hover:text-white transition-colors duration-300">Code Playground</Link>
+                <Link href="/playground" className="hover:text-white transition-colors duration-300">{t.home.footer.codePlayground}</Link>
               </li>
               <li>
-                <Link href="/courses" className="hover:text-white transition-colors duration-300">Learning Path</Link>
+                <Link href="/courses" className="hover:text-white transition-colors duration-300">{t.home.footer.learningPath}</Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-6">Resources</h3>
+            <h3 className="text-lg font-semibold mb-6">{t.home.footer.resources}</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <Link href="/scholarships" className="hover:text-white transition-colors duration-300">Scholarships</Link>
+                <Link href="/scholarships" className="hover:text-white transition-colors duration-300">{t.home.footer.scholarships}</Link>
               </li>
               <li>
-                <a href="#community" className="hover:text-white transition-colors duration-300">Community</a>
+                <a href="#community" className="hover:text-white transition-colors duration-300">{t.home.footer.community}</a>
               </li>
               <li>
-                <a href="#success-stories" className="hover:text-white transition-colors duration-300">Success Stories</a>
+                <a href="#success-stories" className="hover:text-white transition-colors duration-300">{t.home.footer.successStories}</a>
               </li>
               <li>
-                <a href="#mentorship" className="hover:text-white transition-colors duration-300">Mentorship</a>
+                <a href="#mentorship" className="hover:text-white transition-colors duration-300">{t.home.footer.mentorship}</a>
               </li>
               <li>
-                <a href="#career-guide" className="hover:text-white transition-colors duration-300">Career Guide</a>
+                <a href="#career-guide" className="hover:text-white transition-colors duration-300">{t.home.footer.careerGuide}</a>
               </li>
             </ul>
           </div>
@@ -96,17 +105,17 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; 2024 MsoSTEM. All rights reserved.
+            &copy; 2024 MsoSTEM. {t.home.footer.rights}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-              Privacy Policy
+              {t.home.footer.privacyPolicy}
             </a>
             <a href="#terms" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-              Terms of Service
+              {t.home.footer.termsOfService}
             </a>
             <a href="#contact" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-              Contact Us
+              {t.home.footer.contactUs}
             </a>
           </div>
         </div>

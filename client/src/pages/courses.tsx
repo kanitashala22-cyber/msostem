@@ -3,6 +3,7 @@ import CourseCard from "@/components/course-card";
 import Footer from "@/components/footer";
 import { useQuery } from "@tanstack/react-query";
 import type { Course } from "@shared/schema";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Courses() {
   const { data: courses, isLoading } = useQuery<Course[]>({

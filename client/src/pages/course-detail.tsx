@@ -1306,7 +1306,7 @@ export default function CourseDetail() {
 
                       <div className="space-y-6">
                         {translatedCurrentLesson.content.sections.map(
-                          (section, index) => (
+                          (section: any, index: number) => (
                             <div
                               key={index}
                               className="border-l-4 border-purple-200 pl-4"

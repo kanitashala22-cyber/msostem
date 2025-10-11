@@ -18,6 +18,12 @@ export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
   const courseContent = (t.courseContent as any)[course.id];
   const displayTitle = courseContent?.title || course.title;
   const displayDescription = courseContent?.description || course.description;
+  
+  // Parse and translate duration
+  const durationParts = course.duration.split(' ');
+  const durationNumber = durationParts[0];
+  const durationUnit = durationParts[1];
+  const translatedDuration = `${durationNumber} ${durationUnit === 'weeks' ? t.home.courses.weeks : durationUnit}`;
   return (
     <Card className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden group">
       <img
@@ -36,11 +42,11 @@ export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
                   : "bg-accent bg-opacity-10 text-accent"
             }`}
           >
-            {course.level.charAt(0).toUpperCase() + course.level.slice(1)}
+            {t.common[course.level as keyof typeof t.common] || course.level}
           </span>
           <div className="flex items-center text-gray-500">
             <Clock className="w-4 h-4 mr-1" />
-            <span className="text-sm">{course.duration}</span>
+            <span className="text-sm">{translatedDuration}</span>
           </div>
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">{displayTitle}</h3>
@@ -49,7 +55,7 @@ export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
         {/* Progress Bar */}
         <div className="mb-4">
           <div className="flex justify-between text-sm text-gray-600 mb-1">
-            <span>Progress</span>
+            <span>{t.course.progress}</span>
             <span>{progress}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
@@ -69,7 +75,7 @@ export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
         <div className="flex items-center justify-between">
           <div className="flex items-center text-gray-500">
             <Play className="w-4 h-4 mr-2" />
-            <span className="text-sm">{course.lessonsCount} lessons</span>
+            <span className="text-sm">{course.lessonsCount} {t.home.courses.lessons}</span>
           </div>
           <Link href={`/course/${course.id}`}>
             <Button
@@ -80,8 +86,9 @@ export default function CourseCard({ course, progress = 0 }: CourseCardProps) {
                     ? "bg-secondary hover:bg-secondary/90"
                     : "bg-accent hover:bg-accent/90"
               } text-white`}
+              data-testid={`button-continue-${course.id}`}
             >
-              {course.id === "course-3" ? "Coming Soon" : "Continue"}
+              {t.home.courses.continue}
             </Button>
           </Link>
         </div>

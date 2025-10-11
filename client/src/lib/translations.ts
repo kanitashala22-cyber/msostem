@@ -24,6 +24,13 @@ export const translations = {
         feature3Title: 'Live Playground',
         feature3Desc: 'Practice coding instantly'
       },
+      cta: {
+        title: 'Your Tech Journey',
+        titleLine2: 'Starts Today',
+        subtitle: 'Build your future in technology with our beginner-friendly courses and discover scholarships that can fund your dreams.',
+        btnStartLearning: 'Start Learning Now',
+        btnFindScholarships: 'Find Scholarships'
+      },
       courses: {
         title: 'Interactive Coding Courses',
         titleHighlight: 'Coding Courses',
@@ -225,6 +232,13 @@ export const translations = {
         feature2Desc: 'Gjej mundësi financimi',
         feature3Title: 'Hapësira e Drejtpërdrejtë',
         feature3Desc: 'Praktiko kodin menjëherë'
+      },
+      cta: {
+        title: 'Udhëtimi Yt Teknologjik',
+        titleLine2: 'Fillon Sot',
+        subtitle: 'Ndërto të ardhmen tënde në teknologji me kurset tona miqësore për fillestarë dhe zbulo bursa që mund të financojnë ëndrrat e tua.',
+        btnStartLearning: 'Fillo Kursin',
+        btnFindScholarships: 'Gjej Bursa'
       },
       courses: {
         title: 'Kurse Interaktive',

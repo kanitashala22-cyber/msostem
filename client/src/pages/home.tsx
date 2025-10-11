@@ -327,24 +327,24 @@ export default function Home() {
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-slide-up">
-            Your Tech Journey 
-            <span className="block animate-fade-in" style={{animationDelay: '0.3s'}}>Starts Today</span>
+            {t.home.cta.title} 
+            <span className="block animate-fade-in" style={{animationDelay: '0.3s'}}>{t.home.cta.titleLine2}</span>
           </h2>
           <p className="text-xl lg:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.6s'}}>
-            Build your future in technology with our beginner-friendly courses and discover scholarships that can fund your dreams.
+            {t.home.cta.subtitle}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in" style={{animationDelay: '0.9s'}}>
             <Link href="/courses">
               <Button className="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 hover:shadow-2xl animate-bounce-in" style={{animationDelay: '1.2s'}}>
                 <Rocket className="w-5 h-5 mr-3" />
-                Start Learning Now
+                {t.home.cta.btnStartLearning}
               </Button>
             </Link>
             <Link href="/scholarships">
               <Button className="glass-morphism text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 animate-bounce-in" style={{animationDelay: '1.4s'}}>
                 <Search className="w-5 h-5 mr-3" />
-                Find Scholarships
+                {t.home.cta.btnFindScholarships}
               </Button>
             </Link>
           </div>

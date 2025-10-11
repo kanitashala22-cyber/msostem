@@ -1408,6 +1408,136 @@ export const translations = {
               content: "Në lodër, vëzhgoni:\\n1. Si elementet bllok renditen vertikalisht\\n2. Si elementet inline rrjedhin me tekst\\n3. Kufijtë që tregojnë kufijtë e elementeve\\n4. Hapësira dhe pozicionim i ndryshëm\\n5. Si elementet ndërveprojnë me njëri-tjetrin\\n\\nKuptimi i sjelljes së elementeve është themelor për paraqitjen CSS!"
             }
           ]
+        },
+        21: {
+          title: "Llojet e Fushat të Formularëve dhe Validimi",
+          description: "HTML5 revolucionarizoi formularët me lloje të fuqishme fushash dhe validim të integruar! Zbulo fushat e specializuara dhe mëso të sigurosh që përdoruesit të futin të dhëna të vlefshme. 🎯",
+          sections: [
+            {
+              title: "Llojet Moderne të Fushave HTML5",
+              content: 'HTML5 prezantoi lloje fushash të specializuara:\\n\\n**Fushat e komunikimit:**\\n• `type="email"` - Validim email-i\\n• `type="tel"` - Numra telefoni\\n• `type="url"` - Adresa web\\n\\n**Data dhe koha:**\\n• `type="date"` - Zgjedhës date\\n• `type="time"` - Zgjedhës kohe\\n• `type="datetime-local"` - Data + koha\\n\\n**Fushat interaktive:**\\n• `type="range"` - Kontroll rrëshqitës\\n• `type="color"` - Zgjedhës ngjyrash\\n• `type="file"` - Ngarkim skedari'
+            },
+            {
+              title: "Atributet e Validimit të Fushave",
+              content: "Kontrollo çfarë mund të fusin përdoruesit:\\n\\n**Atribute universale:**\\n• `required` - Fusha duhet të plotësohet\\n• `placeholder` - Tekst shenjues\\n• `readonly` - Nuk mund të ndryshohet\\n• `disabled` - Nuk mund të përdoret\\n\\n**Validimi i tekstit:**\\n• `minlength/maxlength` - Kufij karakteresh\\n• `pattern` - Validim i personalizuar me regex\\n\\n**Validimi i numrave:**\\n• `min/max` - Kufij vlerash\\n• `step` - Madhësi rritjeje"
+            },
+            {
+              title: "Ngarkimi i Skedarëve dhe Veçoritë e Avancuara",
+              content: 'Trajto llojet komplekse të fushave:\\n\\n**Fushat e skedarëve:**\\n```html\\n<input type="file" \\n       accept=".pdf,.jpg,.png" \\n       multiple>\\n```\\n• `accept` - Kufizo llojet e skedarëve\\n• `multiple` - Lejo skedarë të shumtë\\n\\n**Fushat e kërkimit:**\\n```html\\n<input type="search" \\n       placeholder="Kërko...">\\n```\\n• Shpesh përfshin buton fshirjeje\\n• Përvojë më e mirë celulare'
+            },
+            {
+              title: "Praktikat më të Mira të Validimit të Formularit",
+              content: "Krijo validim miqësor për përdoruesin:\\n\\n**Validimi HTML5:**\\n• Mesazhe gabimi automatike\\n• Parandalon dorëzimin e formularit të pavlefshëm\\n• Funksionon pa JavaScript\\n• Përvojë e shkëlqyer përdoruesi\\n\\n**Aksesueshmëria:**\\n• Përdor gjithmonë etiketa të sakta\\n• Jep mesazhe gabimi të qarta\\n• Mos mbështetu vetëm në ngjyrë\\n• Testo me lexues ekrani\\n\\n**Përmirësim progresiv:**\\nFillo me validim HTML, përmirëso me CSS dhe JavaScript!"
+            },
+            {
+              title: "Sfida e Formularëve Interaktiv! 🎮",
+              content: "Në lodër:\\n1. Provo të dorëzosh me fusha të zbrazëta të detyrueshme\\n2. Fut formate email-i të pavlefshme dhe shiko validimin\\n3. Përdor zgjedhësin e ngjyrave dhe rrëshqitësin\\n4. Provo zgjedhësin e datës në pajisje të ndryshme\\n5. Ngarko lloje të ndryshme skedarësh\\n6. Vërej tastierën e specializuar celulare\\n\\nFushat moderne të formularit e bëjnë mbledhjen e të dhënave të fuqishme dhe intuitive!"
+            }
+          ]
+        },
+        22: {
+          title: "Veçoritë e Avancuara HTML",
+          description: "Eksploro veçoritë e fuqishme HTML5 që shtojnë interaktivitet dhe funksionalitet! Këto elemente të avancuara mund të përmirësojnë përvojën e përdoruesit pa JavaScript. 🚀",
+          sections: [
+            {
+              title: "Details dhe Summary - Përmbajtje e Palosshme",
+              content: "Krijo seksione të zgjerohem me HTML native:\\n\\n```html\\n<details>\\n  <summary>Kliko për të zgjeruar</summary>\\n  <p>Përmbajtja e fshehur këtu...</p>\\n</details>\\n```\\n\\n**E përsosur për:**\\n• Seksione FAQ\\n• Organizim përmbajtjeje të gjatë\\n• Zbulim progresiv\\n• Reduktim të çrregullimit të faqes\\n\\n**Përfitimet:**\\n• Funksionon pa JavaScript\\n• E aksesueshme si parazgjedhje\\n• Mbështetje lundrimi me tastierë"
+            },
+            {
+              title: "Elementet Progress dhe Meter",
+              content: 'Shfaq progresin dhe matjet:\\n\\n**Elementi progress:**\\n```html\\n<progress value="75" max="100">75%</progress>\\n```\\n• Shfaq përparimin e përfundimit\\n• I shkëlqyer për shiritat e ngarkimit\\n• Progresi i dorëzimit të formularit\\n\\n**Elementi meter:**\\n```html\\n<meter value="6" min="0" max="10">6/10</meter>\\n```\\n• Shfaq matje skalare\\n• Vlerësime, rezultate, përqindje\\n• Përdorimi i diskut, temperaturat'
+            },
+            {
+              title: "Elementi Dialog - Modalet Native",
+              content: 'Krijo dialogë modale me HTML:\\n\\n```html\\n<dialog id="my-dialog">\\n  <h3>Titulli i Dialogut</h3>\\n  <p>Përmbajtja e dialogut...</p>\\n  <button>Mbyll</button>\\n</dialog>\\n```\\n\\n**JavaScript për kontroll:**\\n• `dialog.showModal()` - Shfaq si modal\\n• `dialog.show()` - Shfaq si dialog i rregullt\\n• `dialog.close()` - Mbyll dialogun\\n\\n**Përfitimet:**\\n• Aksesueshmëri e integruar\\n• Menaxhim i duhur i fokusit\\n• Mbështetje për tastin ESC'
+            },
+            {
+              title: "Elementi Output - Rezultatet e Llogaritura",
+              content: 'Shfaq rezultatet e llogaritura ose të gjeneruara nga përdoruesi:\\n\\n```html\\n<output for="input1 input2">Rezultati</output>\\n```\\n\\n**Rastet e përdorimit:**\\n• Rezultatet e kalkulatorit\\n• Llogaritjet e fushave të formularit\\n• Përditësime në kohë reale\\n• Demonstrime interaktive\\n\\n**Atributi `for`:**\\nReferencon ID-të e fushave të lidhura që kontribojnë në llogaritje.'
+            },
+            {
+              title: "Punëtori i Veçorive të Avancuara! 🔬",
+              content: "Në lodër, provo:\\n1. Zgjero dhe palo seksionin details\\n2. Shiko shiritin e progresit dhe meterin\\n3. Hap dhe mbyll modalin dialog\\n4. Lëviz rrëshqitësin range për të parë output të përditësohet\\n5. Krijo FAQ tuajin e palosshëm\\n6. Ndërto një kalkulator të thjeshtë me output\\n\\nKëto veçori shtojnë funksionalitet të fuqishëm me kod minimal!"
+            }
+          ]
+        },
+        23: {
+          title: "Performanca dhe Praktikat më të Mira",
+          description: "Krijo faqe të shpejta dhe efikase me praktikat më të mira HTML! Mëso teknika optimizimi që përmirësojnë shpejtësinë e ngarkimit, SEO dhe përvojën e përdoruesit. ⚡",
+          sections: [
+            {
+              title: "Bazat e Performancës HTML",
+              content: "Optimizo HTML-në për shpejtësi dhe efikasitet:\\n\\n**Parimet kryesore:**\\n• Minimizo madhësinë e skedarit HTML\\n• Redukto elementet e panevojshme\\n• Përdor markup semantik saktë\\n• Optimizo imazhet dhe mediat\\n• Zbato ngarkimin lazy\\n\\n**Përfitimet e performancës:**\\n• Ngarkimi më i shpejtë i faqes\\n• Përvojë më e mirë përdoruesi\\n• Renditje më të mira SEO\\n• Përdorim më i ulët i bandwidth\\n• Performancë më e mirë celulare"
+            },
+            {
+              title: "Optimizimi i Imazheve",
+              content: 'Imazhet shpesh ngadalësojnë faqet:\\n\\n**Teknikat e optimizimit:**\\n```html\\n<img src="image.jpg" \\n     alt="Përshkrimi" \\n     width="800" height="600" \\n     loading="lazy">\\n```\\n\\n**Praktikat më të mira:**\\n• Gjithmonë specifiko width/height\\n• Përdor `loading="lazy"` për imazhet nën fold\\n• Zgjedh formate të përshtatshme (WebP, JPEG, PNG)\\n• Kompreso imazhet për web\\n• Përdor imazhe responsive me srcset'
+            },
+            {
+              title: "Standardet e Cilësisë së Kodit",
+              content: "Shkruaj HTML të pastër dhe të mirëmbajtur:\\n\\n**Struktura:**\\n• Indentim i qëndrueshëm\\n• Ndërthurje logjike e elementeve\\n• Mbyllje e duhur e etiketave\\n• Emra kuptimplotë të klasave dhe ID-ve\\n\\n**Validimi:**\\n• Përdor validatorin W3C HTML\\n• Kontrollo për çështje aksesueshmërie\\n• Testo në shfletues të ndryshëm\\n• Valido që formularët funksionojnë saktë\\n\\n**Organizimi:**\\n• Grupo elementet e lidhura\\n• Përdor komente për seksione komplekse\\n• Mbaj skedarët të organizuar"
+            },
+            {
+              title: "Optimizimi i SEO dhe Meta",
+              content: "Optimizo për motorët e kërkimit:\\n\\n**Etiketat meta thelbësore:**\\n• Tituj unikë dhe përshkrues\\n• Përshkrime meta bindëse\\n• Etiketa të duhura Open Graph\\n• Shënim të dhënash të strukturuara\\n\\n**Optimizimi i përmbajtjes:**\\n• Hierarki e duhur e titujve\\n• Tekst alternativ përshkrues\\n• Struktura URL të pastërta\\n• Kohë ngarkimi të shpejta\\n• Dizajn miqësor për celular"
+            },
+            {
+              title: "Testimi i Performancës! 🚀",
+              content: "Në lodër, vërej:\\n1. Struktura HTML të pastër dhe minimale\\n2. Imazhe të optimizuara me ngarkimin lazy\\n3. Markup semantik të duhur\\n4. Përdorim efikas të etiketave meta\\n5. Lundrim dhe përmbajtje të aksesueshme\\n\\nTesto faqet e tua me:\\n• PageSpeed Insights\\n• Auditime Lighthouse\\n• Validatorë HTML\\n• Kontrollues aksesueshmërie"
+            }
+          ]
+        },
+        24: {
+          title: "Planifikimi dhe Struktura e Projektit HTML",
+          description: "Mëso të planifikosh dhe strukturosh projektet HTML si një profesionist! Planifikimi i duhur çon në faqe më të mira që janë më të lehta për t'u ndërtuar dhe mirëmbajtur. 🏗️",
+          sections: [
+            {
+              title: "Faza e Planifikimit të Projektit",
+              content: "Para se të shkruash kod, planifiko projektin tënd:\\n\\n**Përcakto qëllimet:**\\n• Cili është qëllimi i faqes?\\n• Kush është audienca juaj e synuar?\\n• Çfarë veprimesh duhet të kryejnë përdoruesit?\\n• Çfarë përmbajtjeje ju nevojitet?\\n\\n**Krijo një hartë faqeje:**\\n• Listo të gjitha faqet e nevojshme\\n• Planifiko strukturën e lundrimit\\n• Organizo hierarkinë e përmbajtjes\\n• Merr parasysh udhëtimin e përdoruesit\\n\\n**Strategjia e përmbajtjes:**\\n• Shkruaj tituj bindës\\n• Planifiko mesazhin tënd\\n• Mblidh imazhe dhe media\\n• Organizo informacionin logjikisht"
+            },
+            {
+              title: "Praktikat më të Mira të Strukturës HTML",
+              content: "Ndërto një themel të fortë:\\n\\n**Struktura e dokumentit:**\\n• DOCTYPE dhe etiketa html e duhur\\n• Seksioni i plotë head\\n• Struktura semantike e body\\n• Hierarki logjike e titujve\\n\\n**Seksionet e faqes:**\\n• Header me identitetin e faqes\\n• Lundrim për lëvizjen e përdoruesit\\n• Zona kryesore e përmbajtjes\\n• Footer me informacion shtesë\\n\\n**Organizimi i përmbajtjes:**\\n• Përdor elementet semantike siç duhet\\n• Grupo përmbajtjen e lidhur në seksione\\n• Krijo hierarki të qartë informacioni\\n• Siguro rend logjik tab"
+            },
+            {
+              title: "Modelet e Zakonshme të Faqeve",
+              content: "Mëso strukturat standarde të faqeve:\\n\\n**Faqe biznesi:**\\n• Seksion hero me propozim vlere\\n• Seksion About me besueshmëri\\n• Shfaqje shërbimesh/produktesh\\n• Dëshmi ose portfolio\\n• Informacion kontakti\\n\\n**Faqe portfolio:**\\n• Prezantim personal\\n• Aftësi dhe ekspertizë\\n• Shfaqje projektesh\\n• Proçesi i punës ose qasja\\n• Kontakt dhe lidhje sociale\\n\\n**Faqe blog:**\\n• Listë postime të fundit\\n• Kategori dhe etiketa\\n• Rreth autorit\\n• Arkiv ose kërkim\\n• Seksione komentesh"
+            },
+            {
+              title: "Rrjedha e Punës së Zhvillimit",
+              content: "Ndiq një qasje sistematike:\\n\\n**1. Faza e planifikimit:**\\n• Përcakto kërkesat\\n• Krijo wireframes\\n• Planifiko strukturën e përmbajtjes\\n• Zgjedh stack teknologjik\\n\\n**2. Faza e zhvillimit:**\\n• Shkruaj strukturën HTML së pari\\n• Shto përmbajtje dhe testo\\n• Valido markup rregullisht\\n• Testo në pajisje të ndryshme\\n\\n**3. Faza e lançimit:**\\n• Kontroll final aksesueshmërie\\n• Optimizim performancë\\n• Verifikim SEO\\n• Testim cross-browser"
+            },
+            {
+              title: "Punëtori i Planifikimit të Projektit! 📋",
+              content: "Përdor shablonin në lodër për:\\n1. Planifiko projektin tënd të faqes\\n2. Zëvendëso përmbajtjen placeholder me idetë e tua\\n3. Personalizo strukturën për nevojat e tua\\n4. Shto ose largo seksione sipas nevojës\\n5. Merr parasysh audiencën tënde të synuar\\n6. Planifiko strategjinë e përmbajtjes\\n\\nPlanifikimi i mirë kursen kohë dhe krijon faqe më të mira!"
+            }
+          ]
+        },
+        25: {
+          title: "Projekti Final dhe Zotërimi i HTML",
+          description: "Urime për përfundimin e kursit të Bazave të HTML! 🎉 Koha për të shfaqur gjithçka që ke mësuar duke ndërtuar faqen tënde profesionale portfolio. Tani ke të gjitha aftësitë për të krijuar përvoja web të mahnitshme!",
+          sections: [
+            {
+              title: "Udhëtimi Yt HTML - Çfarë Ke Zotëruar",
+              content: "Shiko sa larg ke ardhur! Tani kupton:\\n\\n**Aftësitë Bazë HTML:**\\n✅ Struktura e dokumentit dhe markup semantik\\n✅ Formularë, tabela dhe përmbajtje multimediale\\n✅ Aksesueshmëri dhe dizajn gjithëpërfshirës\\n✅ Optimizimi SEO dhe etiketat meta\\n✅ Veçori moderne HTML5 dhe praktikat më të mira\\n\\n**Aftësitë Profesionale:**\\n✅ Organizim dhe validim kodi\\n✅ Optimizim performancë\\n✅ Kompatibilitet cross-browser\\n✅ Planifikim dhe strukturë projekti\\n✅ Praktikat më të mira të industrisë"
+            },
+            {
+              title: "Kërkesat e Projektit Final",
+              content: "Ndërto një faqe portfolio të plotë që demonstron aftësitë e tua:\\n\\n**Elementet e Kërkuara:**\\n• Struktura e duhur e dokumentit HTML5\\n• Markup semantik në të gjithë\\n• Etiketa meta responsive\\n• Lundrim me lidhje të brendshme\\n• Formular kontakti me validim\\n• Përmbajtje multimediale (imazhe/video)\\n• Veçori aksesueshmërie\\n\\n**Veçori Bonus:**\\n• Fusha të avancuara formulari\\n• Etiketa meta të mediave sociale\\n• Optimizime performancë\\n• Përdorim kreativ i veçorive HTML5"
+            },
+            {
+              title: "Përtej HTML - Hapat e Ardhshëm",
+              content: "Ke një themel të fortë HTML! Ja çfarë të mësosh më pas:\\n\\n**Hapat e menjëhershëm:**\\n• **CSS** - Stilo HTML-në tënde bukur\\n• **Responsive Design** - Paraqitje mobile-first\\n• **JavaScript** - Shto interaktivitet\\n• **Git/GitHub** - Kontroll versioni\\n\\n**Teknologji të avancuara:**\\n• Framework CSS (Bootstrap, Tailwind)\\n• Framework JavaScript (React, Vue)\\n• Mjete ndërtimi (Vite, Webpack)\\n• Zhvillim backend\\n\\n**Burime për vazhdim të të mësuarit:**\\n• MDN Web Docs\\n• freeCodeCamp\\n• CSS-Tricks\\n• Web.dev"
+            },
+            {
+              title: "Ndërtimi i Portfolios Tuaj",
+              content: "Shabloni në lodër është nje fillim:\\n\\n**Çfarë të përfshish:**\\n• Prezantim personal dhe bio\\n• Aftësitë dhe teknologjitë e tua\\n• Projektet që ke ndërtuar\\n• Rruga për të të kontaktuar\\n• Lidhjet e mediave sociale\\n\\n**Këshilla dizajni:**\\n• Mbaje të thjeshtë dhe të pastër\\n• Përdor imazhe cilësore\\n• Trego punën më të mirë\\n• Bëje të lehtë për të kontaktuar\\n• Përditëso rregullisht"
+            },
+            {
+              title: "Celebro Sukseset e Tua! 🌟",
+              content: "Ke ardhur nga nuk dije asgjë për HTML tek krijimi i faqeve profesionale! Kjo është një arritje e madhe.\\n\\n**Hapat e ardhshëm:**\\n1. Ndërto projektin tënd final të portfolios\\n2. Publiko në GitHub Pages ose Netlify\\n3. Ndaje me miqtë dhe familjen\\n4. Apliko për kurse të avancuara\\n5. Fillo të ndërtosh faqe reale\\n\\n**Mbaj mend:**\\n• Çdo zhvillues filloi nga fillimi\\n• Praktika e bën përsosur\\n• Komuniteti është këtu për të të ndihmuar\\n• Vazhdo të mësosh dhe të ndërtosh\\n\\nJe në rrugë për një karrierë të shkëlqyer në zhvillim web! 🚀"
+            }
+          ]
         }
       },
       css: {

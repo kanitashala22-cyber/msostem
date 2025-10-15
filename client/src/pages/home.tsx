@@ -87,12 +87,19 @@ export default function Home() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredCourses.map((course, index) => (
+              {featuredCourses.map((course, index) => {
+                const courseContent = (t.courseContent as any)[course.id];
+                const displayTitle = courseContent?.title || course.title;
+                const displayDescription = courseContent?.description || course.description;
+                const durationParts = course.duration.split(' ');
+                const translatedDuration = `${durationParts[0]} ${durationParts[1] === 'weeks' ? t.home.courses.weeks : durationParts[1]}`;
+                
+                return (
                 <Card key={course.id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden group animate-slide-up" style={{animationDelay: `${index * 0.2}s`}}>
                   <div className="relative overflow-hidden">
                     <img 
                       src={course.imageUrl || ""} 
-                      alt={course.title}
+                      alt={displayTitle}
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -113,11 +120,11 @@ export default function Home() {
                       </span>
                       <div className="flex items-center text-gray-500">
                         <Clock className="w-4 h-4 mr-1" />
-                        <span className="text-sm">{course.duration}</span>
+                        <span className="text-sm">{translatedDuration}</span>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
-                    <p className="text-gray-600 mb-4">{course.description}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{displayTitle}</h3>
+                    <p className="text-gray-600 mb-4">{displayDescription}</p>
                     
                     <div className="flex items-center justify-between">
                       <div className="flex items-center text-gray-500">
@@ -136,7 +143,8 @@ export default function Home() {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+                );
+              })}
             </div>
           )}
           

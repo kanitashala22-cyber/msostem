@@ -280,7 +280,7 @@ export const translations = {
         playgroundFeature2: 'Theksim sintakse dhe plotësim automatik',
         playgroundFeature3: 'Ruaj dhe ndaj projektet tua',
         playgroundFeature4: 'Mësime të udhëzuara hap pas hapi',
-        tryPlayground: 'Provo Lodrën'
+        tryPlayground: 'Provoje'
       },
       scholarships: {
         title: 'Bursa dhe',

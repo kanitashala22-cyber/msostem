@@ -264,7 +264,14 @@ export default function Home() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredScholarships.map((scholarship, index) => (
+              {featuredScholarships.map((scholarship, index) => {
+                const scholarshipContent = (t.scholarshipContent as any)[scholarship.id];
+                const displayTitle = scholarshipContent?.title || scholarship.title;
+                const displayDescription = scholarshipContent?.description || scholarship.description;
+                const displayField = scholarshipContent?.field || scholarship.field;
+                const displayLocation = scholarshipContent?.location || scholarship.location;
+                
+                return (
                 <Card key={scholarship.id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden animate-slide-up group" style={{animationDelay: `${index * 0.15}s`}}>
                   <CardContent className="p-6 relative">
                     <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -278,8 +285,8 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{scholarship.title}</h3>
-                    <p className="text-gray-600 mb-4">{scholarship.description}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{displayTitle}</h3>
+                    <p className="text-gray-600 mb-4">{displayDescription}</p>
                     
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center text-sm text-gray-600">
@@ -288,11 +295,11 @@ export default function Home() {
                       </div>
                       <div className="flex items-center text-sm text-gray-600">
                         <GraduationCap className="w-4 h-4 mr-2 text-primary" />
-                        <span>{scholarship.field}</span>
+                        <span>{displayField}</span>
                       </div>
                       <div className="flex items-center text-sm text-gray-600">
                         <i className="fas fa-map-marker-alt mr-2 text-primary w-4"></i>
-                        <span>{scholarship.location}</span>
+                        <span>{displayLocation}</span>
                       </div>
                     </div>
                     
@@ -316,7 +323,8 @@ export default function Home() {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+                );
+              })}
             </div>
           )}
           

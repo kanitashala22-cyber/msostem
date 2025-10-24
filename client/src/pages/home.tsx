@@ -320,6 +320,7 @@ export default function Home() {
                           {t.home.scholarships.viewDetails}
                         </span>
                       </Link>
+
                     </div>
                   </CardContent>
                 </Card>

@@ -87,31 +87,111 @@ export class MemStorage implements IStorage {
         category: "html",
         content: {
           lessons: [
-            { id: 1, title: "What is HTML? Your First Web Page", completed: false },
-            { id: 2, title: "HTML Document Structure & DOCTYPE", completed: false },
+            {
+              id: 1,
+              title: "What is HTML? Your First Web Page",
+              completed: false,
+            },
+            {
+              id: 2,
+              title: "HTML Document Structure & DOCTYPE",
+              completed: false,
+            },
             { id: 3, title: "Headings and Text Formatting", completed: false },
-            { id: 4, title: "Paragraphs, Line Breaks & Spacing", completed: false },
-            { id: 5, title: "Lists - Organized Content Made Easy", completed: false },
-            { id: 6, title: "Links - Connecting the Web Together", completed: false },
-            { id: 7, title: "Images - Adding Visual Content", completed: false },
-            { id: 8, title: "Tables - Organizing Data in Rows & Columns", completed: false },
+            {
+              id: 4,
+              title: "Paragraphs, Line Breaks & Spacing",
+              completed: false,
+            },
+            {
+              id: 5,
+              title: "Lists - Organized Content Made Easy",
+              completed: false,
+            },
+            {
+              id: 6,
+              title: "Links - Connecting the Web Together",
+              completed: false,
+            },
+            {
+              id: 7,
+              title: "Images - Adding Visual Content",
+              completed: false,
+            },
+            {
+              id: 8,
+              title: "Tables - Organizing Data in Rows & Columns",
+              completed: false,
+            },
             { id: 9, title: "HTML5 Semantic Elements", completed: false },
-            { id: 10, title: "Forms - Collecting User Input", completed: false },
-            { id: 11, title: "Form Input Types & Validation", completed: false },
-            { id: 12, title: "Divs, Spans & Container Elements", completed: false },
-            { id: 13, title: "HTML Attributes - Adding Extra Information", completed: false },
-            { id: 14, title: "Classes and IDs - Naming Your Elements", completed: false },
-            { id: 15, title: "Audio and Video - Multimedia Content", completed: false },
-            { id: 16, title: "Accessibility - Making Websites for Everyone", completed: false },
-            { id: 17, title: "Meta Tags - Information About Your Page", completed: false },
-            { id: 18, title: "Character Entities & Special Symbols", completed: false },
-            { id: 19, title: "Comments - Notes for Developers", completed: false },
+            {
+              id: 10,
+              title: "Forms - Collecting User Input",
+              completed: false,
+            },
+            {
+              id: 11,
+              title: "Form Input Types & Validation",
+              completed: false,
+            },
+            {
+              id: 12,
+              title: "Divs, Spans & Container Elements",
+              completed: false,
+            },
+            {
+              id: 13,
+              title: "HTML Attributes - Adding Extra Information",
+              completed: false,
+            },
+            {
+              id: 14,
+              title: "Classes and IDs - Naming Your Elements",
+              completed: false,
+            },
+            {
+              id: 15,
+              title: "Audio and Video - Multimedia Content",
+              completed: false,
+            },
+            {
+              id: 16,
+              title: "Accessibility - Making Websites for Everyone",
+              completed: false,
+            },
+            {
+              id: 17,
+              title: "Meta Tags - Information About Your Page",
+              completed: false,
+            },
+            {
+              id: 18,
+              title: "Character Entities & Special Symbols",
+              completed: false,
+            },
+            {
+              id: 19,
+              title: "Comments - Notes for Developers",
+              completed: false,
+            },
             { id: 20, title: "Inline vs Block Elements", completed: false },
             { id: 21, title: "Building a Complete Web Page", completed: false },
-            { id: 22, title: "HTML Best Practices & Code Organization", completed: false },
-            { id: 23, title: "Responsive Images & Modern HTML", completed: false },
+            {
+              id: 22,
+              title: "HTML Best Practices & Code Organization",
+              completed: false,
+            },
+            {
+              id: 23,
+              title: "Responsive Images & Modern HTML",
+              completed: false,
+            },
             { id: 24, title: "SEO-Friendly HTML Structure", completed: false },
-            { id: 25, title: "Final Project - Your Personal Website", completed: false },
+            {
+              id: 25,
+              title: "Final Project - Your Personal Website",
+              completed: false,
+            },
           ],
         },
         createdAt: new Date(),
@@ -129,23 +209,63 @@ export class MemStorage implements IStorage {
         category: "css",
         content: {
           lessons: [
-            { id: 1, title: "What is CSS? - Styling Your First Page", completed: false },
-            { id: 2, title: "CSS Selectors - Targeting HTML Elements", completed: false },
-            { id: 3, title: "Colors, Backgrounds & Typography", completed: false },
-            { id: 4, title: "The Box Model - Spacing and Sizing", completed: false },
-            { id: 5, title: "Flexbox - Modern Layout Made Easy", completed: false },
-            { id: 6, title: "CSS Grid - Advanced Layout Control", completed: false },
-            { id: 7, title: "Responsive Design & Media Queries", completed: false },
+            {
+              id: 1,
+              title: "What is CSS? - Styling Your First Page",
+              completed: false,
+            },
+            {
+              id: 2,
+              title: "CSS Selectors - Targeting HTML Elements",
+              completed: false,
+            },
+            {
+              id: 3,
+              title: "Colors, Backgrounds & Typography",
+              completed: false,
+            },
+            {
+              id: 4,
+              title: "The Box Model - Spacing and Sizing",
+              completed: false,
+            },
+            {
+              id: 5,
+              title: "Flexbox - Modern Layout Made Easy",
+              completed: false,
+            },
+            {
+              id: 6,
+              title: "CSS Grid - Advanced Layout Control",
+              completed: false,
+            },
+            {
+              id: 7,
+              title: "Responsive Design & Media Queries",
+              completed: false,
+            },
             { id: 8, title: "CSS Animations & Transitions", completed: false },
             { id: 9, title: "Positioning & Z-Index", completed: false },
-            { id: 10, title: "CSS Variables & Modern Features", completed: false },
-            { id: 11, title: "Forms Styling & User Experience", completed: false },
-            { id: 12, title: "Final Project - Complete Website Design", completed: false },
+            {
+              id: 10,
+              title: "CSS Variables & Modern Features",
+              completed: false,
+            },
+            {
+              id: 11,
+              title: "Forms Styling & User Experience",
+              completed: false,
+            },
+            {
+              id: 12,
+              title: "Final Project - Complete Website Design",
+              completed: false,
+            },
           ],
         },
         createdAt: new Date(),
       },
-      {
+       {
         id: "course-3",
         title: "Arduino Microprocessors Starter Kit",
         description:
@@ -173,7 +293,7 @@ export class MemStorage implements IStorage {
           ],
         },
         createdAt: new Date(),
-      },
+      }, 
     ];
 
     courses.forEach((course) => this.courses.set(course.id, course));
@@ -185,13 +305,14 @@ export class MemStorage implements IStorage {
         title: "TechGirls",
         description:
           "Fully-funded U.S. State Department program empowering young women (ages 15-17) to pursue STEM careers through an intensive summer exchange program in the United States.",
-        amount: 25000,
-        deadline: new Date("2025-12-06"),
-        field: "Science, Technology, Engineering, Mathematics, STEM, Leadership",
+        amount: 25000, // Estimated full program value including travel, accommodation, and education
+        deadline: new Date("2025-12-06"), // Next application cycle
+        field:
+          "Science, Technology, Engineering, Mathematics, STEM, Leadership",
         location: "Virginia Tech University + U.S. Cities",
         eligibility:
           "Young women ages 15-17 from 37 eligible countries with strong interest in STEM fields",
-        status: "upcoming",
+        status: "upcoming", // 2026 cycle will open Fall 2025
         organizationName: "U.S. Department of State",
         applicationUrl: "https://techgirlsglobal.org/apply/",
         createdAt: new Date(),
@@ -201,13 +322,13 @@ export class MemStorage implements IStorage {
         title: "Benjamin Franklin Transatlantic Fellowship",
         description:
           "Fully-funded 4-week intensive exchange program at Purdue University empowering European youth (ages 16-18) to explore diplomacy, leadership, and transatlantic relations in the United States.",
-        amount: 15000,
-        deadline: new Date("2025-02-23"),
+        amount: 15000, // Estimated full program value including travel, accommodation, education, and stipend
+        deadline: new Date("2025-02-23"), // Application deadline varies by country, using latest deadline
         field: "Diplomacy, Leadership, International Relations, Civil Society",
         location: "Purdue University, West Lafayette, Indiana",
         eligibility:
           "European citizens ages 16-18 with strong academic achievement and leadership potential",
-        status: "upcoming",
+        status: "upcoming", // 2025 applications typically open January/February
         organizationName: "U.S. Department of State",
         applicationUrl:
           "https://exchanges.state.gov/us/program/benjamin-franklin-summer-institutes",
@@ -218,13 +339,13 @@ export class MemStorage implements IStorage {
         title: "Kennedy-Lugar Youth Exchange & Study (YES)",
         description:
           "Competitive merit-based scholarship program bringing high school students from countries with significant Muslim populations to study for a full academic year in the United States, living with host families.",
-        amount: 30000,
-        deadline: new Date("2025-03-31"),
+        amount: 30000, // Estimated full program value including travel, accommodation, education, and stipend
+        deadline: new Date("2025-03-31"), // Application deadlines vary by country, typically fall-winter
         field: "Cultural Exchange, Leadership",
         location: "United States (Various High Schools)",
         eligibility:
           "High school students ages 15-18 from 45+ participating countries with significant Muslim populations",
-        status: "upcoming",
+        status: "upcoming", // 2025-26 applications typically open in fall
         organizationName: "U.S. Department of State",
         applicationUrl:
           "https://exchanges.state.gov/non-us/program/kennedy-lugar-youth-exchange-study-yes",
@@ -235,13 +356,13 @@ export class MemStorage implements IStorage {
         title: "Future Leaders Exchange (FLEX)",
         description:
           "Competitive merit-based scholarship program bringing high school students from Europe, Eurasia, and Central Asia to live with American host families and attend U.S. high schools for a full academic year.",
-        amount: 35000,
-        deadline: new Date("2025-09-30"),
+        amount: 35000, // Estimated full program value including travel, accommodation, education, and activities
+        deadline: new Date("2025-09-30"), // Applications typically open in fall
         field: "Cultural Exchange, Leadership, Democracy",
         location: "United States (Various High Schools)",
         eligibility:
           "High school students ages 15-17 from 22 participating countries in Europe, Eurasia, and Central Asia",
-        status: "upcoming",
+        status: "upcoming", // 2025-26 applications open in fall
         organizationName: "U.S. Department of State",
         applicationUrl:
           "https://exchanges.state.gov/non-us/program/future-leaders-exchange/details",
@@ -262,6 +383,21 @@ export class MemStorage implements IStorage {
         applicationUrl: "https://afs.org/adventurer/",
         createdAt: new Date(),
       },
+      /* {
+        id: "scholarship-6",
+        title: "Outstanding Achievement Award",
+        description:
+          "Recognizing exceptional academic achievement and community impact in technology education.",
+        amount: 15000,
+        deadline: new Date("2024-01-31"),
+        field: "Computer Science, Engineering",
+        location: "International",
+        eligibility: "High-achieving students with community impact",
+        status: "closed",
+        organizationName: "Achievement Recognition Foundation",
+        applicationUrl: "https://example.com/apply",
+        createdAt: new Date(),
+      }, */
     ];
 
     scholarships.forEach((scholarship) =>
@@ -302,12 +438,7 @@ export class MemStorage implements IStorage {
 
   async createCourse(insertCourse: InsertCourse): Promise<Course> {
     const id = randomUUID();
-    const course: Course = {
-      ...insertCourse,
-      id,
-      createdAt: new Date(),
-      imageUrl: insertCourse.imageUrl !== undefined ? insertCourse.imageUrl : null,
-    };
+    const course: Course = { ...insertCourse, id, createdAt: new Date() };
     this.courses.set(id, course);
     return course;
   }
@@ -427,6 +558,42 @@ export class MemStorage implements IStorage {
   // Code Projects
   async getUserProjects(userId: string): Promise<CodeProject[]> {
     return Array.from(this.codeProjects.values()).filter(
-      (p) => p.userId
+      (p) => p.userId === userId,
     );
   }
+
+  async getProject(id: string): Promise<CodeProject | undefined> {
+    return this.codeProjects.get(id);
+  }
+
+  async createProject(insertProject: InsertCodeProject): Promise<CodeProject> {
+    const id = randomUUID();
+    const project: CodeProject = {
+      ...insertProject,
+      id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.codeProjects.set(id, project);
+    return project;
+  }
+
+  async updateProject(
+    id: string,
+    updateData: Partial<CodeProject>,
+  ): Promise<CodeProject> {
+    const existing = this.codeProjects.get(id);
+    if (!existing) {
+      throw new Error("Project not found");
+    }
+    const updated: CodeProject = {
+      ...existing,
+      ...updateData,
+      updatedAt: new Date(),
+    };
+    this.codeProjects.set(id, updated);
+    return updated;
+  }
+}
+
+export const storage = new MemStorage();

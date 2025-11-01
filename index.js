@@ -723,6 +723,7 @@ import { fileURLToPath } from "url";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 var __dirname = path.dirname(fileURLToPath(import.meta.url));
 var vite_config_default = defineConfig({
+  base: "/msostem/",
   plugins: [
     react(),
     // only enable the Replit overlay when actually on Replit
@@ -753,8 +754,7 @@ var vite_config_default = defineConfig({
     hmr: {
       overlay: false
     }
-  },
-  base: "/msostem"
+  }
 });
 
 // server/vite.ts
